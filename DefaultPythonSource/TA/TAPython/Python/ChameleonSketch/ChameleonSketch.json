@@ -1,0 +1,141 @@
+﻿{
+	"ChameleonData": "",
+	"TabLabel": "Object Detail Viewer",
+	"InitTabSize": [500, 300],
+	"InitTabPosition": [420, 200],
+	"InitPyCmd": "import ChameleonSketch, importlib; importlib.reload(ChameleonSketch); sketch = ChameleonSketch.ChameleonSketch.ChameleonSketch(%JsonPath); sketch.mark_python_ready()",
+	"Root":{
+		"SBorder":
+		{
+			"BorderImage":
+			{
+				"Style": "FCoreStyle",
+				"Brush": "ToolPanel.GroupBorder"
+			},
+			"ColorAndOpacity":[1,1,1,1],
+			"Content":{
+				"SVerticalBox":
+				{
+					"Slots": [
+						{
+							"AutoHeight": true,
+							"SHorizontalBox": {
+								"Slots":
+								[
+									{
+										"AutoWidth": true,
+										"SImage": {
+											"Aka": "IsPythonReadyImg",
+											"Image": {
+												"Style": "FCoreStyle",
+												"Brush": "Icons.ErrorWithColor"
+												},
+											"DesiredSizeOverride": [80, 80]
+										}
+									},
+									{
+										"AutoWidth": true,
+										"SImage": {
+											"Aka": "IsPythonReadyImgB",
+											"Image": {
+												"Style": "FCoreStyle",
+												"Brush": "Icons.SuccessWithColor"
+											},
+											"Visibility": "Collapsed",
+											"DesiredSizeOverride": [80, 80]
+										}
+									},
+									{
+										"SMultiLineEditableTextBox": {
+											"Text": "<TextStyle FontFamily=\"Roboto\" FontSize=\"15\" FontStyle=\"Regular\" FontColor=\"(R=1,G=0.5,B=0,A=1)\">Need Add Python Path</>\n<TextStyle FontFamily=\"Roboto\" FontSize=\"10\" FontStyle=\"Regular\" FontColor=\"(R=0.8,G=0.02,B=0,A=1)\">Add \"your_project/TA/TAPython/Python\" to</>\nProject Settings: Plugins Python \/ Additional Paths",
+											"Marshaller": "ChameleonRichText",
+											"HintText": "This is a SMultiLineEditableTextBox",
+											"Aka": "IsPythonReadyText",
+											"ToolTipText": "Read only",
+											"Margin": 10,
+											"IsReadOnly": true,
+											"AutoWrapText": true
+										}
+									}
+								]
+							}
+						},
+
+						{
+							"Padding": [0, 5],
+
+							"SMultiLineEditableTextBox":
+							{
+								"Margin": 4,
+								"Text": "This Sketch tool will update all widgets automatically when ChameleonSketch.json changed.",
+								"OnTextChanged": "print(%)",
+								"OnTextCommitted": "print('input text: {}'.format(%))",
+								"AutoWrapText": true
+							}
+						},
+						{
+							"SHorizontalBox": {
+								"Slots": [
+									{
+										"FillWidth": 0.618,
+										"SMultiLineEditableTextBox": {
+											"Margin": 4,
+											"Text": "Modify and try it. Create your UI window in a easy way.",
+											"OnTextChanged": "print(%)",
+											"OnTextCommitted": "print('input text: {}'.format(%))",
+											"AutoWrapText": true
+										}
+									},
+									{
+										"FillWidth": 0.382,
+										"SMultiLineEditableTextBox": {
+                                            "Text": "<TextStyle FontFamily=\"Roboto\" FontSize=\"12\" FontStyle=\"Regular\" FontColor=\"(R=0,G=1,B=0,A=1)\">Swidget </>",
+                                            "Marshaller": "ChameleonRichText",
+                                            "HintText": "This is a SMultiLineEditableTextBox",
+                                            "ToolTipText": "",
+                                            "Margin": 2,
+                                            "IsReadOnly": true,
+                                            "AutoWrapText": true
+                                        }
+									}
+								]
+							}
+						},
+						{
+							"SUniformWrapPanel":
+							{
+								"EvenRowDistribution": false,
+								"Slots": [
+									 {"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+
+								]
+							}
+						}
+					]
+				}
+			}
+		}
+	}
+}
+

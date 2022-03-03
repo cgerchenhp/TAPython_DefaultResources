@@ -1,0 +1,395 @@
+{
+	"TabLabel": "Chameleon Shelf Lit",
+	"InitTabSize": [610, 76],
+	"InitTabPosition": [180, 110],
+	"InitPyCmd": "import ShelfTools, importlib; importlib.reload(ShelfTools); chameleon_shelf = ShelfTools.Shelf.Shelf(%JsonPath)",
+	"OnClosePyCmd": "chameleon_shelf.on_close()",
+	"Root":{
+		"SBorder":
+		{
+			"BorderImage":
+			{
+				"Style": "FCoreStyle",
+				"Brush": "ToolPanel.GroupBorder"
+			},
+			"ColorAndOpacity":[1,1,1,1],
+			"Content": {
+				"SHorizontalBox": {
+					"Slots": [
+						{
+
+							"SUniformWrapPanel": {
+								"EvenRowDistribution": false,
+
+								"Slots": [
+									{
+										"SlotPadding": [5, 0],
+										"SComboButton": {
+											"ContentPadding": [-20, 0],
+											"ButtonStyle":{
+												"Style": "FEditorStyle",
+												"StyleName": "ToolbarComboButton"
+											},
+											"ButtonColorAndOpacity": [1, 0, 0, 0],
+											"ForegroundColor": [1, 0, 0, 1],
+											"ButtonContent": {
+												"SBox": {
+													"MaxDesiredWidth": 32,
+													"MaxDesiredHeight": 32,
+													"Content": {
+														"SImage": {
+															"Aka": "IsPythonReadyImgB",
+															"Image": {
+																"Style": "FEditorStyle",
+																"Brush": "LevelEditor.GameSettings"
+															}
+															,"DesiredSizeOverride": [30, 30]
+														}
+													}
+												}
+											},
+											"HasDownArrow": false,
+											"OnGetMenuContent": {
+												"items": [
+													{
+														"name": "Lock Text",
+														"Command": "chameleon_shelf.lock_text(True)"
+													},
+													{
+														"name": "Unlock Text for Editing",
+														"Command": "chameleon_shelf.lock_text(False)"
+													},
+													{
+														"name": "Clear All Shelf",
+														"Command": "chameleon_shelf.clear_shelf()"
+													}
+												]
+											},
+											"HAlign": "Center"
+										}
+									},
+									//generate start
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_0", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_0", "OnDrop": "chameleon_shelf.on_drop(id=0, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=0)",
+															"Content": { "SImage": {"Aka": "Img_0", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_0", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_1", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_1", "OnDrop": "chameleon_shelf.on_drop(id=1, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=1)",
+															"Content": { "SImage": {"Aka": "Img_1", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_1", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_2", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_2", "OnDrop": "chameleon_shelf.on_drop(id=2, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=2)",
+															"Content": { "SImage": {"Aka": "Img_2", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_2", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_3", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_3", "OnDrop": "chameleon_shelf.on_drop(id=3, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=3)",
+															"Content": { "SImage": {"Aka": "Img_3", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_3", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_4", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_4", "OnDrop": "chameleon_shelf.on_drop(id=4, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=4)",
+															"Content": { "SImage": {"Aka": "Img_4", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_4", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_5", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_5", "OnDrop": "chameleon_shelf.on_drop(id=5, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=5)",
+															"Content": { "SImage": {"Aka": "Img_5", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_5", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_6", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_6", "OnDrop": "chameleon_shelf.on_drop(id=6, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=6)",
+															"Content": { "SImage": {"Aka": "Img_6", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_6", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_7", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_7", "OnDrop": "chameleon_shelf.on_drop(id=7, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=7)",
+															"Content": { "SImage": {"Aka": "Img_7", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_7", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_8", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_8", "OnDrop": "chameleon_shelf.on_drop(id=8, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=8)",
+															"Content": { "SImage": {"Aka": "Img_8", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_8", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_9", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_9", "OnDrop": "chameleon_shelf.on_drop(id=9, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=9)",
+															"Content": { "SImage": {"Aka": "Img_9", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_9", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_10", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_10", "OnDrop": "chameleon_shelf.on_drop(id=10, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=10)",
+															"Content": { "SImage": {"Aka": "Img_10", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_10", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+						{
+							"SBox": {
+								"Aka": "ButtonGroup_11", "MaxDesiredWidth": 20, "MaxDesiredHeight": 20,
+								"Content": {
+									"SDropTarget": { "Aka":"Drop_11", "OnDrop": "chameleon_shelf.on_drop(id=11, %**kwargs)",
+										"Content": {
+											"SOverlay": {
+												"Slots": [{
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
+															"OnClick": "chameleon_shelf.on_button_click(id=11)",
+															"Content": { "SImage": {"Aka": "Img_11", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
+														}
+													},{
+														"Padding": [0, 20, 0, 0],
+														"SEditableText":{"Aka": "Txt_11", "Text": "", "ColorAndOpacity": [1,1,1,1], "Justification": "Right"}
+													}
+												]
+											}
+										}
+									}
+								}
+							}
+						},
+
+									//generate end
+									{
+										"SBox": {"MinDesiredWidth": 32, "MinDesiredHeight": 32,
+											"Aka": "DropAtLast",
+											"Content": {
+												"SDropTarget": {
+
+													"OnDrop": "chameleon_shelf.on_drop_last(%**kwargs)",
+													"Content": {
+														"SImage": {
+															"Image": {
+																"Style": "FEditorStyle",
+																"Brush": "MainFrame.ToggleFullscreen"
+															},
+															"ColorAndOpacity": [1, 1, 1, 0.8]
+														}
+													}
+												}
+											}
+										}
+									},
+									{
+										"SBox": {
+											"Aka": "DropIsFull",
+											"MinDesiredWidth": 32,
+											"MinDesiredHeight": 32,
+											"Content": {
+												"SImage": {
+													"Image": {
+														"Style": "FEditorStyle",
+														"Brush": "PlayWorld.PausePlaySession"
+													},
+													"ColorAndOpacity": [1, 1, 1, 0.5]
+												}
+											}
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			}
+		}
+	}
+}
+

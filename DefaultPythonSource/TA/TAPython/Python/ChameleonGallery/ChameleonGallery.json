@@ -1,0 +1,1575 @@
+﻿{
+    "TabLabel": "Chameleon Gallery",
+    "InitTabSize": [530, 890],
+    "InitTabPosition": [1000, 110],
+    "InitPyCmd": "import ChameleonGallery; chameleon_gallery = ChameleonGallery.ChameleonGallery.ChameleonGallery(%JsonPath); chameleon_gallery.mark_python_ready();",
+    "Root":{
+        "SBorder":
+        {
+            "BorderImage":
+            {
+                "Style": "FCoreStyle",
+                "Brush": "ToolPanel.GroupBorder"
+            },
+            "Content":{
+                "SScrollBox": {
+                    "Slots":
+                    [
+                        {
+                            "Padding": 5,
+                            "SGridPanel":
+                            {
+                                "FillColumn": [[0,0.5],[1,0.5]],
+                                "Slots":
+                                [
+                                    {
+                                        "Column_Row": [0,0],
+                                        "SVerticalBox": {
+                                            "Slots": [
+                                                {
+                                                    "AutoHeight": true,
+                                                    "SHorizontalBox": {
+                                                        "Slots": [
+                                                            {
+                                                                "AutoWidth": true,
+                                                                "SImage": {
+                                                                    "Aka": "IsPythonReadyImg",
+                                                                    "Image": {
+                                                                        "Style": "FCoreStyle",
+                                                                        "Brush": "Icons.ErrorWithColor"
+                                                                    },
+
+                                                                    "DesiredSizeOverride": [80, 80]
+                                                                }
+                                                            },
+                                                            {
+                                                                "AutoWidth": true,
+                                                                "SImage": {
+                                                                    "Aka": "IsPythonReadyImgB",
+                                                                    "Image": {
+                                                                        "Style": "FCoreStyle",
+                                                                        "Brush": "Icons.SuccessWithColor"
+                                                                    },
+                                                                    "Visibility": "Collapsed",
+                                                                    "DesiredSizeOverride": [80, 80]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                                ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [1,0],
+                                        "SMultiLineEditableTextBox": {
+                                            "Text": "<TextStyle FontFamily=\"Roboto\" FontSize=\"15\" FontStyle=\"Regular\" FontColor=\"(R=1,G=0.5,B=0,A=1)\">Need Add Python Path</>\n<TextStyle FontFamily=\"Roboto\" FontSize=\"10\" FontStyle=\"Regular\" FontColor=\"(R=0.8,G=0.02,B=0,A=1)\">Add \"your_project/TA/TAPython/Python\" to</>\nProject Settings: Plugins Python \/ Additional Paths",
+                                            "Marshaller": "ChameleonRichText",
+                                            "HintText": "This is a SMultiLineEditableTextBox",
+                                            "Aka": "IsPythonReadyText",
+                                            "ToolTipText": "Read only",
+                                            "Margin": 10,
+                                            "IsReadOnly": true,
+                                            "AutoWrapText": true
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 1],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SBorder"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [1, 1],
+                                        "SBorder":
+                                        {
+                                            "Content":
+                                            {
+                                                "SSpacer":
+                                                {
+                                                    "Size": [100, 50]
+                                                }
+                                            },
+                                            "ToolTipText": "Default SBorder Style."
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 2],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SBorder With Brush"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 2],
+                                        "SBorder":
+                                        {
+                                            "BorderImage":
+                                            {
+                                                "Style": "FEditorStyle",
+                                                "Brush": "UniformShadow"
+                                            },
+                                            "ToolTipText": "Style: FEditorStyle, Brush: UniformShadow",
+                                            "Content":{
+                                                "SSpacer":{
+                                                    "Size": [100, 50]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 3],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SBorder With Another Brush"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 3],
+                                        "SBorder":
+                                        {
+                                            "BorderImage":
+                                            {
+                                                "Style": "FEditorStyle",
+                                                "Brush": "DashedBorder"
+                                            },
+                                            "ToolTipText": "Style: FEditorStyle, Brush: DashedBorder",
+                                            "Content":{
+                                                "SSpacer":{
+                                                    "Size": [100, 50]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 4],
+                                        "STextBlock":
+                                        {
+                                            "Text": "Button"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 4],
+                                        "SButton":
+                                        {
+                                            "Text": "Simple Button",
+                                            "OnClick": "print('Button clicked.')"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 5],
+                                        "STextBlock":
+                                        {
+                                            "Text": "Button Colored, content padding"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 5],
+                                        "SButton":
+                                        {
+                                            "Text": "Colored Button",
+                                            "HAlign": "Center",
+                                            "ContentPadding": 6,
+                                            "ButtonColorAndOpacity": [0,0.5,1,1],
+                                            "ForegroundColor": [0, 0.5, 1 ,1],
+                                            "ToolTipText": "This is a button",
+                                            "OnClick": "print('Button clicked.')"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 6],
+                                        "STextBlock":
+                                        {
+                                            "Text": "Button Colored, content padding"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 6],
+                                        "SButton":
+                                        {
+                                            "HAlign": "Center",
+                                            "ContentPadding": 6,
+                                            "ButtonColorAndOpacity": [0, 1, 0, 1],
+                                            "ForegroundColor": [1, 1, 1, 1],
+                                            "ToolTipText": "This is a button with image and Text",
+                                            "OnClick": "print('Button clicked.')",
+                                            "Content": {
+                                                "SHorizontalBox": {
+                                                    "Slots": [
+                                                        {
+                                                            "AutoWidth": true,
+                                                            "SImage": {
+                                                                "Image": {
+                                                                    "Style": "FEditorStyle",
+                                                                    "Brush": "AutomationTools.TestAutomation"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Padding": [5, 0],
+                                                            "STextBlock": {
+                                                                "Text": "Button With Image"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 7],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SCanvas with Buttons"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [1, 7],
+                                        "SBox": {
+                                            "MinDesiredHeight": 130,
+                                            "Content": {
+                                                "SCanvas": {
+                                                    "ToolTipText": "Canvas is a layout widget that allows you to arbitrary position and size child widgets in a relative coordinate space",
+                                                    "Slots": [
+                                                        {
+                                                            "Position": [97.5, 0],
+                                                            "Size": [25, 20],
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 5, 0 ,1], "OnClick": "print('Head.')",
+                                                                "ContentPadding": [-8, 0],
+                                                                "Text": "^_^"
+                                                            }
+                                                        },
+                                                        {
+                                                            "Position": [90, 22],
+                                                            "Size": [40, 40],
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 2, 0 ,1], "OnClick": "print('Body.')"}
+                                                        },
+                                                        {
+                                                            "Position": [70, 25],
+                                                            "Size": [15, 40],
+                                                            "SButton": {"ButtonColorAndOpacity": [2, 0, 0 ,1], "OnClick": "print('Right Arm.')"}
+                                                        },
+                                                        {
+                                                            "Position": [135, 25],
+                                                            "Size": [15, 40],
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 0, 2 ,1], "OnClick": "print('Left Arm.')"}
+                                                        },
+                                                        {
+                                                            "Position": [95, 65],
+                                                            "Size": [15, 25],
+                                                            "SButton": {"ButtonColorAndOpacity": [1, 0, 0 ,1], "OnClick": "print('Right Upper Leg.')"}
+                                                        },
+                                                        {
+                                                            "Position": [112, 65],
+                                                            "Size": [15, 25],
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 0, 1 ,1], "OnClick": "print('Left Upper Leg.')"}
+                                                        },
+                                                        {
+                                                            "Position": [95, 92],
+                                                            "Size": [15, 27],
+                                                            "SButton": {"ButtonColorAndOpacity": [1, 0, 0 ,1], "OnClick": "print('Right Leg.')"}
+                                                        },
+                                                        {
+                                                            "Position": [112, 92],
+                                                            "Size": [15, 27],
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 0, 1 ,1], "OnClick": "print('Left Upper Leg.')"}
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 8],
+                                        "STextBlock":
+                                        {
+                                            "Text": "TextBlock"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 8],
+                                        "STextBlock":
+                                        {
+                                            "Text": "Label Text"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 9],
+                                        "STextBlock":
+                                        {
+                                            "Text": "TextBlock Colored"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 9],
+                                        "STextBlock":
+                                        {
+                                            "Text": "Label Text, Justification: right",
+                                            "ColorAndOpacity": [0,0.5,1,1],
+                                            "Font": {
+                                                "Style": "FEditorStyle",
+                                                "StyleName": "DetailsView.CategoryFontStyle"
+                                            },
+                                            "ShadowOffset": [2,2],
+                                            "ShadowColorAndOpacity": [0,0,0,0.75],
+                                            "Justification": "Right"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 10],
+                                        "STextBlock":
+                                        {
+                                            "Text": "TextBlock AutoWrap and Justification"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 10],
+                                        "STextBlock":
+                                        {
+                                            "Text": "A lot of text, ABCDEFG, HIJKLMN, OPQ, RST, UVW, XYZ. abcdefg, now i can sing my ABC.",
+                                            "TextStyle": {
+                                                "Style": "FEditorStyle",
+                                                "StyleName": "LargeText"
+                                            },
+                                        "ColorAndOpacity": [1,1,1,1],
+                                        "AutoWrapText": true,
+                                        "Justification": "Center"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 11],
+                                        "STextBlock":
+                                        {
+                                            "Text": "RichTextBlock"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 11],
+                                        "SRichTextBlock":
+                                        {
+                                            "Text": "<RichTextBlock.Bold>Blod</>  <RichTextBlock.TextHighlight>Highlight</>  <Credits.H2>Unreal</>"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 12],
+                                        "STextBlock":
+                                        {
+                                            "Text": "RichTextBlock with Marshaller"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 12],
+                                        "SRichTextBlock": {
+                                            "Text": "<RichText.red>Red</> <RichText.green>Green</> <RichText.cyan>Blue</><TextStyle FontFamily=\"Roboto\" FontSize=\"13\" FontStyle=\"Italic\" FontColor=\"(R=1, G=1,B=0,A=1)\"> Rich text</>",
+                                            "Marshaller": "ChameleonRichText"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 13],
+                                        "STextBlock":
+                                        {
+                                            "Text": "RichTextBlock with HyperLink"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 13],
+                                        "SRichTextBlock": {
+                                            "Text": "<TextStyle FontFamily=\"Roboto\" FontSize=\"11\" FontStyle=\"Bold\" FontColor=\"(R=0,G=1,B=0,A=0.5)\">This is a hyperlink: </><a id=\"browser\" href=\"https:\/\/www.unrealengine.com/\" style=\"RichText.Editor.Hyperlink\">Unreal Engine</>",
+                                            "Marshaller": "ChameleonRichText"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 14],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SEditableText"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 14],
+                                        "SEditableText":
+                                        {
+                                            "Text": "",
+                                            "HintText": "Type some thing, and press enter",
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('input text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 15],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SEditableText"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 15],
+                                        "SEditableText":
+                                        {
+                                            "Text": "Read only SEditableText",
+                                            "IsReadOnly": true,
+                                            "ColorAndOpacity": [0,0,0,1]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 16],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SEditableTextBox"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 16],
+                                        "SEditableTextBox":
+                                        {
+                                            "Text": "",
+                                            "SelectAllTextWhenFocused": true,
+                                            "HintText": "Type some thing, and press enter",
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('input text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 17],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SEditableTextBox ReadOnly"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 17],
+                                        "SEditableTextBox":
+                                        {
+                                            "Text": "Read only SEditableTextBox",
+                                            "IsReadOnly": true
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 18],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SMultiLineEditableText"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 18],
+                                        "SMultiLineEditableText":
+                                        {
+                                            "Text": "line 1 \nline 2 \nline 3",
+                                            "HintText": "Multi-lines",
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('input text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 19],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SMultiLineEditableText Font"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 19],
+                                        "SMultiLineEditableText":
+                                        {
+                                            "Text": "SelectAllTextWhenFocused:\nline 1 \nline 2 \nline 3 ",
+                                            "HintText": "SelectAllTextWhenFocused",
+                                            "Font": {
+                                                "Style": "FCoreStyle",
+                                                "StyleName": "DefaultFont.Bold.12"
+                                            },
+                                            "SelectAllTextWhenFocused": true,
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('input text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 20],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SMultiLineEditableTextBox"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 20],
+                                        "SMultiLineEditableTextBox": {
+                                            "Text": "Multi-line Box\nPadding/Margin describes spacing four sides. \nMargin: 10 with uniform space on all sides\nMargin: [0, 10] spacing at Vertical sides\nMargin: [0, 2, 4, 6] left spacing=0, top=2, right=4, bottom=6",
+                                            "HintText": "This is a SMultiLineEditableTextBox",
+                                            "Margin": [10,0],
+                                            "ToolTipText": "Tool Tips",
+                                            "AutoWrapText": true,
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 21],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SMultiLineEditableTextBox Padding"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 21],
+                                        "SMultiLineEditableTextBox":
+                                        {
+                                            "Text": "Muti-line Box\nSpacing comes from HorizontalBox and SVerticalBox\nLine 1\nLine 2\nLine 3",
+                                            "HintText": "This is a SMultiLineEditableTextBox",
+                                            "ToolTipText": "Read only",
+                                            "Padding": 10,
+                                            "IsReadOnly": false,
+                                            "AutoWrapText": true,
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 22],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SMultiLineEditableTextBox Margin"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 22],
+                                        "SMultiLineEditableTextBox": {
+                                            "Text": "Muti-line Box \nSpacing comes from SMultiLineEditableText\nLine 1\nLine 2\nLine 3",
+                                            "HintText": "This is a SMultiLineEditableTextBox",
+                                            "ToolTipText": "Read only",
+                                            "Margin": 10,
+                                            "IsReadOnly": false,
+                                            "AutoWrapText": true,
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 23],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SMultiLineEditableTextBox RichText"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 23],
+                                        "SMultiLineEditableTextBox": {
+                                            "Text": "<TextStyle FontFamily=\"Roboto\" FontSize=\"15\" FontStyle=\"Regular\" FontColor=\"(R=0,G=1,B=0,A=1)\">This is a hyperlink</> <a id=\"browser\" href=\"aaa.com\"> show</>\n<RichText.red>RichText</> <RichText.orange>In</> <RichText.yellow>SMultiLine</><RichText.green>EditableTextBox</>",
+                                            "Marshaller": "ChameleonRichText",
+                                            "HintText": "This is a SMultiLineEditableTextBox",
+                                            "ToolTipText": "Read only",
+                                            "Margin": 10,
+                                            "IsReadOnly": false,
+                                            "AutoWrapText": true,
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 24],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SHeader"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 24],
+                                        "SHeader":
+                                        {
+                                            "Content":
+                                            {
+                                                "STextBlock":
+                                                {
+                                                    "Text": "A Header"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 25],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SHeader Colored"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 25],
+                                        "SHeader":
+                                        {
+                                            "Content":
+                                            {
+                                                "STextBlock": {
+                                                    "Text": "Some Italic Header",
+                                                    "ColorAndOpacity": [1,1,0,2],
+                                                    "Justification": "Center",
+                                                    "Font": {
+                                                        "Style": "FCoreStyle",
+                                                        "StyleName": "DefaultFont.Italic.12"
+                                                    },
+                                                    "ShadowOffset": [2,2],
+                                                    "ShadowColorAndOpacity": [0,0,0,1]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 26],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SCheckBox"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 26],
+                                        "SCheckBox":{
+                                            "Content":
+                                            {
+                                                "STextBlock": {
+                                                    "Text": "Check Box Label"
+                                                }
+                                            },
+                                            "IsChecked": true,
+                                            "OnCheckStateChanged": "print(%)"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 27],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SCheckBox Button"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 27],
+                                        "SCheckBox":
+                                        {
+                                            "HAlign": "Center",
+                                            "Content": {
+                                                "SBox": {
+                                                    "VAlign": "Center",
+                                                    "HAlign": "Center",
+                                                    "Content":
+                                                    {
+                                                        "STextBlock":
+                                                        {
+                                                            "Text": "Toggle Button is actually a SCheckBox"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "CheckBoxStyle": {
+                                                "Style": "FCoreStyle",
+                                                "StyleName": "ToggleButtonCheckbox"
+                                            },
+                                            "Padding": 6,
+                                            "IsChecked": true,
+                                            "OnCheckStateChanged": "print('checked: %'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 28],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SCheckBox Button"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 28],
+                                        "SCheckBox":
+                                        {
+                                            "HAlign": "Center",
+                                            "Content": {
+                                                "SHorizontalBox": {
+                                                    "Slots": [
+                                                        {
+                                                        "SRichTextBlock":
+                                                            {
+                                                                "Text": "<EmbossedText>CheckBox</>"
+                                                            }
+                                                        },
+                                                        {
+                                                            "AutoWidth": true,
+                                                            "SImage": {
+                                                                "Aka": "SImage In CheckBox",
+                                                                "ImagePathInPlugin": "Resources/Icon128.png",
+                                                                "DesiredSizeOverride": [32, 32]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "CheckBoxStyle": {
+                                                "Style": "FCoreStyle",
+                                                "StyleName": "Menu.ToggleButton"
+                                            },
+                                            "Padding": 6,
+                                            "IsChecked": true,
+                                            "OnCheckStateChanged": "print('checked: %'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 29],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "STextBlock":
+                                                    {
+                                                        "Text": "SComboBox"
+                                                    }
+                                                },
+                                                {
+                                                    "Padding": [10, 0],
+                                                    "SButton":
+                                                    {
+                                                        "Text": "RandomItem",
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "OnClick": "chameleon_gallery.change_comboBox_items()"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 29],
+                                        "SComboBox": {
+                                            "Aka": "CombBoxA",
+                                            "Content": {
+                                                "Text": "ComboBox"
+                                            },
+                                            "OptionsSource": [],
+                                            "OnSelectionChanged": "print(%)"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 30],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SComboButton"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 30],
+                                        "SComboButton": {
+                                            "ButtonContent": {
+                                                "STextBlock": {
+                                                    "Text": "Choose And Trigger the Command"
+                                                }
+                                            },
+                                            "HasDownArrow": true,
+                                            "OnGetMenuContent": {
+                                                "items": [
+                                                    {"name": "kaka"          , "Command": "print('kaka'       )" },
+                                                    {"name": "Sponge"        , "Command": "print('Sponge'     )" },
+                                                    {"name": "Lime"          , "Command": "print('Lime'       )" },
+                                                    {"name": "GrandCanyon"   , "Command": "print('GrandCanyon')" },
+                                                    {"name": "RockMine"      , "Command": "print('RockMine'   )" },
+                                                    {"name": "Pink"          , "Command": "print('Pink'       )" },
+                                                    {"name": "White"         , "Command": "print('White'      )" }
+                                                ]
+                                            },
+                                        "HAlign": "Center"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 31],
+                                        "SSpacer": {}
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 31],
+                                        "SSpacer": {}
+                                    },
+                                    {
+                                        "Column_Row": [0, 32],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "STextBlock":
+                                                    {
+                                                        "Text": "SBreadcrumbTrail"
+                                                    }
+                                                },
+                                                {
+                                                    "Padding": [10, 0],
+                                                    "SButton":
+                                                    {
+                                                        "Text": "Add",
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "OnClick": "chameleon_gallery.push_breadcrumb()"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 32],
+                                        "SBreadcrumbTrail":
+                                        {
+                                            "Aka": "SBreadcrumbTrailA",
+                                            "type": "string",
+                                            "ButtonContentPadding": 1,
+                                            "OnCrumbClick": "print(%)"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 33],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SSearchBox"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 33],
+                                        "SSearchBox":
+                                        {
+                                            "HintText": "Type Search Text",
+                                            "ToolTipText": "Tool Tip",
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print(%)",
+                                            "SelectAllTextWhenFocused": false,
+                                            "DelayChangeNotificationWhiteTyping": true
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 34],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SListView"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 34],
+                                        "SListView": {
+                                            "ItemHeight": 10,
+                                            "Aka": "MaterialList",
+                                            "ListItemsSource": ["Item A", "Item B", "Item C"],
+                                            "SHeaderRow": {
+                                                "Columns": [
+                                                    {
+                                                        "DefaultLabel": "List Label",
+                                                        "FillWidth": 1
+                                                    }
+                                                ]
+                                            },
+                                            "OnContextMenuOpening":
+                                            {
+                                                "items":
+                                                [
+                                                    {
+                                                        "name": "ContextMenu A",
+                                                        "Command": "print ('ContextMenu A')"
+                                                    },
+                                                    {
+                                                        "name": "ContextMenu B",
+                                                        "Command": "print ('ContextMenu B')"
+                                                    }
+                                                ]
+                                            },
+                                            "OnSelectionChanged": "print ('Selected: {}  index: {}'.format(%item, %index))",
+                                            "OnMouseButtonDoubleClick": "print ('Double click: {}  index: {}'.format(%item, %index))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 35],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SListView RichText"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 35],
+                                        "SListView": {
+                                            "ItemHeight": 10,
+                                            "ListItemsSource": [
+                                                "<a id=\"browser\" href=\"https:\/\/www.unrealengine.com/\" style=\"RichText.Editor.Hyperlink\">Unreal Engine</><TextStyle FontFamily=\"Roboto\" FontSize=\"13\" FontStyle=\"Regular\" FontColor=\"(R=1.000000,G=1.000000,B=0.000000,A=1.000000)\"></>",
+                                            "<RichText.red>Red</> <RichText.green>Green</> <RichText.cyan>Blue</>",
+                                            "<TextStyle FontFamily=\"Roboto\" FontSize=\"12\" FontStyle=\"Regular\" FontColor=\"(R=0,G=1,B=0,A=1)\">Green front size 12</>",
+                                            "Normal Text"
+                                            ],
+                                            "SHeaderRow": {
+                                                "Columns": [
+                                                    {
+                                                        "DefaultLabel": "SListView with RichText",
+                                                        "FillWidth": 1
+                                                    }
+                                                ]
+                                            },
+                                            "RichText": true,
+                                            "OnSelectionChanged": "print ('Selected: {}  index: {}'.format(%item, %index))",
+                                            "OnMouseButtonDoubleClick": "print ('Double click: {}  index: {}'.format(%item, %index))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 36],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SListView RichText"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 36],
+                                        "SListView<MultiColumn>": {
+                                            "ItemHeight": 10,
+                                            "Aka": "TagList3",
+                                            "SHeaderRow": {
+                                                "Columns":
+                                                [
+                                                    {
+                                                        "DefaultLabel": "Line",
+                                                        "FillWidth": 0.25
+                                                    },
+                                                    {
+                                                        "DefaultLabel": "A",
+                                                        "FillWidth": 0.25
+                                                    },
+                                                    {
+                                                        "DefaultLabel": "B",
+                                                        "FillWidth": 0.25
+                                                    },
+                                                    {
+                                                        "DefaultLabel": "C",
+                                                        "FillWidth": 0.25
+                                                    }
+                                                ]
+                                            },
+                                            "ListItemsSource": [
+                                                ["Line 1", "<RichText.red>Red</>", "<RichText.green>Green</>", "<RichText.cyan>Blue</>"],
+                                                ["Line 2", "<RichText.green>Green</>", "<RichText.cyan>Blue</>","<RichText.red>Red</>"],
+                                                ["Line 3", "<RichText.cyan>Blue</>","<RichText.red>Red</>", "<RichText.green>Green</>"]
+                                            ],
+                                            "OnSelectionChanged": "print(%Index)",
+                                            "OnMouseButtonDoubleClick": "print('double click: {}'.format(%Index))",
+                                            "RichText": true
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 37],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "STextBlock":
+                                                    {
+                                                        "Text": "SImage"
+                                                    }
+                                                },
+                                                {
+                                                    "Padding": [10, 0],
+                                                    "SButton":
+                                                    {
+                                                        "Text": "Gen Noise Image",
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "OnClick": "chameleon_gallery.set_random_image_data()"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 37],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "AutoWidth": true,
+                                                    "SImage":
+                                                    {
+                                                        "Aka": "SImageA"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 38],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "STextBlock":
+                                                    {
+                                                        "Text": "SImage From Relative Path"
+                                                    }
+                                                },
+                                                {
+                                                    "SVerticalBox": {
+                                                        "Slots": [
+                                                            {
+                                                                "SSpacer": {}
+                                                            },
+                                                            {
+                                                                "AutoHeight": true,
+                                                                "Padding": [10, 0],
+                                                                "SButton": {
+                                                                    "ContentPadding": [0, 10],
+                                                                    "Text": "Change Image",
+                                                                    "HAlign": "Center",
+                                                                    "VAlign": "Center",
+                                                                    "OnClick": "chameleon_gallery.change_local_image()"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 38],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "AutoWidth": true,
+                                                    "SImage": {
+                                                        "Aka": "SImage_ImageFromRelativePath",
+                                                        "ImagePath": "Images/ChameleonLogo_b.png",
+                                                        "DesiredSizeOverride": [64, 64]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 39],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "STextBlock":
+                                                    {
+                                                        "Text": "SImage"
+                                                    }
+                                                },
+                                                {
+                                                    "SVerticalBox": {
+                                                        "Slots": [
+                                                            {
+                                                                "SSpacer": {}
+                                                            },
+                                                            {
+                                                                "AutoHeight": true,
+                                                                "Padding": [10, 0],
+                                                                "SButton": {
+                                                                    "ContentPadding": [0, 10],
+                                                                    "Text": "Change Image",
+                                                                    "HAlign": "Center",
+                                                                    "VAlign": "Center",
+                                                                    "OnClick": "chameleon_gallery.change_image()"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 39],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "AutoWidth": true,
+                                                    "SImage": {
+                                                        "Aka": "SImage_ImageFromPath",
+                                                        "ImagePathInPlugin": "Resources/Icon128.png",
+                                                        "DesiredSizeOverride": [64, 64]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 40],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SSpinBox"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 40],
+                                        "SSpinBox":
+                                        {
+                                            "Type": "int",
+                                            "Value": 10,
+                                            "MinValue": 1,
+                                            "MaxValue": 8192,
+                                            "MinSliderValue": 1,
+                                            "maxSliderValue": 8192,
+                                            "Delta": 1,
+                                            "OnValueChanged": "print(%)"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 41],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SSlider"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 41],
+                                        "SSlider":
+                                        {
+                                            "Orientation": "Horizontal",
+                                            "Value": 0.5,
+                                            "Locked": false,
+                                            "OnValueChanged": "print(%)"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 42],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SSlider Vertical"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 42],
+                                        "SBox":{
+                                            "MinDesiredHeight": 80,
+                                            "Content": {
+                                                "SSlider": {
+                                                    "Orientation": "Vertical",
+                                                    "Value": 0.5,
+                                                    "Locked": false,
+                                                    "OnValueChanged": "print(%)"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 43],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SHyperlink"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 43],
+                                        "SHyperlink":{
+                                            "Text": "www.TaColor.xyz"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 44],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SSeparator"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 44],
+                                        "SSeparator":{
+                                            "Thickness":5,
+                                            "Orientation": "Horizontal"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 45],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SThrobber"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 45],
+                                        "SThrobber":
+                                        {
+                                            "NumPieces": 3,
+                                            "Animate": "VerticalAndOpacity"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 46],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SThrobber"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 46],
+                                        "SThrobber":
+                                        {
+                                            "NumPieces": 5,
+                                            "Animate": "Vertical"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 47],
+                                        "SHorizontalBox": {
+                                            "Slots": [
+                                                {
+                                                    "STextBlock":
+                                                    {
+                                                        "Text": "SProgressBar"
+                                                    }
+                                                },
+                                                {
+                                                    "Padding": [10, 0],
+                                                    "SButton":
+                                                    {
+                                                        "Text": "Random",
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "OnClick": "chameleon_gallery.set_random_progress_bar_value()"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 47],
+                                        "SProgressBar":
+                                        {
+                                            "Aka": "ProgressBarA",
+                                            "FillType": "LeftToRight",
+                                            "Percent": "0.5"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 48],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SHorizontalBox"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 48],
+                                        "SHorizontalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "padding": 4,
+                                                    "SButton": {
+                                                        "Text": "Button A"
+                                                    }
+                                                },
+                                                {
+                                                    "padding": 4,
+                                                    "SButton": {
+                                                        "Text": "Button B"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 49],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SVerticalBox"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 49],
+                                        "SVerticalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "padding": 2,
+                                                    "SButton": {
+                                                        "Text": "Button A"
+                                                    }
+                                                },
+                                                {
+                                                    "padding": 2,
+                                                    "SButton": {
+                                                        "Text": "Button B"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 50],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SBox"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 50],
+                                        "SHorizontalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "padding": 2,
+                                                    "SButton": {
+                                                        "Text": "Button A"
+                                                    }
+                                                },
+                                                {
+                                                    "padding": 2,
+                                                    "AutoWidth": true,
+                                                    "SBox": {
+                                                        "MinDesiredWidth": 80,
+                                                        "Content":
+                                                        {
+                                                            "SButton": {
+                                                                "Text": "Sized Button"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 51],
+                                        "STextBlock":
+                                        {
+                                        "Text": "STreeViewA"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 51],
+                                        "STreeView":
+                                        {
+                                            "Aka": "TreeViewA",
+                                            "SHeaderRow": {
+                                                "Columns": [
+                                                    {
+                                                        "DefaultLabel": "Tree View List",
+                                                        "FillWidth": 1
+                                                    }
+                                                ]
+                                            },
+                                            "TreeItemSource": ["ItemA", "ItemB", "ItemC", "ItemD", "ItemE", "ItemF" ],
+                                            "TreeItemParentIndices": [-1, 0, 0, 2, 1, 1]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 52],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SOverlay & SUniformGridPanel"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 52],
+                                        "SOverlay": {
+                                            "Slots":
+                                            [
+                                                {
+                                                    "SImage": {
+                                                            "Aka": "AImage",
+                                                            "ImagePath": "Images/cartoon_game_map.png"
+                                                    }
+                                                },
+                                                {
+                                                    "SUniformGridPanel": {
+                                                        "Slots": [
+                                                            {
+                                                                "Column_Row": [0, 0],
+                                                                "SButton": {
+                                                                    "Text": "Tile 0_0",
+                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                }
+                                                            },
+                                                            {
+                                                                "Column_Row": [1, 0],
+                                                                "SButton": {
+                                                                    "Text": "Tile 1_0",
+                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                }
+                                                            },
+                                                            {
+                                                                "Column_Row": [2, 0],
+                                                                "SButton": {
+                                                                    "Text": "Tile 2_0",
+                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                }
+                                                            },
+                                                            {
+                                                                "Column_Row": [0, 1],
+                                                                "SButton": {
+                                                                    "Text": "Tile 0_1",
+                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                }
+                                                            },
+                                                            {
+                                                                "Column_Row": [1, 1],
+                                                                "SButton": {
+                                                                    "Text": "Tile 1_1",
+                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                }
+                                                            },
+                                                            {
+                                                                "Column_Row": [2, 1],
+                                                                "SButton": {
+                                                                    "Text": "Tile 2_1",
+                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 53],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SUniformWrapPanel"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 53],
+                                        "SUniformWrapPanel": {
+                                            "Slots":
+                                            [
+                                                {"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOut"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.OpenForAdd"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUser"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUserOtherBranch"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.ModifiedOtherBranch"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.NotAtHeadRevision"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOut"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.OpenForAdd"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUser"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUserOtherBranch"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.ModifiedOtherBranch"}}}
+                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.NotAtHeadRevision"}}}
+                                            ],
+                                            "ToolTipText": "UniformWrapPannel will auto wrap the children."
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 54],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SColorBlock"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 54],
+                                        "SColorBlock": {
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 55],
+                                        "STextBlock":
+                                        {
+                                        "Text": "DropTarget"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 55],
+                                        "SDropTarget": {
+                                            "OnDrop": "chameleon_gallery.on_drop_func(%**kwargs)",
+                                            "Content": {
+                                                "SBorder":
+                                                {
+                                                    "Content":
+                                                    {
+                                                        "SBox": {
+                                                            "MinDesiredHeight": 80,
+                                                            "Content": {
+                                                                "SEditableTextBox": {
+                                                                    "Aka": "DropResultBox",
+                                                                    "Text": "",
+                                                                    "HintText": "Drag and Drop some: \n\tUE assets, folder, actors\n file, directory here"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "ToolTipText": "Drag and Drop some thing here"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 56],
+                                        "STextBlock":
+                                        {
+                                        "Text": "Launch all Gallery"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 56],
+                                        "SButton": {
+                                            "Text": "Launch Editor Style Galleries",
+                                            "HAlign": "Center",
+                                            "ContentPadding": [10, 5],
+                                            "OnClick": "chameleon_gallery.launch_other_galleries()"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 57],
+                                        "STextBlock":
+                                        {
+                                        "Text": "Close all Gallery"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 57],
+                                        "SButton": {
+                                            "Text": "Close Editor Style Galleries",
+                                            "HAlign": "Center",
+                                            "ContentPadding": [10, 5],
+                                            "OnClick": "chameleon_gallery.request_close_other_galleries()"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

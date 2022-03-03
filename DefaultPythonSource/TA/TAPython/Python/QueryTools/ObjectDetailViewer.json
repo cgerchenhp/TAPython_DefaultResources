@@ -1,0 +1,419 @@
+{
+	"TabLabel": "Object Detail Viewer",
+	"InitTabSize": [800, 600],
+	"InitTabPosition": [180, 400],
+	"InitPyCmd": "import QueryTools; chemeleon_objectDetailViewer = QueryTools.ObjectDetailViewer.ObjectDetailViewer(%JsonPath);",
+	"OnClosePyCmd": "chemeleon_objectDetailViewer.on_close()",
+	"Root":{
+		"SBorder":
+		{
+			"BorderImage":
+			{
+				"Style": "FCoreStyle",
+				"Brush": "ToolPanel.GroupBorder"
+			},
+			"ColorAndOpacity":[1,1,1,1],
+			"Content":{
+				"SVerticalBox":
+				{
+					"Slots": [
+						{
+							"AutoHeight": true,
+							"SHorizontalBox": {
+								"Slots": [
+									{
+										"SSpacer":{}
+									},
+									{
+										"AutoWidth": true,
+										"SCheckBox":
+										{
+											"Aka": "CheckBoxSingleMode",
+											"Content": {
+												"STextBlock":
+												{
+													"MinDesiredWidth": 100,
+													"Justification": "Center",
+													"Text": "Single Mode"
+												}
+											},
+											"CheckBoxStyle": {
+                                               "Style": "FCoreStyle",
+                                               "StyleName": "Menu.ToggleButton"
+                                           },
+											"IsChecked": true,
+											"Padding": 6,
+											"OnCheckStateChanged": "chemeleon_objectDetailViewer.on_checkbox_SingleMode_Click(%)"
+										}
+									},
+									{
+										"AutoWidth": true,
+										"SCheckBox":
+										{
+											"Aka": "CheckBoxCompareMode",
+											"Content": {
+											"STextBlock":
+												{
+													"MinDesiredWidth": 100,
+													"Justification": "Center",
+													"Text": "Compare Mode"
+												}
+											},
+											"CheckBoxStyle": {
+												"Style": "FCoreStyle",
+												"StyleName": "Menu.ToggleButton"
+											},
+											"Padding": 6,
+											"OnCheckStateChanged": "chemeleon_objectDetailViewer.on_checkbox_CompareMode_Click(%)"
+										}
+									},
+									{
+										"SHorizontalBox": {
+											"Slots": [
+												{
+													"HAlign": "Right",
+													"SButton": {
+														"Text": "R",
+														"ContentPadding": [5, 0],
+														"Aka": "RefreshCompareButton",
+														"Visibility": "Collapsed",
+														"HAlign": "Center",
+														"VAlign": "Center",
+														"OnClick": "chemeleon_objectDetailViewer.apply_compare_if_needed()"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"AutoHeight": true,
+							"SHorizontalBox": {
+								"Slots": [
+									{
+										"SHorizontalBox": {
+											"Aka": "LeftButtonsGroup",
+											"Slots": [
+												{
+													"Padding": 2,
+													"SButton": {
+														"ContentPadding": 6,
+														"Text": "Query Asset",
+														"OnClick": "chemeleon_objectDetailViewer.on_button_SelectAsset_click(bRightSide=False)"
+													}
+												},
+												{
+													"Padding": 2,
+													"SButton": {
+														"ContentPadding": 6,
+														"Text": "Query Selected",
+														"OnClick": "chemeleon_objectDetailViewer.on_button_QuerySelected_click(bRightSide=False)"
+													}
+												},
+												{
+													"Padding": 2,
+													"SButton": {
+														"ContentPadding": 6,
+														"Text": "Query Variable _r",
+														"OnClick": "if '_r' in globals():\n\tchemeleon_objectDetailViewer.on_button_Query_R_click(_r, bRightSide=False)\nelse:\n\tchemeleon_objectDetailViewer.log_r_warning()"
+													}
+												}
+											]
+										}
+									},
+									{
+										"SHorizontalBox": {
+											"Aka": "RightButtonsGroup",
+											"Visibility": "Collapsed",
+											"Slots": [
+												{
+													"Padding": 2,
+													"SButton": {
+														"ContentPadding": 6,
+														"Text": "Query Asset Right",
+														"OnClick": "chemeleon_objectDetailViewer.on_button_SelectAsset_click(bRightSide=True)"
+													}
+												},
+												{
+													"Padding": 2,
+													"SButton": {
+														"ContentPadding": 6,
+														"Text": "Query Selected Right",
+														"OnClick": "chemeleon_objectDetailViewer.on_button_QuerySelected_click(bRightSide=True)"
+													}
+												},
+												{
+													"Padding": 2,
+													"SButton": {
+														"ContentPadding": 6,
+														"Text": "Query Variable _r",
+														"OnClick": "if '_r' in globals():\n\tchemeleon_objectDetailViewer.on_button_Query_R_click(_r, bRightSide=True)\nelse:\n\tchemeleon_objectDetailViewer.log_r_warning()"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"AutoHeight": true,
+							"SHorizontalBox": {
+								"Slots": [
+								{
+									"Padding": 2,
+
+									"SCheckBox":{
+										"Content":
+										{
+											"STextBlock": {
+												"Text": "Show built-in"
+											}
+										},
+										"ColorAndOpacity": [0, 0.807843, 0.819608, 1],
+										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowBuiltin_state_changed(%)",
+										"IsChecked": true
+									}
+								},
+								{
+									"Padding": 2,
+									"SCheckBox":{
+										"Content":
+										{
+											"STextBlock": {
+												"Text": "Show other callable"
+											}
+										},
+										"ColorAndOpacity": [0.05, 0.15, 0.8, 1],
+										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowOther_state_changed(%)",
+										"IsChecked": true
+									}
+								},
+								{
+									"Padding": 2,
+									"SCheckBox":{
+										"Content":
+										{
+											"STextBlock": {
+												"Text": "Function With Params"
+											}
+										},
+										"ColorAndOpacity": [0.5, 0.5, 0.5, 1],
+										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowParamFunction_state_changed(%)",
+										"IsChecked": true
+									}
+								},
+								{
+									"AutoWidth": true,
+									"Padding": 2,
+									"SSeparator": {
+										"Orientation": "Vertical",
+										"Thickness": 2
+									}
+								},
+								{
+									"Padding": 2,
+									"AutoWidth": true,
+									"SCheckBox":{
+										"Content":
+										{
+											"STextBlock": {
+												"Text": "Show Properties"
+											}
+										},
+										"ColorAndOpacity": [1, 1, 0, 1],
+										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowProperties_state_changed(%)",
+										"IsChecked": true
+									}
+								},
+								{
+									"Padding": 2,
+									"AutoWidth": true,
+									"SCheckBox":{
+										"Content":
+										{
+											"STextBlock": {
+												"Text": "Show Editor Properties"
+											}
+										},
+										"ColorAndOpacity": [0, 0.5, 0, 1],
+										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowEditorProperties_state_changed(%)",
+										"IsChecked": true
+									}
+								}
+								]
+							}
+						},
+						{
+							"SHorizontalBox": {
+								"Slots": [
+									{
+										"SVerticalBox": {
+											"Aka": "LeftDetailGroup",
+											"Slots": [
+
+												{
+													"AutoHeight": true,
+													"SScrollBox": {
+														"Orientation": "Horizontal",
+														"Slots": [
+															{
+																"SBreadcrumbTrail":
+																{
+																	"Aka": "ObjectHisBreadcrubmLeft",
+																	"type": "string",
+																	"ButtonContentPadding": 1,
+																	"OnCrumbClick": "chemeleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisLeft_curmb_click(%)"
+																}
+															}
+														]
+													}
+												},
+												{
+													"AutoHeight": true,
+													"SEditableTextBox":
+												   {
+													   "Aka": "LabelLeft",
+													   "Text": "",
+													   "IsReadOnly": true
+												   }
+												},
+												{
+													"AutoHeight": true,
+													"padding": [1,0],
+													"SSearchBox": {
+														"HintText": "Filter Text",
+														"ToolTipText": "Tool Tip",
+														"OnTextChanged": "chemeleon_objectDetailViewer.on_searchbox_FilterLeft_text_changed(%)",
+														"OnTextCommitted": "chemeleon_objectDetailViewer.on_searchbox_FilterLeft_text_committed(%)",
+														"SelectAllTextWhenFocused": false,
+														"DelayChangeNotificationWhiteTyping": false
+													}
+												},
+												{
+													"SDropTarget": {
+														"OnDrop": "chemeleon_objectDetailViewer.on_drop(bRightSide=False, %**kwargs)",
+														"Content": {
+															"SListView<MultiColumn>": {
+																"ItemHeight": 6,
+																"Aka": "ListViewLeft",
+																"RichText": true,
+																"EnableAnimatedScrolling": false,
+																"SHeaderRow": {
+																	"Columns": [
+																		{
+																			"DefaultLabel": "Property",
+																			"FillWidth": 0.4
+																		},
+																		{
+																			"DefaultLabel": "Value",
+																			"FillWidth": 0.6
+																		}
+																	]
+																},
+																"ListItemsSource": [
+																],
+																"OnMouseButtonDoubleClick": "chemeleon_objectDetailViewer.on_listview_DetailListLeft_mouse_button_double_click(%Index)",
+																"OnSelectionChanged": "chemeleon_objectDetailViewer.ui_on_listview_DetailList_selection_changed(bRight=False)"
+															}
+														}
+													}
+												}
+											]
+										}
+									},
+									{
+										"SVerticalBox": {
+											"Aka": "RightDetailGroup",
+											"Visibility": "Collapsed",
+											"Slots": [
+												{
+													"AutoHeight": true,
+													"SScrollBox": {
+														"Orientation": "Horizontal",
+														"Slots": [
+															{
+																"SBreadcrumbTrail":
+																{
+																	"Aka": "ObjectHisBreadcrubmRight",
+																	"type": "string",
+																	"ButtonContentPadding": 1,
+																	"OnCrumbClick": "chemeleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisRight_curmb_click(%)"
+																}
+															}
+														]
+													}
+												},
+												{
+													"AutoHeight": true,
+													"SEditableTextBox":
+												   {
+													   "Aka": "LabelRight",
+													   "Text": "",
+													   "IsReadOnly": true
+												   }
+												},
+												{
+													"AutoHeight": true,
+													"padding": [1,0],
+													"SSearchBox": {
+														"HintText": "Filter Text",
+														"ToolTipText": "Tool Tip",
+														"OnTextChanged": "chemeleon_objectDetailViewer.on_searchbox_FilterRight_text_changed(%)",
+														"OnTextCommitted": "chemeleon_objectDetailViewer.on_searchbox_FilterRight_text_committed(%)",
+														"SelectAllTextWhenFocused": false,
+														"DelayChangeNotificationWhiteTyping": false
+													}
+												},
+												{
+													"SDropTarget": {
+														"OnDrop": "chemeleon_objectDetailViewer.on_drop(bRightSide=True, %**kwargs)",
+														"Content": {
+															"SListView<MultiColumn>": {
+																"ItemHeight": 6,
+																"Aka": "ListViewRight",
+																"RichText": true,
+																"EnableAnimatedScrolling": true,
+																"SHeaderRow": {
+																	"Columns": [
+																		{
+																			"DefaultLabel": "Property",
+																			"FillWidth": 0.4
+																		},
+																		{
+																			"DefaultLabel": "Value",
+																			"FillWidth": 0.6
+																		}
+																	]
+																},
+																"ListItemsSource": [
+																],
+																"OnMouseButtonDoubleClick": "chemeleon_objectDetailViewer.on_listview_DetailListRight_mouse_button_double_click(%Index)",
+																"OnSelectionChanged": "chemeleon_objectDetailViewer.ui_on_listview_DetailList_selection_changed(bRight=True)"
+															}
+														}
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						},
+						{
+							"AutoHeight": true,
+							"SMultiLineEditableTextBox": {
+								"IsReadOnly": true,
+								"Margin": 4,
+								"Aka": "InfoOutput",
+								"Text": " "
+							}
+						}
+					]
+				}
+			}
+		}
+	}
+}

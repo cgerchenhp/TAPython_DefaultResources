@@ -1,0 +1,30 @@
+{
+    "TabLabel": "Example",
+    "InitTabSize": [200, 123],
+    "InitTabPosition": [180, 200],
+    "InitPyCmd": "import Example; chameleon_example = Example.MinimalExample.MinimalExample(%JsonPath)",
+    "Root":
+    {
+        "SVerticalBox":
+        {
+            "Slots": [
+                {
+                    "SButton": {
+                        "Text": "Click Me",
+                        "HAlign": "Center",
+                        "VAlign": "Center",
+                        "OnClick": "chameleon_example.on_button_click()"
+                    }
+                },
+                {
+                    "SEditableTextBox":
+                    {
+                        "IsReadOnly": true,
+                        "Aka": "InfoOutput",
+                        "Text": ""
+                    }
+                }
+            ]
+        }
+    }
+}

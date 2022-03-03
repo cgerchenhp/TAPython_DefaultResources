@@ -1,0 +1,155 @@
+{
+    "OnSelectFolderMenu":
+    {
+        "name:": "Python Menu OnSelectFolderMenu",
+        "items":
+        [
+            {
+                "name": "TA Python Example",
+                "items": [
+                    {
+                        "name": "Example (1): Log Folder Name",
+                        "command": "from Example import Example; Example.do_some_things(unreal.PythonBPLib.get_selected_folder())"
+                    },
+                    {
+                        "name": "Example (2): Sub Menu",
+                        "items": [
+                            {
+                                "name": "A item in sub menu.",
+                                "command": "print('sub menu clicked')"
+                            },
+                            {
+                                "name": "Another item in sub menu.",
+                                "command": "print('Another sub menu clicked')"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "OnSelectAssetsMenu":
+    {
+        "name:": "Python Menu OnSelectAssetsMenu",
+        "items":
+        [
+            {
+                "name": "TA Python Example",
+                "items": [
+                    {
+                        "name": "Example (3): Log BP Classes",
+                        "tooltip": "Only Actived when Blueprint selected",
+                        "command": "import Utilities, QueryTools; QueryTools.Utils.log_classes(Utilities.Utils.get_selected_assets()[0]) ",
+                        "canExecuteAction": "import QueryTools; return QueryTools.Utils.is_selected_asset_type([unreal.Blueprint])"
+                    }
+                ]
+            }
+        ]
+    },
+    "OnMainMenu":
+    {
+        "name": "Python Menu On Main Menu",
+        "items":
+        [
+            {
+                "name": "TA Python Example",
+                "items": [
+                    {
+                        "name": "Example (4): Waiting for your tools",
+                        "command": "print('Hello world.')"
+                    }
+                ]
+            }
+        ]
+    },
+    "OnToolbar":
+    {
+        "name": "Python Menu on toolbar",
+        "items":[
+            {
+                "name": "Get Selected",
+                "items": [
+                    {
+                        "name": "selected comp --> '_r'",
+                        "command": "import Utilities.Utils; _r = Utilities.Utils.get_selected_comp(); print(_r)",
+                        "tooltip": "Assign the first selected Component to global var: '_r', for experiments in the Python Console"
+                    },
+                    {
+                        "name": "selected actor --> '_r'",
+                        "command": "import Utilities.Utils; _r = Utilities.Utils.get_selected_actor(); print(_r)",
+                        "tooltip": "Assign the first selected Actor to global var: '_r', for experiments in the Python Console"
+                    },
+                    {
+                        "name": "selected asset --> '_r'",
+                        "command": "import Utilities.Utils; _r = Utilities.Utils.get_selected_assets(); _r = _r[0] if len(_r) > 0 else _r; print(_r)",
+                        "tooltip": "Assign the first selected Asset to global var: '_r', for experiments in the Python Console"
+                    }
+                ]
+            },
+            {
+                "name": "Query Tools",
+                "items": [
+                    {
+                        "name": "Print Selected Assets Referencers",
+                        "command": "import QueryTools; QueryTools.queryTools.print_selected_assets_refs()"
+                    },
+                    {
+                        "name": "Print Selected Assets Dependencies",
+                        "command": "import QueryTools; QueryTools.queryTools.print_selected_assets_deps()"
+                    },
+                    {
+                        "name": "Print Selected Assets Related",
+                        "command": "import QueryTools; QueryTools.queryTools.print_selected_assets_related()"
+                    }
+                ]
+            },
+            {
+                "name": "Development",
+                "items": [
+                    {
+                        "name": "GC keepFlag = 0x00000000",
+                        "command": "unreal.PythonBPLib.gc(0x00000000, False)",
+                        "enabled": true
+                    },
+                    {
+                       "name": "GC keepFlag = 0xFFFFFFFF",
+                       "command": "unreal.PythonBPLib.gc(0xFFFFFFFF, False)",
+                       "enabled": true
+                    }
+                ]
+            },
+            {
+                "name": "Open simple tool",
+                "command": "import entry; reload(entry); entry.launch_tools('SimpleTools')",
+                "enabled": false
+            }
+        ]
+    },
+    "OnToolBarChameleon": {
+        "name": "Python Chameleon on toolbar",
+        "items": [
+            {
+                "name": "Minimal Example",
+                "ChameleonTools": "../Python/Example/MinimalExample.json"
+            },
+            {
+                "name": "Chameleon Widget Gallery",
+                "ChameleonTools": "../Python/ChameleonGallery/ChameleonGallery.json"
+            },
+            {
+                "name": "Chameleon Shelf Tool",
+                "ChameleonTools": "../Python/ShelfTools/Shelf.json"
+            },
+            {
+                "name": "Development",
+                "items": [
+                    {
+                        "name": "Object Detail Viewer",
+                        "ChameleonTools": "../Python/QueryTools/ObjectDetailViewer.json",
+                        "enabled": true
+                    }
+                ]
+            }
+        ]
+    }
+}

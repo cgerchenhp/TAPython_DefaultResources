@@ -1,0 +1,20 @@
+{
+    "Hotkeys":
+    {
+        "HotkeyA": {
+            "ChameleonTools": "../Python/ChameleonGallery/ChameleonGallery.json"
+        },
+        "HotkeyB": {
+            "command": "unreal.EditorLevelLibrary.set_selected_level_actors([actor for actor in unreal.EditorLevelLibrary.get_all_level_actors() if len(str(actor.get_name())) > 60])"
+        },
+        "HotkeyC": {
+            "command": "print('Hotkey C')"
+        },
+        "HotkeyD": {
+            "command": "print('Hotkey D')"
+        },
+        "HotkeyE": {
+            "command": "print('Hotkey E')"
+        }
+    }
+}
