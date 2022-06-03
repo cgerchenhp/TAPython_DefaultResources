@@ -101,7 +101,7 @@ class attr_detail(object):
     def post(self, obj):
         if self.bOtherProperty and not self.result:
             try:
-                self.result = "{}".format(getattr(obj, self.name))
+                self.result = getattr(obj, self.name)
             except:
                 self.result = "skip call..."
 

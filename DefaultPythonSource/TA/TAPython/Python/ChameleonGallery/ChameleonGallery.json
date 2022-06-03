@@ -241,6 +241,7 @@
                                                             "Position": [97.5, 0],
                                                             "Size": [25, 20],
                                                             "SButton": {"ButtonColorAndOpacity": [0, 5, 0 ,1], "OnClick": "print('Head.')",
+                                                                "ContentPadding": [-8, 0],
                                                                 "Text": "^_^"
                                                             }
                                                         },
