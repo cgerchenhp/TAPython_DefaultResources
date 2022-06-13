@@ -130,23 +130,41 @@
         "items": [
             {
                 "name": "Minimal Example",
-                "ChameleonTools": "../Python/Example/MinimalExample.json"
+                "ChameleonTools": "../Python/Example/MinimalExample.json",
+                "icon": {
+                    "style": "ChameleonStyle",
+                    "name": "Flash"
+                }
             },
             {
                 "name": "Chameleon Widget Gallery",
-                "ChameleonTools": "../Python/ChameleonGallery/ChameleonGallery.json"
+                "ChameleonTools": "../Python/ChameleonGallery/ChameleonGallery.json",
+                "icon": {
+                    "style": "ChameleonStyle",
+                    "name": "Picture"
+                }
             },
             {
                 "name": "Chameleon Shelf Tool",
-                "ChameleonTools": "../Python/ShelfTools/Shelf.json"
+                "ChameleonTools": "../Python/ShelfTools/Shelf.json",
+                "icon": {
+                    "ImagePathInPlugin": "Resources/briefcase_32x.png"
+                }
             },
             {
                 "name": "Development",
+                "icon": {
+                    "ImagePathInPlugin": "Resources/Chameleon_32x.png"
+                },
                 "items": [
                     {
                         "name": "Object Detail Viewer",
                         "ChameleonTools": "../Python/QueryTools/ObjectDetailViewer.json",
-                        "enabled": true
+                        "enabled": true,
+                        "icon": {
+                            "style": "ChameleonStyle",
+                            "name": "List"
+                        }
                     }
                 ]
             }

@@ -18,11 +18,11 @@ COLUMN_COUNT = 2
 class DetailData(object):
     def __init__(self):
         self.filter_str = ""
-        self.filtedIndexToIndex = []
+        self.filteredIndexToIndex = []
         self.hisCrumbObjsAndNames = []  #list[(obj, propertyName)]
 
         self.attributes = None
-        self.filted_attributes = None
+        self.filtered_attributes = None
 
         self.plains = []
         self.riches = []
@@ -65,8 +65,8 @@ class ObjectDetailViewer(metaclass=Singleton):
 
         self.ui_detailListLeft = "ListViewLeft"
         self.ui_detailListRight = "ListViewRight"
-        self.ui_hisObjsBreadcrumbLeft = 'ObjectHisBreadcrubmLeft'
-        self.ui_hisObjsBreadcrumbRight = 'ObjectHisBreadcrubmRight'
+        self.ui_hisObjsBreadcrumbLeft = 'ObjectHisBreadcrumbLeft'
+        self.ui_hisObjsBreadcrumbRight = 'ObjectHisBreadcrumbRight'
         # self.ui_headRowLeft = "HeaderRowLeft"
         # self.ui_headRowRight = "HeaderRowRight"
         self.ui_labelLeft = "LabelLeft"
@@ -107,11 +107,11 @@ class ObjectDetailViewer(metaclass=Singleton):
         for side_str in ["left", "right"] if bShowRight else ["left"]:
             bRight = side_str != "left"
             ui_breadcrumb = self.ui_hisObjsBreadcrumbRight if bRight else self.ui_hisObjsBreadcrumbLeft
-            breadcurmbs =  self.right.hisCrumbObjsAndNames if bRight else self.left.hisCrumbObjsAndNames
+            breadcrumbs =  self.right.hisCrumbObjsAndNames if bRight else self.left.hisCrumbObjsAndNames
             crumbCount = self.data.get_breadcrumbs_count_string(ui_breadcrumb)
             if bRight:
                 result += "\t\t\t"
-            result += "{} crumb: {}  hisObj: {}".format(side_str, crumbCount, len(breadcurmbs))
+            result += "{} crumb: {}  hisObj: {}".format(side_str, crumbCount, len(breadcrumbs))
         if self.compareMode:
             result = f"{result}\t\t\tdiff count: {self.diff_count}"
         self.data.set_text(self.ui_info_output, result)
@@ -188,7 +188,7 @@ class ObjectDetailViewer(metaclass=Singleton):
     def show_data(self, data:DetailData, ui_listView):
         flatten_list_items = []
         flatten_list_items_plain = []
-        for i, attr in enumerate(data.filted_attributes):
+        for i, attr in enumerate(data.filtered_attributes):
             # print(f"{i}: {attr.name}  {attr.display_name}, {attr.display_result}  ")
             attr.check()
             assert attr.display_name, f"display name null {attr.display_name}"
@@ -222,7 +222,7 @@ class ObjectDetailViewer(metaclass=Singleton):
 
         data.attributes = Utils.ll(obj)
 
-        data.filted_attributes, data.filtedIndexToIndex = self.filter(data)
+        data.filtered_attributes, data.filteredIndexToIndex = self.filter(data)
         self.show_data(data, ui_listView)
 
         # set breadcrumb
@@ -240,14 +240,7 @@ class ObjectDetailViewer(metaclass=Singleton):
             self.data.push_breadcrumb_string(ui_breadcrumb, label, label)
 
         self.data.set_text(ui_Label, "{}  type: {}".format(label, type(obj)) )
-        #
-        # text = self.rightSearchText if bRight else self.leftSearchText
-        # self.apply_search_filter(text, bRight)
-        # self.data.set_column_lable(ui_headRow, 0, str(obj))
-        # itemsForShow = self.right.filtedStrs if bRight else self.left.filtedStrs
 
-
-        #
         crumbCount = self.data.get_breadcrumbs_count_string(ui_breadcrumb)
         if bRight:
             assert len(self.right.hisCrumbObjsAndNames) == crumbCount, "hisCrumbObjsAndNames count not match  {}  {}".format(len(self.right.hisCrumbObjsAndNames), crumbCount)
@@ -271,7 +264,7 @@ class ObjectDetailViewer(metaclass=Singleton):
         else:
             assert len(self.left.hisCrumbObjsAndNames) == 0, "len(self.left.hisCrumbObjsAndNames) != 0"
 
-        self.query_and_push(obj, "", bPush=True, bRight= bRight)
+        self.query_and_push(obj, "", bPush=True, bRight=bRight)
         self.apply_compare_if_needed()
         self.update_log_text(bRight)
 
@@ -333,7 +326,7 @@ class ObjectDetailViewer(metaclass=Singleton):
                 self.clear_and_query(selected_comp, bRightSide)
 
     def log_r_warning(self):
-        unreal.log_warning("Assign the global var: '_r' with the MenuItem: 'selecte X --> _r' on Python Icon menu")
+        unreal.log_warning("Assign the global var: '_r' with the MenuItem: 'select X --> _r' on Python Icon menu")
 
 
     def on_button_Query_R_click(self, r_obj,  bRightSide=False):
@@ -346,12 +339,12 @@ class ObjectDetailViewer(metaclass=Singleton):
 
 
     def on_list_double_click_do(self, index, bRight):
-        print ("on_listview_DetailList_mouse_button_double_click {}  bRight: {}".format(index, bRight))
+        # print ("on_listview_DetailList_mouse_button_double_click {}  bRight: {}".format(index, bRight))
         data = self.right if bRight else self.left
 
         typeBlacklist = [int, float, str, bool] #, types.NotImplementedType]
 
-        real_index = data.filtedIndexToIndex[index] if data.filtedIndexToIndex else index
+        real_index = data.filteredIndexToIndex[index] if data.filteredIndexToIndex else index
         assert 0 <= real_index < len(data.attributes)
 
         currentObj, _ = data.hisCrumbObjsAndNames[len(data.hisCrumbObjsAndNames) - 1]
@@ -387,21 +380,21 @@ class ObjectDetailViewer(metaclass=Singleton):
         ui_hisObjsBreadcrumb = self.ui_hisObjsBreadcrumbRight if bRight else self.ui_hisObjsBreadcrumbLeft
         data = self.right if bRight else self.left
         count = self.data.get_breadcrumbs_count_string(ui_hisObjsBreadcrumb)
-        print ("on_breadcrumbtrail_ObjectHis_curmb_click: {}    count: {}    len(data.hisCrumbObjsAndNames): {}".format(item, count, len(data.hisCrumbObjsAndNames)))
+        print ("on_breadcrumbtrail_ObjectHis_crumb_click: {}    count: {}    len(data.hisCrumbObjsAndNames): {}".format(item, count, len(data.hisCrumbObjsAndNames)))
         while len(data.hisCrumbObjsAndNames) > count:
             data.hisCrumbObjsAndNames.pop()
         nextObj, name = data.hisCrumbObjsAndNames[len(data.hisCrumbObjsAndNames) - 1]
         if not bRight:
             assert self.left.hisCrumbObjsAndNames == data.hisCrumbObjsAndNames, "self.left.hisCrumbObjsAndNames = data.hisCrumbObjsAndNames"
 
-        self.query_and_push(nextObj, name, bPush=False, bRight=False)
+        self.query_and_push(nextObj, name, bPush=False, bRight=bRight)
         self.apply_compare_if_needed()
-        self.update_log_text(bRight=False)
+        self.update_log_text(bRight=bRight)
 
-    def on_breadcrumbtrail_ObjectHisLeft_curmb_click(self, item):
+    def on_breadcrumbtrail_ObjectHisLeft_crumb_click(self, item):
         self.on_breadcrumbtrail_click_do(item, bRight=False)
 
-    def on_breadcrumbtrail_ObjectHisRight_curmb_click(self, item):
+    def on_breadcrumbtrail_ObjectHisRight_crumb_click(self, item):
         self.on_breadcrumbtrail_click_do(item, bRight=True)
 
     def remove_address_str(self, strIn):
@@ -411,8 +404,8 @@ class ObjectDetailViewer(metaclass=Singleton):
         if not self.compareMode:
             return
 
-        lefts  = self.left.filted_attributes if self.left.filted_attributes else self.left.attributes
-        rights = self.right.filted_attributes if self.right.filted_attributes else self.right.attributes
+        lefts  = self.left.filtered_attributes if self.left.filtered_attributes else self.left.attributes
+        rights = self.right.filtered_attributes if self.right.filtered_attributes else self.right.attributes
         if not lefts:
             lefts = []
         if not rights:
@@ -436,7 +429,7 @@ class ObjectDetailViewer(metaclass=Singleton):
     def apply_search_filter(self, text, bRight):
         _data = self.right if bRight else self.left
         _data.filter_str = text if len(text) else ""
-        _data.filted_attributes, _data.filtedIndexToIndex = self.filter(_data)
+        _data.filtered_attributes, _data.filteredIndexToIndex = self.filter(_data)
         ui_listView = self.ui_detailListRight if bRight else self.ui_detailListLeft
         self.show_data(_data, ui_listView)
         self.apply_compare_if_needed()

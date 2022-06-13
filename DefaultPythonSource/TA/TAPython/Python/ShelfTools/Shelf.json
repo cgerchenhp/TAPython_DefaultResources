@@ -77,7 +77,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=0)",
 															"Content": { "SImage": {"Aka": "Img_0", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -100,7 +100,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=1)",
 															"Content": { "SImage": {"Aka": "Img_1", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -123,7 +123,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=2)",
 															"Content": { "SImage": {"Aka": "Img_2", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -146,7 +146,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=3)",
 															"Content": { "SImage": {"Aka": "Img_3", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -169,7 +169,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=4)",
 															"Content": { "SImage": {"Aka": "Img_4", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -192,7 +192,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=5)",
 															"Content": { "SImage": {"Aka": "Img_5", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -215,7 +215,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=6)",
 															"Content": { "SImage": {"Aka": "Img_6", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -238,7 +238,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=7)",
 															"Content": { "SImage": {"Aka": "Img_7", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -261,7 +261,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=8)",
 															"Content": { "SImage": {"Aka": "Img_8", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -284,7 +284,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=9)",
 															"Content": { "SImage": {"Aka": "Img_9", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -307,7 +307,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=10)",
 															"Content": { "SImage": {"Aka": "Img_10", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}
@@ -330,7 +330,7 @@
 										"Content": {
 											"SOverlay": {
 												"Slots": [{
-														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, "ContentPadding": [16, 0],
+														"SButton": {"ButtonStyle": {"Style": "FEditorStyle", "StyleName": "HoverHintOnly"}, 
 															"OnClick": "chameleon_shelf.on_button_click(id=11)",
 															"Content": { "SImage": {"Aka": "Img_11", "ImagePathInPlugin": "Resources/PythonGreyIcon_40x.png", "ColorAndOpacity": [1,1,1,0.6]}}
 														}

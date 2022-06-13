@@ -241,6 +241,7 @@
                                                             "Position": [97.5, 0],
                                                             "Size": [25, 20],
                                                             "SButton": {"ButtonColorAndOpacity": [0, 5, 0 ,1], "OnClick": "print('Head.')",
+                                                                "ContentPadding": [-8, 0],
                                                                 "Text": "^_^"
                                                             }
                                                         },
@@ -277,7 +278,7 @@
                                                         {
                                                             "Position": [112, 92],
                                                             "Size": [15, 27],
-                                                            "SButton": {"ButtonColorAndOpacity": [0, 0, 1 ,1], "OnClick": "print('Left Upper Leg.')"}
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 0, 1 ,1], "OnClick": "print('Left Leg.')"}
                                                         }
                                                     ]
                                                 }
@@ -1185,7 +1186,7 @@
                                         "Padding": [0, 4],
                                         "Column_Row": [1, 43],
                                         "SHyperlink":{
-                                            "Text": "www.TaColor.xyz"
+                                            "Text": "www.TaColour.xyz"
                                         }
                                     },
                                     {
@@ -1500,7 +1501,7 @@
                                         "Column_Row": [0, 55],
                                         "STextBlock":
                                         {
-                                        "Text": "DropTarget"
+                                            "Text": "DropTarget"
                                         }
                                     },
                                     {
@@ -1533,12 +1534,120 @@
                                         "Column_Row": [0, 56],
                                         "STextBlock":
                                         {
-                                        "Text": "Launch all Gallery"
+                                            "Text": "SSplitter"
                                         }
                                     },
                                     {
                                         "Padding": [ 0, 4],
                                         "Column_Row": [1, 56],
+
+                                        "SSplitter": {
+                                            "Orientation": "Horizontal",
+                                            "ResizeMode": "FixedPosition",
+                                            "Slots": [
+                                                {
+                                                    "Value": 0.4,
+                                                        "SBox": {
+                                                        "Padding": [4, 0],
+                                                        "Content": {
+                                                            "SSpinBox":
+                                                            {
+                                                                "Type": "int",
+                                                                "Value": 39,
+                                                                "MinValue": 0,
+                                                                "MaxValue": 100,
+                                                                "MinSliderValue": 0,
+                                                                "maxSliderValue": 100,
+                                                                "Delta": 1
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "value": 0.6,
+                                                    "SBox": {
+                                                        "Padding": [4, 0],
+                                                        "Content": {
+                                                            "SSpinBox":
+                                                            {
+                                                                "Type": "int",
+                                                                "Value": 60,
+                                                                "MinValue": 0,
+                                                                "MaxValue": 100,
+                                                                "MinSliderValue": 0,
+                                                                "maxSliderValue": 100,
+                                                                "Delta": 1
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 57],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SExpandableArea"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 57],
+										"SExpandableArea": {
+                                            "Aka": "expandable",
+                                            "BorderImage": {
+                                                "Style": "FEditorStyle",
+                                                "Brush": "DetailsView.CategoryTop"
+                                            },
+
+                                            "HeaderPadding": 3,
+                                            "OnAreaExpansionChanged": "print('OnAreaExpansionChanged text: {}'.format(%))",
+                                            "HeaderContent": {
+                                                "STextBlock": {
+                                                    "Text": "Some Header Text"
+                                                }
+                                            },
+                                            "BodyContent": {
+                                                "SBorder": {
+                                                    "BorderImage": {
+                                                        "Style": "FCoreStyle",
+                                                        "Brush": "WindowMenuBar.Button.SubMenuOpen"
+                                                    },
+                                                    "Content": {
+                                                    "SHorizontalBox": {
+                                                        "Slots": [
+                                                            {
+                                                                "AutoWidth": true,
+                                                                "STextBlock": {
+                                                                    "Text": "Some Body Text"
+                                                                }
+                                                            },
+                                                            {
+                                                                "AutoWidth": true,
+                                                                "SButton": {
+                                                                    "Text": "Collapse ExpandableArea",
+                                                                    "OnClick": "chameleon_gallery.data.set_is_expanded('expandable', False, True)"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+
+                                    {
+                                        "Column_Row": [0, 58],
+                                        "STextBlock":
+                                        {
+                                        "Text": "Launch all Gallery"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 58],
                                         "SButton": {
                                             "Text": "Launch Editor Style Galleries",
                                             "HAlign": "Center",
@@ -1547,7 +1656,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 57],
+                                        "Column_Row": [0, 59],
                                         "STextBlock":
                                         {
                                         "Text": "Close all Gallery"
@@ -1555,7 +1664,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 57],
+                                        "Column_Row": [1, 59],
                                         "SButton": {
                                             "Text": "Close Editor Style Galleries",
                                             "HAlign": "Center",

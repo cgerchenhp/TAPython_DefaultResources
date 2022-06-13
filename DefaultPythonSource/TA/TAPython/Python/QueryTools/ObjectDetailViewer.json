@@ -262,10 +262,10 @@
 															{
 																"SBreadcrumbTrail":
 																{
-																	"Aka": "ObjectHisBreadcrubmLeft",
+																	"Aka": "ObjectHisBreadcrumbLeft",
 																	"type": "string",
 																	"ButtonContentPadding": 1,
-																	"OnCrumbClick": "chemeleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisLeft_curmb_click(%)"
+																	"OnCrumbClick": "chemeleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisLeft_crumb_click(%)"
 																}
 															}
 														]
@@ -337,10 +337,10 @@
 															{
 																"SBreadcrumbTrail":
 																{
-																	"Aka": "ObjectHisBreadcrubmRight",
+																	"Aka": "ObjectHisBreadcrumbRight",
 																	"type": "string",
 																	"ButtonContentPadding": 1,
-																	"OnCrumbClick": "chemeleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisRight_curmb_click(%)"
+																	"OnCrumbClick": "chemeleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisRight_crumb_click(%)"
 																}
 															}
 														]
