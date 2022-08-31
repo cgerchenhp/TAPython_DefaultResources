@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 import os
+import sys
+import subprocess
 import unreal
 from Utilities.Utils import Singleton
 import random
+if sys.platform == "darwin":
+    import webbrowser
+
 
 class ChameleonGallery(metaclass=Singleton):
     def __init__(self, jsonPath):
         self.jsonPath = jsonPath
         self.data = unreal.PythonBPLib.get_chameleon_data(self.jsonPath)
+        self.ui_scrollbox = "ScrollBox"
         self.ui_crumbname = "SBreadcrumbTrailA"
         self.ui_image = "SImageA"
         self.ui_image_local = "SImage_ImageFromRelativePath"
@@ -89,7 +95,7 @@ class ChameleonGallery(metaclass=Singleton):
                 for i, p in enumerate(gallery_paths):
                     slow_task.enter_progress_frame(1, f"Launch Gallery: {p}")
 
-                    unreal.ChameleonData.launch_chalemeon_tool(p)
+                    unreal.ChameleonData.launch_chameleon_tool(p)
 
     def request_close_other_galleries(self):
         if not os.path.exists(os.path.join(os.path.dirname(__file__), 'auto_gen/border_brushes_Gallery.json')):
@@ -133,3 +139,41 @@ class ChameleonGallery(metaclass=Singleton):
                 for item in items:
                     str_for_show += f"\t{item}\n"
         self.data.set_text(self.ui_drop_target_text_box, str_for_show)
+
+    def get_full_size_of_this_chameleon(self):
+        current_size = unreal.ChameleonData.get_chameleon_window_size(self.jsonPath)
+        scrollbox_offsets = self.data.get_scroll_box_offsets(self.ui_scrollbox)
+        height_full = scrollbox_offsets["ScrollOffsetOfEnd"] / (1.0-scrollbox_offsets["viewFraction"])
+        height_full += 48
+        print(f"delta: {height_full} - {round(height_full)}")
+        return current_size.x, round(height_full)
+
+
+    def on_button_ChangeTabSize_click(self, offset_pixel):
+        current_size = unreal.ChameleonData.get_chameleon_window_size(self.jsonPath)
+        print(f"currentSize: {current_size}")
+        offsets = self.data.get_scroll_box_offsets(self.ui_scrollbox)
+        print(offsets)
+        if current_size:
+            current_size.x += offset_pixel
+            unreal.ChameleonData.set_chameleon_window_size("ChameleonGallery/ChameleonGallery.json", current_size)
+
+    def on_button_FlashWindow_click(self):
+        unreal.ChameleonData.flash_chameleon_window("ChameleonGallery/ChameleonGallery.json")
+
+    def on_button_Snapshot_click(self):
+        full_size = self.get_full_size_of_this_chameleon()
+        print(f"try save snapshot @ {full_size}")
+        saved_file_path = unreal.ChameleonData.snapshot_chameleon_window(self.jsonPath, unreal.Vector2D(*full_size))
+        if saved_file_path:
+            unreal.PythonBPLib.notification(f"UI Snapshot Saved:", hyperlink_text = saved_file_path
+                                        , on_hyperlink_click_command = f'chameleon_gallery.explorer("{saved_file_path}")')
+        else:
+            unreal.PythonBPLib.notification(f"Save UI snapshot failed.", info_level = 1)
+
+    def explorer(self, file_path):
+        if sys.platform == "darwin":
+            webbrowser.open(os.path.dirname(file_path))
+        else:
+            file_path = file_path.replace("/", "\\")
+            subprocess.call('explorer "{}" '.format(os.path.dirname(file_path)))

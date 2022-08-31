@@ -169,5 +169,51 @@
                 ]
             }
         ]
+    },
+    "OnOutlineMenu": {
+        "name:": "Python Menu On OutlineMenu",
+        "items":
+        [
+            {
+                "name": "Print selected actors",
+                "command": "print(unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_selected_level_actors())"
+            }
+        ]
+    },
+    "OnMaterialEditorMenu": {
+        "name": "Python Menu On Material Editor",
+        "items":
+        [
+            {
+                "name": "TA Python Material Example",
+                "items": [
+                    {
+                        "name": "Print Editing Material / MF",
+                        "command": "print(%asset_paths)"
+                    },
+                    {
+                        "name": "Log Editing Nodes",
+                        "command": "editing_asset = unreal.load_asset(%asset_paths[0]); unreal.PythonMaterialLib.log_editing_nodes(editing_asset)"
+                    },
+                    {
+                        "name": "Selected Nodes --> global variable _r",
+                        "command": "_r = unreal.PythonMaterialLib.get_selected_nodes_in_material_editor(unreal.load_asset(%asset_paths[0]))"
+                    },
+                    {
+                        "name": "Selected Node --> _r",
+                        "command": "_r = unreal.PythonMaterialLib.get_selected_nodes_in_material_editor(unreal.load_asset(%asset_paths[0]))[0]"
+                    }
+                ]
+            }
+        ]
+    },
+    "OnTabContextMenu":{
+        "name": "TA Python Tab",
+        "items": [
+            {
+                "name": "Reload this tool",
+                "command": "unreal.ChameleonData.request_close(%tool_path); unreal.ChameleonData.launch_chameleon_tool(%tool_path)"
+            }
+        ]
     }
 }

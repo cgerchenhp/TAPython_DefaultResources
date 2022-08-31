@@ -232,7 +232,10 @@ class ObjectDetailViewer(metaclass=Singleton):
             if isinstance(obj, unreal.Object):
                 label = obj.get_name()
             else:
-                label = obj.__str__()
+                try:
+                    label = obj.__str__()
+                except TypeError:
+                    label = f"{obj}"
 
         if bPush: # push
             # print(f"%%% push: {propertyName}, label {label}")
@@ -264,7 +267,7 @@ class ObjectDetailViewer(metaclass=Singleton):
         else:
             assert len(self.left.hisCrumbObjsAndNames) == 0, "len(self.left.hisCrumbObjsAndNames) != 0"
 
-        self.query_and_push(obj, "", bPush=True, bRight=bRight)
+        self.query_and_push(obj, "", bPush=True, bRight= bRight)
         self.apply_compare_if_needed()
         self.update_log_text(bRight)
 
@@ -387,9 +390,9 @@ class ObjectDetailViewer(metaclass=Singleton):
         if not bRight:
             assert self.left.hisCrumbObjsAndNames == data.hisCrumbObjsAndNames, "self.left.hisCrumbObjsAndNames = data.hisCrumbObjsAndNames"
 
-        self.query_and_push(nextObj, name, bPush=False, bRight=bRight)
+        self.query_and_push(nextObj, name, bPush=False, bRight=False)
         self.apply_compare_if_needed()
-        self.update_log_text(bRight=bRight)
+        self.update_log_text(bRight=False)
 
     def on_breadcrumbtrail_ObjectHisLeft_crumb_click(self, item):
         self.on_breadcrumbtrail_click_do(item, bRight=False)
@@ -417,6 +420,9 @@ class ObjectDetailViewer(metaclass=Singleton):
             for j, right_attr in enumerate(rights):
                 if right_attr.name == left_attr.name:
                     if right_attr.result != left_attr.result:
+                        if isinstance(right_attr.result, unreal.Transform):
+                            if right_attr.result.is_near_equal(left_attr.result, location_tolerance=1e-20, rotation_tolerance=1e-20, scale3d_tolerance=1e-20):
+                                continue
                         leftIDs.append(i)
                         rightIDs.append(j)
                         break
@@ -436,14 +442,14 @@ class ObjectDetailViewer(metaclass=Singleton):
 
 
     def on_searchbox_FilterLeft_text_changed(self, text):
-        self.apply_search_filter(text, bRight=False)
+        self.apply_search_filter(text if text is not None else "", bRight=False)
     def on_searchbox_FilterLeft_text_committed(self, text):
-        self.apply_search_filter(text, bRight=False)
+        self.apply_search_filter(text if text is not None else "", bRight=False)
 
     def on_searchbox_FilterRight_text_changed(self, text):
-        self.apply_search_filter(text, bRight=True)
+        self.apply_search_filter(text if text is not None else "", bRight=True)
     def on_searchbox_FilterRight_text_committed(self, text):
-        self.apply_search_filter(text, bRight=True)
+        self.apply_search_filter(text if text is not None else "", bRight=True)
 
 
     def apply_filter(self):

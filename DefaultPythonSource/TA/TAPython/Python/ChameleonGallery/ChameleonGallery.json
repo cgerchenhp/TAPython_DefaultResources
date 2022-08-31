@@ -1,6 +1,6 @@
 ﻿{
     "TabLabel": "Chameleon Gallery",
-    "InitTabSize": [530, 890],
+    "InitTabSize": [560, 890],
     "InitTabPosition": [1000, 110],
     "InitPyCmd": "import ChameleonGallery; chameleon_gallery = ChameleonGallery.ChameleonGallery.ChameleonGallery(%JsonPath); chameleon_gallery.mark_python_ready();",
     "Root":{
@@ -13,6 +13,7 @@
             },
             "Content":{
                 "SScrollBox": {
+                    "Aka": "ScrollBox",
                     "Slots":
                     [
                         {
@@ -357,7 +358,7 @@
                                         "Column_Row": [1, 11],
                                         "SRichTextBlock":
                                         {
-                                            "Text": "<RichTextBlock.Bold>Blod</>  <RichTextBlock.TextHighlight>Highlight</>  <Credits.H2>Unreal</>"
+                                            "Text": "<RichTextBlock.Bold>Bold</>  <RichTextBlock.TextHighlight>Highlight</>  <Credits.H2>Unreal</>"
                                         }
                                     },
                                     {
@@ -441,7 +442,21 @@
                                             "SelectAllTextWhenFocused": true,
                                             "HintText": "Type some thing, and press enter",
                                             "OnTextChanged": "print(%)",
-                                            "OnTextCommitted": "print('input text: {}'.format(%))"
+                                            "OnTextCommitted": "print('input text: {}'.format(%))",
+                                            "OnContextMenuOpening":
+                                            {
+                                                "items":
+                                                [
+                                                    {
+                                                        "name": "ContextMenu A",
+                                                        "Command": "print ('ContextMenu A')"
+                                                    },
+                                                    {
+                                                        "name": "ContextMenu B",
+                                                        "Command": "print ('ContextMenu B')"
+                                                    }
+                                                ]
+                                            }
                                         }
                                     },
                                     {
@@ -533,7 +548,7 @@
                                         "Column_Row": [1, 21],
                                         "SMultiLineEditableTextBox":
                                         {
-                                            "Text": "Muti-line Box\nSpacing comes from HorizontalBox and SVerticalBox\nLine 1\nLine 2\nLine 3",
+                                            "Text": "Multi-line Box\nSpacing comes from HorizontalBox and SVerticalBox\nLine 1\nLine 2\nLine 3",
                                             "HintText": "This is a SMultiLineEditableTextBox",
                                             "ToolTipText": "Read only",
                                             "Padding": 10,
@@ -554,7 +569,7 @@
                                         "Padding": [0,4],
                                         "Column_Row": [1, 22],
                                         "SMultiLineEditableTextBox": {
-                                            "Text": "Muti-line Box \nSpacing comes from SMultiLineEditableText\nLine 1\nLine 2\nLine 3",
+                                            "Text": "Multi-line Box \nSpacing comes from SMultiLineEditableText\nLine 1\nLine 2\nLine 3",
                                             "HintText": "This is a SMultiLineEditableTextBox",
                                             "ToolTipText": "Read only",
                                             "Margin": 10,
@@ -1186,7 +1201,7 @@
                                         "Padding": [0, 4],
                                         "Column_Row": [1, 43],
                                         "SHyperlink":{
-                                            "Text": "www.TaColour.xyz"
+                                            "Text": "www.TaColor.xyz"
                                         }
                                     },
                                     {
@@ -1481,7 +1496,7 @@
                                                 ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.ModifiedOtherBranch"}}}
                                                 ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.NotAtHeadRevision"}}}
                                             ],
-                                            "ToolTipText": "UniformWrapPannel will auto wrap the children."
+                                            "ToolTipText": "UniformWrapPanel will auto wrap the children."
                                         }
                                     },
                                     {
@@ -1501,7 +1516,7 @@
                                         "Column_Row": [0, 55],
                                         "STextBlock":
                                         {
-                                            "Text": "DropTarget"
+                                        "Text": "DropTarget"
                                         }
                                     },
                                     {
@@ -1637,9 +1652,80 @@
                                             }
                                         }
                                     },
-
                                     {
                                         "Column_Row": [0, 58],
+                                        "STextBlock":
+                                        {
+                                        "Text": "Change Tools Tab Size"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 58],
+                                        "SHorizontalBox": 
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "SButton": {
+                                                        "Text": "<-- 20 pixel",
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "ContentPadding": 4,
+                                                        "OnClick": "chameleon_gallery.on_button_ChangeTabSize_click(-20)"
+                                                    }
+                                                },
+                                                {
+                                                    "SButton": {
+                                                        "Text": "20 pixel -->",
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "ContentPadding": 4,
+                                                        "OnClick": "chameleon_gallery.on_button_ChangeTabSize_click(20)"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 59],
+                                        "STextBlock":
+                                        {
+                                        "Text": "Flash Window"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 59],
+                                        "SHorizontalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "SButton":
+                                                    {
+                                                        "Text": "Flash Window",
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "ContentPadding": 4,
+                                                        "ToolTipText": "Flash Window",
+                                                        "OnClick": "chameleon_gallery.on_button_FlashWindow_click()"
+                                                    }
+                                                },
+                                                {
+                                                    "SButton": {
+                                                        "Text": "Save Snapshot ",
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "ContentPadding": 4,
+                                                        "OnClick": "chameleon_gallery.on_button_Snapshot_click()"
+                                                    }
+                                                }
+                                            ]
+                                        }
+
+
+                                    },
+                                    {
+                                        "Column_Row": [0, 60],
                                         "STextBlock":
                                         {
                                         "Text": "Launch all Gallery"
@@ -1647,7 +1733,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 58],
+                                        "Column_Row": [1, 60],
                                         "SButton": {
                                             "Text": "Launch Editor Style Galleries",
                                             "HAlign": "Center",
@@ -1656,7 +1742,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 59],
+                                        "Column_Row": [0, 61],
                                         "STextBlock":
                                         {
                                         "Text": "Close all Gallery"
@@ -1664,7 +1750,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 59],
+                                        "Column_Row": [1, 61],
                                         "SButton": {
                                             "Text": "Close Editor Style Galleries",
                                             "HAlign": "Center",
@@ -1672,6 +1758,7 @@
                                             "OnClick": "chameleon_gallery.request_close_other_galleries()"
                                         }
                                     }
+
                                 ]
                             }
                         }
@@ -1681,3 +1768,4 @@
         }
     }
 }
+

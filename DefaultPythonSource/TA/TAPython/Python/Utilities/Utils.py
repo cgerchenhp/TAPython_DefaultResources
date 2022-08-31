@@ -279,10 +279,11 @@ def get_selected_assets():
     return assets
 
 def get_selected_actors():
-    return unreal.EditorLevelLibrary.get_selected_level_actors()
+    return unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_selected_level_actors()
+
 
 def get_selected_actor():
-    actors = unreal.EditorLevelLibrary.get_selected_level_actors()
+    actors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_selected_level_actors()
     return actors[0] if len(actors) > 0 else None
 
 def set_preview_es31():
@@ -375,7 +376,7 @@ def set_default_encoding(encodingStr):
 
 
 def get_actors_at_location(location, error_tolerance):
-    allActors = unreal.EditorLevelLibrary.get_all_level_actors()
+    allActors = unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_selected_level_actors()
     result = [_actor for _actor in allActors if _actor.get_actor_location().is_near_equal(location, error_tolerance)]
     return result
 
@@ -385,7 +386,7 @@ def select_actors_at_location(location, error_tolerance, actorTypes=None):
         print("Total {} actor(s) with the same locations.".format(len(actors)))
         if actorTypes is not None:
             actors = [actor for actor in actors if type(actor) in actorTypes]
-        unreal.EditorLevelLibrary.set_selected_level_actors(actors)
+        unreal.get_editor_subsystem(unreal.EditorActorSubsystem).set_selected_level_actors(actors)
         return actors
     else:
         print("None actor with the same locations.")
@@ -473,3 +474,30 @@ class EObjectFlags(IntFlag):
 	RF_PendingKill              = 0x20000000,	#< Objects that are pending destruction (invalid for gameplay but valid objects).  UE_DEPRECATED(5.0, "RF_PendingKill should not be used directly. Make sure references to objects are released using one of the existing engine callbacks or use weak object pointers.")  This flag is mirrored in EInternalObjectFlags as PendingKill for performance
 	RF_Garbage                  =0x40000000,	#< Garbage from logical point of view and should not be referenced.  UE_DEPRECATED(5.0, "RF_Garbage should not be used directly. Use MarkAsGarbage and ClearGarbage instead.")  This flag is mirrored in EInternalObjectFlags as Garbage for performance
 	RF_AllocatedInSharedPage	=0x80000000,	#< Allocated from a ref-counted page shared with other UObjects
+
+
+class EMaterialValueType(IntFlag):
+	MCT_Float1		= 1,
+	MCT_Float2		= 2,
+	MCT_Float3		= 4,
+	MCT_Float4		= 8,
+	MCT_Texture2D	          = 1 << 4,
+	MCT_TextureCube	          = 1 << 5,
+	MCT_Texture2DArray		  = 1 << 6,
+	MCT_TextureCubeArray      = 1 << 7,
+	MCT_VolumeTexture         = 1 << 8,
+	MCT_StaticBool            = 1 << 9,
+	MCT_Unknown               = 1 << 10,
+	MCT_MaterialAttributes	  = 1 << 11,
+	MCT_TextureExternal       = 1 << 12,
+	MCT_TextureVirtual        = 1 << 13,
+	MCT_VTPageTableResult     = 1 << 14,
+
+	MCT_ShadingModel		  = 1 << 15,
+	MCT_Strata				  = 1 << 16,
+	MCT_LWCScalar			  = 1 << 17,
+	MCT_LWCVector2			  = 1 << 18,
+	MCT_LWCVector3			  = 1 << 19,
+	MCT_LWCVector4			  = 1 << 20,
+	MCT_Execution             = 1 << 21,
+	MCT_VoidStatement         = 1 << 22,
