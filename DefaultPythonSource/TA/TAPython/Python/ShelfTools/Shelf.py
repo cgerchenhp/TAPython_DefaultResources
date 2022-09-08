@@ -216,7 +216,7 @@ class Shelf(metaclass=Singleton):
         if shortcut.drop_type == ShelfItem.ITEM_TYPE_PY_CMD:
             eval(shortcut.py_cmd)
         elif shortcut.drop_type == ShelfItem.ITEM_TYPE_CHAMELEON:
-            unreal.ChameleonData.launch_chamelmeon_tool(shortcut.chameleon_json)
+            unreal.ChameleonData.launch_chameleon_tool(shortcut.chameleon_json)
         elif shortcut.drop_type == ShelfItem.ITEM_TYPE_ACTOR:
             self.select_actors(shortcut.actors) # do anything what you want
         elif shortcut.drop_type == ShelfItem.ITEM_TYPE_ASSETS:
