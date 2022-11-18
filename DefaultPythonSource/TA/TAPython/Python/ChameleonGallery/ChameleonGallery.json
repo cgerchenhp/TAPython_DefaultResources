@@ -39,7 +39,6 @@
                                                                         "Style": "FCoreStyle",
                                                                         "Brush": "Icons.ErrorWithColor"
                                                                     },
-
                                                                     "DesiredSizeOverride": [80, 80]
                                                                 }
                                                             },
@@ -1609,13 +1608,12 @@
                                     {
                                         "Padding": [ 0, 4],
                                         "Column_Row": [1, 57],
-										"SExpandableArea": {
+                                        "SExpandableArea": {
                                             "Aka": "expandable",
                                             "BorderImage": {
                                                 "Style": "FEditorStyle",
                                                 "Brush": "DetailsView.CategoryTop"
                                             },
-
                                             "HeaderPadding": 3,
                                             "OnAreaExpansionChanged": "print('OnAreaExpansionChanged text: {}'.format(%))",
                                             "HeaderContent": {
@@ -1654,6 +1652,51 @@
                                     },
                                     {
                                         "Column_Row": [0, 58],
+                                        "SHorizontalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "STextBlock": { "Text": "SDetailsView" }
+                                                },
+                                                {
+                                                    "AutoWidth": true,
+                                                    "SVerticalBox":
+                                                    {
+                                                        "Slots": [
+                                                            {
+                                                                "AutoHeight": true,
+                                                                "SButton":
+                                                                {
+                                                                    "Text": "Load Selected Actor",
+                                                                    "HAlign": "Center",
+                                                                    "VAlign": "Center",
+                                                                    "ContentPadding": 4,
+                                                                    "ToolTipText": "",
+                                                                    "OnClick": "chameleon_gallery.set_selected_actor_to_details_view()"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 58],
+                                        "SBox":
+                                        {
+                                            "MaxDesiredHeight": 400,
+                                            "Content": {
+                                                "SDetailsView": {
+                                                    "Aka": "DetailsView"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 59],
                                         "STextBlock":
                                         {
                                         "Text": "Change Tools Tab Size"
@@ -1661,7 +1704,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 58],
+                                        "Column_Row": [1, 59],
                                         "SHorizontalBox": 
                                         {
                                             "Slots": [
@@ -1687,7 +1730,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 59],
+                                        "Column_Row": [0, 60],
                                         "STextBlock":
                                         {
                                         "Text": "Flash Window"
@@ -1695,7 +1738,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 59],
+                                        "Column_Row": [1, 60],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1721,11 +1764,9 @@
                                                 }
                                             ]
                                         }
-
-
                                     },
                                     {
-                                        "Column_Row": [0, 60],
+                                        "Column_Row": [0, 61],
                                         "STextBlock":
                                         {
                                         "Text": "Launch all Gallery"
@@ -1733,7 +1774,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 60],
+                                        "Column_Row": [1, 61],
                                         "SButton": {
                                             "Text": "Launch Editor Style Galleries",
                                             "HAlign": "Center",
@@ -1742,15 +1783,12 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 61],
-                                        "STextBlock":
-                                        {
-                                        "Text": "Close all Gallery"
-                                        }
+                                        "Column_Row": [0, 62],
+                                        "STextBlock": { "Text": "Close all Gallery" }
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 61],
+                                        "Column_Row": [1, 62],
                                         "SButton": {
                                             "Text": "Close Editor Style Galleries",
                                             "HAlign": "Center",
@@ -1758,7 +1796,6 @@
                                             "OnClick": "chameleon_gallery.request_close_other_galleries()"
                                         }
                                     }
-
                                 ]
                             }
                         }
@@ -1768,4 +1805,3 @@
         }
     }
 }
-

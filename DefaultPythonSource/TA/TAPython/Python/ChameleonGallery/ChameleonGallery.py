@@ -23,11 +23,14 @@ class ChameleonGallery(metaclass=Singleton):
         self.ui_python_not_ready = "IsPythonReadyImg"
         self.ui_python_is_ready = "IsPythonReadyImgB"
         self.ui_is_python_ready_text = "IsPythonReadyText"
+        self.ui_details_view = "DetailsView"
         self.imageFlagA = 0
         self.imageFlagB = 0
         # set data in init
         self.set_random_image_data()
         self.data.set_combo_box_items('CombBoxA', ['1', '3', '5'])
+
+        self.data.set_object(self.ui_details_view,  self.data)
         print("ChameleonGallery.Init")
 
     def mark_python_ready(self):
@@ -73,7 +76,7 @@ class ChameleonGallery(metaclass=Singleton):
 
     def launch_other_galleries(self):
         if not os.path.exists(os.path.join(os.path.dirname(__file__), 'auto_gen/border_brushes_Gallery.json')):
-            unreal.PythonBPLib.notification("auto-generated Gallerys not exists", info_level=1)
+            unreal.PythonBPLib.notification("auto-generated Galleries not exists", info_level=1)
             return
 
         gallery_paths = ['ChameleonGallery/auto_gen/border_brushes_Gallery.json',
@@ -99,7 +102,7 @@ class ChameleonGallery(metaclass=Singleton):
 
     def request_close_other_galleries(self):
         if not os.path.exists(os.path.join(os.path.dirname(__file__), 'auto_gen/border_brushes_Gallery.json')):
-            unreal.PythonBPLib.notification("auto-generated Gallerys not exists", info_level=1)
+            unreal.PythonBPLib.notification("auto-generated Galleries not exists", info_level=1)
             return
         gallery_paths = ['ChameleonGallery/auto_gen/border_brushes_Gallery.json',
                          'ChameleonGallery/auto_gen/image_brushes_Gallery.json',
@@ -177,3 +180,10 @@ class ChameleonGallery(metaclass=Singleton):
         else:
             file_path = file_path.replace("/", "\\")
             subprocess.call('explorer "{}" '.format(os.path.dirname(file_path)))
+
+    def set_selected_actor_to_details_view(self):
+        selected = unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_selected_level_actors()
+        if selected:
+            self.data.set_object(self.ui_details_view, selected[0])
+        else:
+            print("Selected None")
