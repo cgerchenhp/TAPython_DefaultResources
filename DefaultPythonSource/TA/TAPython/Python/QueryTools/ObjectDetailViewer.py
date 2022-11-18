@@ -82,14 +82,22 @@ class ObjectDetailViewer(metaclass=Singleton):
     def on_close(self):
         self.reset()
 
-    def reset(self):
-        self.showBuiltin = True
-        self.showOther = True
-        self.showProperties = True
-        self.showEditorProperties = True
-        self.showParamFunction = True
+    def on_map_changed(self, map_change_type_str):
+        # remove the reference, avoid memory leaking when load another map.
+        if map_change_type_str == "TearDownWorld":
+            self.reset(bResetParameter=False)
+        else:
+            pass # skip: LoadMap, SaveMap, NewMap
 
-        self.compareMode = False
+    def reset(self, bResetParameter=True):
+        if bResetParameter:
+            self.showBuiltin = True
+            self.showOther = True
+            self.showProperties = True
+            self.showEditorProperties = True
+            self.showParamFunction = True
+
+            self.compareMode = False
         self.left = None
         self.right = None
         self.leftSearchText = ""
@@ -99,6 +107,20 @@ class ObjectDetailViewer(metaclass=Singleton):
         self.left_plain = None
         self.var = None
         self.diff_count = 0
+        self.clear_ui_info()
+
+
+    def clear_ui_info(self):
+        for text_ui in [self.ui_info_output, self.ui_labelLeft, self.ui_labelRight]:
+            self.data.set_text(text_ui, "")
+
+        self.data.set_list_view_multi_column_items(self.ui_detailListLeft, [], 2)
+        self.data.set_list_view_multi_column_items(self.ui_detailListRight, [], 2)
+
+        for ui_breadcrumb in [self.ui_hisObjsBreadcrumbRight, self.ui_hisObjsBreadcrumbLeft]:
+            crumbCount = self.data.get_breadcrumbs_count_string(ui_breadcrumb)
+            for i in range(crumbCount):
+                self.data.pop_breadcrumb_string(ui_breadcrumb)
 
 
     def update_log_text(self, bRight):

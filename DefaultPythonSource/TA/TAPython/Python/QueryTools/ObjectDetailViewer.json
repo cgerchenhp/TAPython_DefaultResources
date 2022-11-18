@@ -2,8 +2,9 @@
 	"TabLabel": "Object Detail Viewer",
 	"InitTabSize": [800, 600],
 	"InitTabPosition": [180, 400],
-	"InitPyCmd": "import QueryTools; chemeleon_objectDetailViewer = QueryTools.ObjectDetailViewer.ObjectDetailViewer(%JsonPath);",
-	"OnClosePyCmd": "chemeleon_objectDetailViewer.on_close()",
+	"InitPyCmd": "import QueryTools; chameleon_objectDetailViewer = QueryTools.ObjectDetailViewer.ObjectDetailViewer(%JsonPath);",
+	"OnClosePyCmd": "chameleon_objectDetailViewer.on_close()",
+	"OnMapChangedCmd": "chameleon_objectDetailViewer.on_map_changed(%map_change_type)",
 	"Root":{
 		"SBorder":
 		{
@@ -43,7 +44,7 @@
                                            },
 											"IsChecked": true,
 											"Padding": 6,
-											"OnCheckStateChanged": "chemeleon_objectDetailViewer.on_checkbox_SingleMode_Click(%)"
+											"OnCheckStateChanged": "chameleon_objectDetailViewer.on_checkbox_SingleMode_Click(%)"
 										}
 									},
 									{
@@ -64,7 +65,7 @@
 												"StyleName": "Menu.ToggleButton"
 											},
 											"Padding": 6,
-											"OnCheckStateChanged": "chemeleon_objectDetailViewer.on_checkbox_CompareMode_Click(%)"
+											"OnCheckStateChanged": "chameleon_objectDetailViewer.on_checkbox_CompareMode_Click(%)"
 										}
 									},
 									{
@@ -79,7 +80,7 @@
 														"Visibility": "Collapsed",
 														"HAlign": "Center",
 														"VAlign": "Center",
-														"OnClick": "chemeleon_objectDetailViewer.apply_compare_if_needed()"
+														"OnClick": "chameleon_objectDetailViewer.apply_compare_if_needed()"
 													}
 												}
 											]
@@ -101,7 +102,7 @@
 													"SButton": {
 														"ContentPadding": 6,
 														"Text": "Query Asset",
-														"OnClick": "chemeleon_objectDetailViewer.on_button_SelectAsset_click(bRightSide=False)"
+														"OnClick": "chameleon_objectDetailViewer.on_button_SelectAsset_click(bRightSide=False)"
 													}
 												},
 												{
@@ -109,7 +110,7 @@
 													"SButton": {
 														"ContentPadding": 6,
 														"Text": "Query Selected",
-														"OnClick": "chemeleon_objectDetailViewer.on_button_QuerySelected_click(bRightSide=False)"
+														"OnClick": "chameleon_objectDetailViewer.on_button_QuerySelected_click(bRightSide=False)"
 													}
 												},
 												{
@@ -117,7 +118,7 @@
 													"SButton": {
 														"ContentPadding": 6,
 														"Text": "Query Variable _r",
-														"OnClick": "if '_r' in globals():\n\tchemeleon_objectDetailViewer.on_button_Query_R_click(_r, bRightSide=False)\nelse:\n\tchemeleon_objectDetailViewer.log_r_warning()"
+														"OnClick": "if '_r' in globals():\n\tchameleon_objectDetailViewer.on_button_Query_R_click(_r, bRightSide=False)\nelse:\n\tchameleon_objectDetailViewer.log_r_warning()"
 													}
 												}
 											]
@@ -133,7 +134,7 @@
 													"SButton": {
 														"ContentPadding": 6,
 														"Text": "Query Asset Right",
-														"OnClick": "chemeleon_objectDetailViewer.on_button_SelectAsset_click(bRightSide=True)"
+														"OnClick": "chameleon_objectDetailViewer.on_button_SelectAsset_click(bRightSide=True)"
 													}
 												},
 												{
@@ -141,7 +142,7 @@
 													"SButton": {
 														"ContentPadding": 6,
 														"Text": "Query Selected Right",
-														"OnClick": "chemeleon_objectDetailViewer.on_button_QuerySelected_click(bRightSide=True)"
+														"OnClick": "chameleon_objectDetailViewer.on_button_QuerySelected_click(bRightSide=True)"
 													}
 												},
 												{
@@ -149,7 +150,7 @@
 													"SButton": {
 														"ContentPadding": 6,
 														"Text": "Query Variable _r",
-														"OnClick": "if '_r' in globals():\n\tchemeleon_objectDetailViewer.on_button_Query_R_click(_r, bRightSide=True)\nelse:\n\tchemeleon_objectDetailViewer.log_r_warning()"
+														"OnClick": "if '_r' in globals():\n\tchameleon_objectDetailViewer.on_button_Query_R_click(_r, bRightSide=True)\nelse:\n\tchameleon_objectDetailViewer.log_r_warning()"
 													}
 												}
 											]
@@ -173,7 +174,7 @@
 											}
 										},
 										"ColorAndOpacity": [0, 0.807843, 0.819608, 1],
-										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowBuiltin_state_changed(%)",
+										"OnCheckStateChanged": "chameleon_objectDetailViewer.ui_on_checkbox_ShowBuiltin_state_changed(%)",
 										"IsChecked": true
 									}
 								},
@@ -187,7 +188,7 @@
 											}
 										},
 										"ColorAndOpacity": [0.05, 0.15, 0.8, 1],
-										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowOther_state_changed(%)",
+										"OnCheckStateChanged": "chameleon_objectDetailViewer.ui_on_checkbox_ShowOther_state_changed(%)",
 										"IsChecked": true
 									}
 								},
@@ -201,7 +202,7 @@
 											}
 										},
 										"ColorAndOpacity": [0.5, 0.5, 0.5, 1],
-										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowParamFunction_state_changed(%)",
+										"OnCheckStateChanged": "chameleon_objectDetailViewer.ui_on_checkbox_ShowParamFunction_state_changed(%)",
 										"IsChecked": true
 									}
 								},
@@ -224,7 +225,7 @@
 											}
 										},
 										"ColorAndOpacity": [1, 1, 0, 1],
-										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowProperties_state_changed(%)",
+										"OnCheckStateChanged": "chameleon_objectDetailViewer.ui_on_checkbox_ShowProperties_state_changed(%)",
 										"IsChecked": true
 									}
 								},
@@ -239,7 +240,7 @@
 											}
 										},
 										"ColorAndOpacity": [0, 0.5, 0, 1],
-										"OnCheckStateChanged": "chemeleon_objectDetailViewer.ui_on_checkbox_ShowEditorProperties_state_changed(%)",
+										"OnCheckStateChanged": "chameleon_objectDetailViewer.ui_on_checkbox_ShowEditorProperties_state_changed(%)",
 										"IsChecked": true
 									}
 								}
@@ -265,7 +266,7 @@
 																	"Aka": "ObjectHisBreadcrumbLeft",
 																	"type": "string",
 																	"ButtonContentPadding": 1,
-																	"OnCrumbClick": "chemeleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisLeft_crumb_click(%)"
+																	"OnCrumbClick": "chameleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisLeft_crumb_click(%)"
 																}
 															}
 														]
@@ -286,15 +287,15 @@
 													"SSearchBox": {
 														"HintText": "Filter Text",
 														"ToolTipText": "Tool Tip",
-														"OnTextChanged": "chemeleon_objectDetailViewer.on_searchbox_FilterLeft_text_changed(%)",
-														"OnTextCommitted": "chemeleon_objectDetailViewer.on_searchbox_FilterLeft_text_committed(%)",
+														"OnTextChanged": "chameleon_objectDetailViewer.on_searchbox_FilterLeft_text_changed(%)",
+														"OnTextCommitted": "chameleon_objectDetailViewer.on_searchbox_FilterLeft_text_committed(%)",
 														"SelectAllTextWhenFocused": false,
 														"DelayChangeNotificationWhiteTyping": false
 													}
 												},
 												{
 													"SDropTarget": {
-														"OnDrop": "chemeleon_objectDetailViewer.on_drop(bRightSide=False, %**kwargs)",
+														"OnDrop": "chameleon_objectDetailViewer.on_drop(bRightSide=False, %**kwargs)",
 														"Content": {
 															"SListView<MultiColumn>": {
 																"ItemHeight": 6,
@@ -315,8 +316,8 @@
 																},
 																"ListItemsSource": [
 																],
-																"OnMouseButtonDoubleClick": "chemeleon_objectDetailViewer.on_listview_DetailListLeft_mouse_button_double_click(%Index)",
-																"OnSelectionChanged": "chemeleon_objectDetailViewer.ui_on_listview_DetailList_selection_changed(bRight=False)"
+																"OnMouseButtonDoubleClick": "chameleon_objectDetailViewer.on_listview_DetailListLeft_mouse_button_double_click(%Index)",
+																"OnSelectionChanged": "chameleon_objectDetailViewer.ui_on_listview_DetailList_selection_changed(bRight=False)"
 															}
 														}
 													}
@@ -340,7 +341,7 @@
 																	"Aka": "ObjectHisBreadcrumbRight",
 																	"type": "string",
 																	"ButtonContentPadding": 1,
-																	"OnCrumbClick": "chemeleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisRight_crumb_click(%)"
+																	"OnCrumbClick": "chameleon_objectDetailViewer.on_breadcrumbtrail_ObjectHisRight_crumb_click(%)"
 																}
 															}
 														]
@@ -361,15 +362,15 @@
 													"SSearchBox": {
 														"HintText": "Filter Text",
 														"ToolTipText": "Tool Tip",
-														"OnTextChanged": "chemeleon_objectDetailViewer.on_searchbox_FilterRight_text_changed(%)",
-														"OnTextCommitted": "chemeleon_objectDetailViewer.on_searchbox_FilterRight_text_committed(%)",
+														"OnTextChanged": "chameleon_objectDetailViewer.on_searchbox_FilterRight_text_changed(%)",
+														"OnTextCommitted": "chameleon_objectDetailViewer.on_searchbox_FilterRight_text_committed(%)",
 														"SelectAllTextWhenFocused": false,
 														"DelayChangeNotificationWhiteTyping": false
 													}
 												},
 												{
 													"SDropTarget": {
-														"OnDrop": "chemeleon_objectDetailViewer.on_drop(bRightSide=True, %**kwargs)",
+														"OnDrop": "chameleon_objectDetailViewer.on_drop(bRightSide=True, %**kwargs)",
 														"Content": {
 															"SListView<MultiColumn>": {
 																"ItemHeight": 6,
@@ -390,8 +391,8 @@
 																},
 																"ListItemsSource": [
 																],
-																"OnMouseButtonDoubleClick": "chemeleon_objectDetailViewer.on_listview_DetailListRight_mouse_button_double_click(%Index)",
-																"OnSelectionChanged": "chemeleon_objectDetailViewer.ui_on_listview_DetailList_selection_changed(bRight=True)"
+																"OnMouseButtonDoubleClick": "chameleon_objectDetailViewer.on_listview_DetailListRight_mouse_button_double_click(%Index)",
+																"OnSelectionChanged": "chameleon_objectDetailViewer.ui_on_listview_DetailList_selection_changed(bRight=True)"
 															}
 														}
 													}
