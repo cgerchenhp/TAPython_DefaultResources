@@ -1,0 +1,84 @@
+{
+    "TabLabel": "Editable Text Box Style Gallery",
+    "InitTabSize": [530, 250],
+    "InitTabPosition": [730, 800],
+    "InitPyCmd": "",
+    "Root":{
+        "SBorder":
+        {
+            "BorderImage":
+            {
+                "Style": "FCoreStyle",
+                "Brush": "ToolPanel.GroupBorder"
+            },
+            "Content":{
+                "SScrollBox": {
+                    "Slots":
+                    [
+                        {
+                            "Padding": 5,
+                            "SGridPanel":
+                            {
+                                "FillColumn": [[0,0.5],[1,0.5]],
+                                "Slots":
+                                [
+{"Column_Row": [0, 0], "STextBlock": {"Text": "FEditorStyle.SpecialEditableTextBox"}},
+{	"Padding": [0,4], "Column_Row": [1, 0], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "SpecialEditableTextBox"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 1], "STextBlock": {"Text": "FEditorStyle.Sequencer.ExposedNamePill.Input"}},
+{	"Padding": [0,4], "Column_Row": [1, 1], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Sequencer.ExposedNamePill.Input"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 2], "STextBlock": {"Text": "FEditorStyle.Sequencer.HyperlinkTextBox"}},
+{	"Padding": [0,4], "Column_Row": [1, 2], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Sequencer.HyperlinkTextBox"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 3], "STextBlock": {"Text": "FEditorStyle.Graph.StateNode.NodeTitleEditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 3], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Graph.StateNode.NodeTitleEditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 4], "STextBlock": {"Text": "FEditorStyle.Graph.Node.NodeTitleEditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 4], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Graph.Node.NodeTitleEditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 5], "STextBlock": {"Text": "FEditorStyle.Graph.CommentBlock.TitleEditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 5], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Graph.CommentBlock.TitleEditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 6], "STextBlock": {"Text": "FEditorStyle.PinnedCommandList.EditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 6], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "PinnedCommandList.EditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 7], "STextBlock": {"Text": "FEditorStyle.ViewportPinnedCommandList.EditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 7], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "ViewportPinnedCommandList.EditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 8], "STextBlock": {"Text": "FEditorStyle.ReferenceViewer.PathText"}},
+{	"Padding": [0,4], "Column_Row": [1, 8], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "ReferenceViewer.PathText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 9], "STextBlock": {"Text": "FEditorStyle.PhysicsAssetEditor.Profiles.EditableTextBoxStyle"}},
+{	"Padding": [0,4], "Column_Row": [1, 9], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "PhysicsAssetEditor.Profiles.EditableTextBoxStyle"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 10], "STextBlock": {"Text": "FEditorStyle.SpecialEditableTextBox"}},
+{	"Padding": [0,4], "Column_Row": [1, 10], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "SpecialEditableTextBox"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 11], "STextBlock": {"Text": "FEditorStyle.Sequencer.ExposedNamePill.Input"}},
+{	"Padding": [0,4], "Column_Row": [1, 11], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Sequencer.ExposedNamePill.Input"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 12], "STextBlock": {"Text": "FEditorStyle.Sequencer.HyperlinkTextBox"}},
+{	"Padding": [0,4], "Column_Row": [1, 12], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Sequencer.HyperlinkTextBox"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 13], "STextBlock": {"Text": "FEditorStyle.Graph.StateNode.NodeTitleEditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 13], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Graph.StateNode.NodeTitleEditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 14], "STextBlock": {"Text": "FEditorStyle.Graph.Node.NodeTitleEditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 14], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Graph.Node.NodeTitleEditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 15], "STextBlock": {"Text": "FEditorStyle.Graph.CommentBlock.TitleEditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 15], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "Graph.CommentBlock.TitleEditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 16], "STextBlock": {"Text": "FEditorStyle.PinnedCommandList.EditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 16], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "PinnedCommandList.EditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 17], "STextBlock": {"Text": "FEditorStyle.ViewportPinnedCommandList.EditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 17], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "ViewportPinnedCommandList.EditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 18], "STextBlock": {"Text": "FEditorStyle.ReferenceViewer.PathText"}},
+{	"Padding": [0,4], "Column_Row": [1, 18], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "ReferenceViewer.PathText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 19], "STextBlock": {"Text": "FEditorStyle.PhysicsAssetEditor.Profiles.EditableTextBoxStyle"}},
+{	"Padding": [0,4], "Column_Row": [1, 19], "SEditableTextBox": {"Style":{ "Style": "FEditorStyle", "StyleName": "PhysicsAssetEditor.Profiles.EditableTextBoxStyle"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 20], "STextBlock": {"Text": "FCoreStyle.NormalEditableTextBox"}},
+{	"Padding": [0,4], "Column_Row": [1, 20], "SEditableTextBox": {"Style":{ "Style": "FCoreStyle", "StyleName": "NormalEditableTextBox"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 21], "STextBlock": {"Text": "FCoreStyle.DarkEditableTextBox"}},
+{	"Padding": [0,4], "Column_Row": [1, 21], "SEditableTextBox": {"Style":{ "Style": "FCoreStyle", "StyleName": "DarkEditableTextBox"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 22], "STextBlock": {"Text": "FCoreStyle.Menu.EditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 22], "SEditableTextBox": {"Style":{ "Style": "FCoreStyle", "StyleName": "Menu.EditableText"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 23], "STextBlock": {"Text": "FCoreStyle.DarkEditableTextBox"}},
+{	"Padding": [0,4], "Column_Row": [1, 23], "SEditableTextBox": {"Style":{ "Style": "FCoreStyle", "StyleName": "DarkEditableTextBox"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 24], "STextBlock": {"Text": "FCoreStyle.NormalEditableTextBox"}},
+{	"Padding": [0,4], "Column_Row": [1, 24], "SEditableTextBox": {"Style":{ "Style": "FCoreStyle", "StyleName": "NormalEditableTextBox"}, "Text": "This is a SEditableTextBox"}},
+{"Column_Row": [0, 25], "STextBlock": {"Text": "FCoreStyle.Menu.EditableText"}},
+{	"Padding": [0,4], "Column_Row": [1, 25], "SEditableTextBox": {"Style":{ "Style": "FCoreStyle", "StyleName": "Menu.EditableText"}, "Text": "This is a SEditableTextBox"}}                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
