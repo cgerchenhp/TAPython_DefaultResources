@@ -59,7 +59,7 @@ class attr_detail(object):
                 else:
                     self.doc_str = docForDisplay[docForDisplay.find(')') + 1:]
 
-                if argCount == 0 or (argCount == -1 and paramStr == ''):
+                if argCount == 0 or (argCount == -1 and (paramStr == '' or paramStr == 'self')):
                     # Method with No params
 
                     if '-> None' not in docForDisplay or self.name in ["__reduce__", "_post_init"]:
