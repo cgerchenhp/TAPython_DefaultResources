@@ -38,7 +38,7 @@
                 "items": [
                     {
                         "name": "Example (3): Log BP Classes",
-                        "tooltip": "Only Actived when Blueprint selected",
+                        "tooltip": "Only Active when Blueprint selected",
                         "command": "import Utilities, QueryTools; QueryTools.Utils.log_classes(Utilities.Utils.get_selected_assets()[0]) ",
                         "canExecuteAction": "import QueryTools; return QueryTools.Utils.is_selected_asset_type([unreal.Blueprint])"
                     }
@@ -90,7 +90,7 @@
                 "name": "Query Tools",
                 "items": [
                     {
-                        "name": "Print Selected Assets Referencers",
+                        "name": "Print Selected Assets References",
                         "command": "import QueryTools; QueryTools.queryTools.print_selected_assets_refs()"
                     },
                     {
@@ -209,11 +209,19 @@
     },
     "OnTabContextMenu":{
         "name": "TA Python Tab",
-        "items": [
-            {
-                "name": "Reload this tool",
-                "command": "unreal.ChameleonData.request_close(%tool_path); unreal.ChameleonData.launch_chameleon_tool(%tool_path)"
-            }
-        ]
+      "items": [
+        {
+          "name": "Log tool's json path",
+          "command": "print(%tool_path)"
+        },
+        {
+          "name": "Log instance variable name",
+          "command": "import Utilities; Utilities.Utils.guess_instance_name(%tool_path)"
+        },
+        {
+          "name": "Reload this tool",
+          "command": "unreal.ChameleonData.request_close(%tool_path); unreal.ChameleonData.launch_chameleon_tool(%tool_path)"
+        }
+      ]
     }
 }

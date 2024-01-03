@@ -4,6 +4,7 @@ import sys
 import pydoc
 import inspect
 import os
+import json
 from enum import IntFlag
 
 
@@ -425,79 +426,88 @@ def get_chameleon_tool_instance(json_name):
 #
 class EObjectFlags(IntFlag):
     # Do not add new flags unless they truly belong here. There are alternatives.
-	# if you change any the bit of any of the RF_Load flags, then you will need legacy serialization
-	RF_NoFlags					= 0x00000000,	#< No flags, used to avoid a cast
+    # if you change any the bit of any of the RF_Load flags, then you will need legacy serialization
+    RF_NoFlags					= 0x00000000,	#< No flags, used to avoid a cast
 
-	# This first group of flags mostly has to do with what kind of object it is. Other than transient, these are the persistent object flags.
-	# The garbage collector also tends to look at these.
-	RF_Public					=0x00000001,	#< Object is visible outside its package.
-	RF_Standalone				=0x00000002,	#< Keep object around for editing even if unreferenced.
-	RF_MarkAsNative				=0x00000004,	#< Object (UField) will be marked as native on construction (DO NOT USE THIS FLAG in HasAnyFlags() etc)
-	RF_Transactional			=0x00000008,	#< Object is transactional.
-	RF_ClassDefaultObject		=0x00000010,	#< This object is its class's default object
-	RF_ArchetypeObject			=0x00000020,	#< This object is a template for another object - treat like a class default object
-	RF_Transient				=0x00000040,	#< Don't save object.
+    # This first group of flags mostly has to do with what kind of object it is. Other than transient, these are the persistent object flags.
+    # The garbage collector also tends to look at these.
+    RF_Public					=0x00000001,	#< Object is visible outside its package.
+    RF_Standalone				=0x00000002,	#< Keep object around for editing even if unreferenced.
+    RF_MarkAsNative				=0x00000004,	#< Object (UField) will be marked as native on construction (DO NOT USE THIS FLAG in HasAnyFlags() etc)
+    RF_Transactional			=0x00000008,	#< Object is transactional.
+    RF_ClassDefaultObject		=0x00000010,	#< This object is its class's default object
+    RF_ArchetypeObject			=0x00000020,	#< This object is a template for another object - treat like a class default object
+    RF_Transient				=0x00000040,	#< Don't save object.
 
-	# This group of flags is primarily concerned with garbage collection.
-	RF_MarkAsRootSet			=0x00000080,	#< Object will be marked as root set on construction and not be garbage collected, even if unreferenced (DO NOT USE THIS FLAG in HasAnyFlags() etc)
-	RF_TagGarbageTemp			=0x00000100,	#< This is a temp user flag for various utilities that need to use the garbage collector. The garbage collector itself does not interpret it.
+    # This group of flags is primarily concerned with garbage collection.
+    RF_MarkAsRootSet			=0x00000080,	#< Object will be marked as root set on construction and not be garbage collected, even if unreferenced (DO NOT USE THIS FLAG in HasAnyFlags() etc)
+    RF_TagGarbageTemp			=0x00000100,	#< This is a temp user flag for various utilities that need to use the garbage collector. The garbage collector itself does not interpret it.
 
-	# The group of flags tracks the stages of the lifetime of a uobject
-	RF_NeedInitialization		=0x00000200,	#< This object has not completed its initialization process. Cleared when ~FObjectInitializer completes
-	RF_NeedLoad					=0x00000400,	#< During load, indicates object needs loading.
-	RF_KeepForCooker			=0x00000800,	#< Keep this object during garbage collection because it's still being used by the cooker
-	RF_NeedPostLoad				=0x00001000,	#< Object needs to be postloaded.
-	RF_NeedPostLoadSubobjects	=0x00002000,	#< During load, indicates that the object still needs to instance subobjects and fixup serialized component references
-	RF_NewerVersionExists		=0x00004000,	#< Object has been consigned to oblivion due to its owner package being reloaded, and a newer version currently exists
-	RF_BeginDestroyed			=0x00008000,	#< BeginDestroy has been called on the object.
-	RF_FinishDestroyed			=0x00010000,	#< FinishDestroy has been called on the object.
+    # The group of flags tracks the stages of the lifetime of a uobject
+    RF_NeedInitialization		=0x00000200,	#< This object has not completed its initialization process. Cleared when ~FObjectInitializer completes
+    RF_NeedLoad					=0x00000400,	#< During load, indicates object needs loading.
+    RF_KeepForCooker			=0x00000800,	#< Keep this object during garbage collection because it's still being used by the cooker
+    RF_NeedPostLoad				=0x00001000,	#< Object needs to be postloaded.
+    RF_NeedPostLoadSubobjects	=0x00002000,	#< During load, indicates that the object still needs to instance subobjects and fixup serialized component references
+    RF_NewerVersionExists		=0x00004000,	#< Object has been consigned to oblivion due to its owner package being reloaded, and a newer version currently exists
+    RF_BeginDestroyed			=0x00008000,	#< BeginDestroy has been called on the object.
+    RF_FinishDestroyed			=0x00010000,	#< FinishDestroy has been called on the object.
 
-	# Misc. Flags
-	RF_BeingRegenerated			=0x00020000,	#< Flagged on UObjects that are used to create UClasses (e.g. Blueprints) while they are regenerating their UClass on load (See FLinkerLoad::CreateExport()), as well as UClass objects in the midst of being created
-	RF_DefaultSubObject			=0x00040000,	#< Flagged on subobjects that are defaults
-	RF_WasLoaded				=0x00080000,	#< Flagged on UObjects that were loaded
-	RF_TextExportTransient		=0x00100000,	#< Do not export object to text form (e.g. copy/paste). Generally used for sub-objects that can be regenerated from data in their parent object.
-	RF_LoadCompleted			=0x00200000,	#< Object has been completely serialized by linkerload at least once. DO NOT USE THIS FLAG, It should be replaced with RF_WasLoaded.
-	RF_InheritableComponentTemplate = 0x00400000, #< Archetype of the object can be in its super class
-	RF_DuplicateTransient		=0x00800000,	#< Object should not be included in any type of duplication (copy/paste, binary duplication, etc.)
-	RF_StrongRefOnFrame			=0x01000000,	#< References to this object from persistent function frame are handled as strong ones.
-	RF_NonPIEDuplicateTransient	=0x02000000,	#< Object should not be included for duplication unless it's being duplicated for a PIE session
-	RF_Dynamic                  =0x04000000,	#< Field Only. Dynamic field. UE_DEPRECATED(5.0, "RF_Dynamic should no longer be used. It is no longer being set by engine code.") - doesn't get constructed during static initialization, can be constructed multiple times  # @todo: BP2CPP_remove
-	RF_WillBeLoaded				=0x08000000,	#< This object was constructed during load and will be loaded shortly
-	RF_HasExternalPackage		=0x10000000,	#< This object has an external package assigned and should look it up when getting the outermost package
+    # Misc. Flags
+    RF_BeingRegenerated			=0x00020000,	#< Flagged on UObjects that are used to create UClasses (e.g. Blueprints) while they are regenerating their UClass on load (See FLinkerLoad::CreateExport()), as well as UClass objects in the midst of being created
+    RF_DefaultSubObject			=0x00040000,	#< Flagged on subobjects that are defaults
+    RF_WasLoaded				=0x00080000,	#< Flagged on UObjects that were loaded
+    RF_TextExportTransient		=0x00100000,	#< Do not export object to text form (e.g. copy/paste). Generally used for sub-objects that can be regenerated from data in their parent object.
+    RF_LoadCompleted			=0x00200000,	#< Object has been completely serialized by linkerload at least once. DO NOT USE THIS FLAG, It should be replaced with RF_WasLoaded.
+    RF_InheritableComponentTemplate = 0x00400000, #< Archetype of the object can be in its super class
+    RF_DuplicateTransient		=0x00800000,	#< Object should not be included in any type of duplication (copy/paste, binary duplication, etc.)
+    RF_StrongRefOnFrame			=0x01000000,	#< References to this object from persistent function frame are handled as strong ones.
+    RF_NonPIEDuplicateTransient	=0x02000000,	#< Object should not be included for duplication unless it's being duplicated for a PIE session
+    RF_Dynamic                  =0x04000000,	#< Field Only. Dynamic field. UE_DEPRECATED(5.0, "RF_Dynamic should no longer be used. It is no longer being set by engine code.") - doesn't get constructed during static initialization, can be constructed multiple times  # @todo: BP2CPP_remove
+    RF_WillBeLoaded				=0x08000000,	#< This object was constructed during load and will be loaded shortly
+    RF_HasExternalPackage		=0x10000000,	#< This object has an external package assigned and should look it up when getting the outermost package
 
-	# RF_Garbage and RF_PendingKill are mirrored in EInternalObjectFlags because checking the internal flags is much faster for the Garbage Collector
-	# while checking the object flags is much faster outside of it where the Object pointer is already available and most likely cached.
-	# RF_PendingKill is mirrored in EInternalObjectFlags because checking the internal flags is much faster for the Garbage Collector
-	# while checking the object flags is much faster outside of it where the Object pointer is already available and most likely cached.
+    # RF_Garbage and RF_PendingKill are mirrored in EInternalObjectFlags because checking the internal flags is much faster for the Garbage Collector
+    # while checking the object flags is much faster outside of it where the Object pointer is already available and most likely cached.
+    # RF_PendingKill is mirrored in EInternalObjectFlags because checking the internal flags is much faster for the Garbage Collector
+    # while checking the object flags is much faster outside of it where the Object pointer is already available and most likely cached.
 
-	RF_PendingKill              = 0x20000000,	#< Objects that are pending destruction (invalid for gameplay but valid objects).  UE_DEPRECATED(5.0, "RF_PendingKill should not be used directly. Make sure references to objects are released using one of the existing engine callbacks or use weak object pointers.")  This flag is mirrored in EInternalObjectFlags as PendingKill for performance
-	RF_Garbage                  =0x40000000,	#< Garbage from logical point of view and should not be referenced.  UE_DEPRECATED(5.0, "RF_Garbage should not be used directly. Use MarkAsGarbage and ClearGarbage instead.")  This flag is mirrored in EInternalObjectFlags as Garbage for performance
-	RF_AllocatedInSharedPage	=0x80000000,	#< Allocated from a ref-counted page shared with other UObjects
+    RF_PendingKill              = 0x20000000,	#< Objects that are pending destruction (invalid for gameplay but valid objects).  UE_DEPRECATED(5.0, "RF_PendingKill should not be used directly. Make sure references to objects are released using one of the existing engine callbacks or use weak object pointers.")  This flag is mirrored in EInternalObjectFlags as PendingKill for performance
+    RF_Garbage                  =0x40000000,	#< Garbage from logical point of view and should not be referenced.  UE_DEPRECATED(5.0, "RF_Garbage should not be used directly. Use MarkAsGarbage and ClearGarbage instead.")  This flag is mirrored in EInternalObjectFlags as Garbage for performance
+    RF_AllocatedInSharedPage	=0x80000000,	#< Allocated from a ref-counted page shared with other UObjects
 
 
 class EMaterialValueType(IntFlag):
-	MCT_Float1		= 1,
-	MCT_Float2		= 2,
-	MCT_Float3		= 4,
-	MCT_Float4		= 8,
-	MCT_Texture2D	          = 1 << 4,
-	MCT_TextureCube	          = 1 << 5,
-	MCT_Texture2DArray		  = 1 << 6,
-	MCT_TextureCubeArray      = 1 << 7,
-	MCT_VolumeTexture         = 1 << 8,
-	MCT_StaticBool            = 1 << 9,
-	MCT_Unknown               = 1 << 10,
-	MCT_MaterialAttributes	  = 1 << 11,
-	MCT_TextureExternal       = 1 << 12,
-	MCT_TextureVirtual        = 1 << 13,
-	MCT_VTPageTableResult     = 1 << 14,
+    MCT_Float1		= 1,
+    MCT_Float2		= 2,
+    MCT_Float3		= 4,
+    MCT_Float4		= 8,
+    MCT_Texture2D	          = 1 << 4,
+    MCT_TextureCube	          = 1 << 5,
+    MCT_Texture2DArray		  = 1 << 6,
+    MCT_TextureCubeArray      = 1 << 7,
+    MCT_VolumeTexture         = 1 << 8,
+    MCT_StaticBool            = 1 << 9,
+    MCT_Unknown               = 1 << 10,
+    MCT_MaterialAttributes	  = 1 << 11,
+    MCT_TextureExternal       = 1 << 12,
+    MCT_TextureVirtual        = 1 << 13,
+    MCT_VTPageTableResult     = 1 << 14,
 
-	MCT_ShadingModel		  = 1 << 15,
-	MCT_Strata				  = 1 << 16,
-	MCT_LWCScalar			  = 1 << 17,
-	MCT_LWCVector2			  = 1 << 18,
-	MCT_LWCVector3			  = 1 << 19,
-	MCT_LWCVector4			  = 1 << 20,
-	MCT_Execution             = 1 << 21,
-	MCT_VoidStatement         = 1 << 22,
+    MCT_ShadingModel		  = 1 << 15,
+    MCT_Strata				  = 1 << 16,
+    MCT_LWCScalar			  = 1 << 17,
+    MCT_LWCVector2			  = 1 << 18,
+    MCT_LWCVector3			  = 1 << 19,
+    MCT_LWCVector4			  = 1 << 20,
+    MCT_Execution             = 1 << 21,
+    MCT_VoidStatement         = 1 << 22,
+
+
+def guess_instance_name(json_file_path):
+    try:
+        with open(json_file_path, 'r', encoding='utf-8') as f:
+            py_cmd = json.load(f).get("InitPyCmd", "")
+            print(next(line[:line.find('=')].strip() for line in py_cmd.split(";") if "%jsonpath" in line.lower()))
+    except (FileNotFoundError, KeyError) as e:
+        print(f"guess_instance_name failed: {e}")

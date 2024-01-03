@@ -1,0 +1,64 @@
+{
+    "TabLabel": "A Modal Window",
+    "InitTabSize": [400, 200],
+    "InitTabPosition": [50, 200],
+    "IsModalWindow": true,
+    "Root":
+    {
+        "SVerticalBox":
+        {
+            "Slots": [
+                {
+                    "VAlign": "Center",
+                    "HAlign": "Center",
+                    "AutoHeight": true,
+                    "Padding": [0, 10],
+                    "SRichTextBlock":
+                    {
+                        "Text": "<Credits.H2>Some Title Text</>"
+                    }
+                },
+                {
+                    "AutoHeight": true,
+                    "Padding": [20, 10],
+                    "SHorizontalBox":
+                    {
+                        "Slots": [
+                            {
+                                "AutoWidth": true,
+                                "VAlign": "center",
+                                "Padding": [10, 0],
+                                "STextBlock":
+                                {
+                                    "Text": "API Key:"
+                                }
+                            },
+                            {
+                                "SEditableTextBox":
+                                {
+                                    "Padding": 5,
+                                    "Text": "",
+                                    "HintText": "Input your API key"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "HAlign": "Right",
+                    "AutoHeight": true,
+                    "Padding": [20, 10],
+                    "SButton":
+                    {
+                        "Text": "Submit",
+                        "HAlign": "Center",
+                        "VAlign": "Center",
+                        "ContentPadding": 10,
+                        "ToolTipText": "Submit",
+                        "OnClick": "unreal.ChameleonData.request_close_modal_window('./ChameleonGallery/example_modal_window.json')"
+                    }
+                }
+            ]
+        }
+    }
+}

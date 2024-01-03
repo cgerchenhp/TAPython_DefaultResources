@@ -5,6 +5,8 @@ import subprocess
 import unreal
 from Utilities.Utils import Singleton
 import random
+import re
+
 if sys.platform == "darwin":
     import webbrowser
 
@@ -24,13 +26,21 @@ class ChameleonGallery(metaclass=Singleton):
         self.ui_python_is_ready = "IsPythonReadyImgB"
         self.ui_is_python_ready_text = "IsPythonReadyText"
         self.ui_details_view = "DetailsView"
+        self.ui_color_block = "ColorBlock"
+        self.ui_button_expand_color_picker = "ButtonExpandColorPicker"
+        self.ui_color_picker = "ColorPicker"
+        self.ui_dpi_scaler = "DPIScaler"
         self.imageFlagA = 0
         self.imageFlagB = 0
         # set data in init
         self.set_random_image_data()
         self.data.set_combo_box_items('CombBoxA', ['1', '3', '5'])
-
         self.data.set_object(self.ui_details_view,  self.data)
+        self.is_color_picker_shown = self.data.get_visibility(self.ui_color_picker) == "Visible"
+        self.linearColor_re = re.compile(r"\(R=([-\d.]+),G=([-\d.]+),B=([-\d.]+),A=([-\d.]+)\)")
+
+        self.tapython_version = dict(unreal.PythonBPLib.get_ta_python_version())
+
         print("ChameleonGallery.Init")
 
     def mark_python_ready(self):
@@ -88,7 +98,9 @@ class ChameleonGallery(metaclass=Singleton):
                          'ChameleonGallery/auto_gen/editable_text_box_style_Gallery.json',
                          'ChameleonGallery/auto_gen/link_Styles_Gallery.json',
                          'ChameleonGallery/auto_gen/slate_color_brushes_Gallery.json',
-                         'ChameleonGallery/auto_gen/check_box_style_Gallery.json']
+                         'ChameleonGallery/auto_gen/check_box_style_Gallery.json',
+                         'ChameleonGallery/auto_gen/richtext_editor_style.json'
+                         ]
 
         bLaunch = unreal.PythonBPLib.confirm_dialog(f'Open Other {len(gallery_paths)} Galleries? You can close them with the "Close all Gallery" Button' , "Open Other Galleries", with_cancel_button=False)
 
@@ -113,7 +125,9 @@ class ChameleonGallery(metaclass=Singleton):
                          'ChameleonGallery/auto_gen/editable_text_box_style_Gallery.json',
                          'ChameleonGallery/auto_gen/link_Styles_Gallery.json',
                          'ChameleonGallery/auto_gen/slate_color_brushes_Gallery.json',
-                         'ChameleonGallery/auto_gen/check_box_style_Gallery.json']
+                         'ChameleonGallery/auto_gen/check_box_style_Gallery.json',
+                         'ChameleonGallery/auto_gen/richtext_editor_style.json'
+                         ]
 
         for i, p in enumerate(gallery_paths):
             unreal.ChameleonData.request_close(p)
@@ -187,3 +201,26 @@ class ChameleonGallery(metaclass=Singleton):
             self.data.set_object(self.ui_details_view, selected[0])
         else:
             print("Selected None")
+
+    def on_expand_color_picker_click(self):
+        self.data.set_visibility(self.ui_color_picker, "Collapsed" if self.is_color_picker_shown else "Visible")
+        self.data.set_text(self.ui_button_expand_color_picker, "Expand ColorPicker" if self.is_color_picker_shown else "Collapse ColorPicker")
+        self.is_color_picker_shown = not self.is_color_picker_shown
+
+        current_size = unreal.ChameleonData.get_chameleon_window_size(self.jsonPath)
+        if current_size.x < 650:
+            current_size.x = 650
+        unreal.ChameleonData.set_chameleon_window_size("ChameleonGallery/ChameleonGallery.json", current_size)
+
+    def on_color_picker_commit(self, color_str):
+        v = [float(a) for a in self.linearColor_re.match(color_str).groups()]
+        self.data.set_color(self.ui_color_block, unreal.LinearColor(*v))
+
+    def change_dpi_scaler_value(self, value):
+        if self.tapython_version["Minor"] < 2 or(
+            self.tapython_version["Minor"] == 2 and self.tapython_version["Patch"] < 1
+        ):
+            print("Need TAPython version >= 1.2.1")
+            return
+        self.data.set_dpi_scale(self.ui_dpi_scaler, value + 0.5)
+

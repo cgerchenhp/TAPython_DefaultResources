@@ -1,0 +1,96 @@
+
+"SOverlay": {
+    "Slots":
+    [
+        {
+            "SHorizontalBox":
+            {
+                "Slots": [
+                    {
+                        "AutoWidth": true,
+                        "SOverlay": {
+
+                            "Slots":
+                            [
+                                {
+                                    "SImage": {
+                                        "Aka": "ImageRightBG",
+                                        "Tile": "Both",
+                                        "BrushSize": [16, 16],
+                                        "ImagePathInPlugin": "Resources/BackgroundGrid.png"
+                                    }
+                                },
+                                {
+                                    "SImage": {
+                                        "Aka": "ImageRight",
+                                        "Tile": "NoTile",
+                                        "BrushSize": [128, 128],
+                                        "ImagePathInPlugin": "Resources/PythonGreyIcon_128.png"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+
+                ]
+            }
+        },
+        {
+
+            "SSplitter": {
+                "Orientation": "Horizontal",
+                "PhysicalSplitterHandleSize": 2,
+                "Slots": [
+                    {
+                        "SDropTarget": {
+                            "Aka": "DropTargetLeft",
+                            "OverrideBackgroundImagePadding": 0,
+                            "OnDrop": "chameleon_image_compare.on_drop(bLeft=True, %**kwargs)",
+                            "Content":{
+                                "SHorizontalBox":
+                                {
+                                    "Slots": [
+                                        {
+                                            "AutoWidth": true,
+                                            "SOverlay": {
+                                                "Slots":
+                                                [
+                                                    {
+                                                        "SImage": {
+                                                            "Aka": "ImageLeftBG",
+                                                            "Tile": "Both",
+                                                            "BrushSize": [16, 16],
+                                                            "ImagePathInPlugin": "Resources/BackgroundGridRed.png"
+                                                        }
+                                                    },
+                                                    {
+                                                        "SImage": {
+                                                            "Aka": "ImageLeft",
+                                                            "Tile": "Horizontal",
+                                                            "BrushSize": [128, 128],
+                                                            "ImagePathInPlugin": "Resources/Icon128.png"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+
+                                        }
+                                    ]
+                                }
+                            }
+                       }
+                    },
+                    {
+                        "Value": 0.6,
+                        "SDropTarget": {
+                           "Aka": "DropTargetRight",
+                           "OverrideBackgroundImagePadding": 0,
+                           "OnDrop": "chameleon_image_compare.on_drop(bLeft=False, %**kwargs)"
+                       }
+                    }
+                ]
+            }
+        }
+    ]
+}
+

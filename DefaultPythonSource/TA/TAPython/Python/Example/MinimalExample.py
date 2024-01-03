@@ -4,15 +4,13 @@ from Utilities.Utils import Singleton
 
 
 class MinimalExample(metaclass=Singleton):
-    def __init__(self, jsonPath:str):
-        self.jsonPath = jsonPath
-        self.data = unreal.PythonBPLib.get_chameleon_data(self.jsonPath)
+    def __init__(self, json_path:str):
+        self.json_path = json_path
+        self.data:unreal.ChameleonData = unreal.PythonBPLib.get_chameleon_data(self.json_path)
         self.ui_output = "InfoOutput"
-        self.clickCount = 0
+        self.click_count = 0
 
     def on_button_click(self):
-        self.clickCount += 1
-        self.data.set_text(self.ui_output, "Clicked {} time(s)".format(self.clickCount))
-
-
+        self.click_count += 1
+        self.data.set_text(self.ui_output, "Clicked {} time(s)".format(self.click_count))
 

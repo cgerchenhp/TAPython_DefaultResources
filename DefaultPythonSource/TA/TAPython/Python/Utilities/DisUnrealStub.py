@@ -4,6 +4,7 @@ import logging
 
 """
     This script is used to split the unreal.py into multiple files. For better auto-completion in IDE.
+	more info: https://www.tacolor.xyz/tapython/auto_complete_for_tapython.html
 """
 
 def split_stub(file_path, targetFolder):

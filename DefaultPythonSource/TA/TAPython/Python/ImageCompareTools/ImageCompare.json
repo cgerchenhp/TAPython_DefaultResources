@@ -1,0 +1,112 @@
+{
+	"TabLabel": "Image Compare",
+	"InitTabSize": [400, 250],
+	"InitTabPosition": [300, 100],
+    "MenuEntries": ["Tools/Image Compare"],
+    "Icon": {"style": "ChameleonStyle", "name": "Picture" },
+    "InitPyCmd": "import ImageCompareTools, importlib; importlib.reload(ImageCompareTools); chameleon_image_compare = ImageCompareTools.ImageCompare.ImageCompare(%JsonPath)",
+    "Root": {
+        "SVerticalBox":
+        {
+            "Slots": [
+                {
+                    "SScrollBox": {
+                        "Orientation": "Vertical",
+                        "Slots":
+                        [
+                            {
+                                "SHorizontalBox":
+                                {
+                                    "Slots": [
+                                        {
+                                            "AutoWidth": true,
+                                            "Padding": 4,
+                                            "SDPIScaler": {
+                                                "Aka": "Scaler",
+                                                "DPIScaler": 1,
+                                                "Content": {
+                                                    "ExternalJson": "ComparisonWidget.json"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "AutoHeight": true,
+                    "VAlign": "Bottom",
+                    "SHorizontalBox":
+                    {
+                        "Slots": [
+                            {
+                                "AutoWidth": true,
+                                "SButton": { "Text": "Lit vs Wireframe", "HAlign": "Center", "OnClick": "chameleon_image_compare.set_images_from_viewport()" }
+                            },
+                            {
+                                "SButton": { "Text": "Viewport -> Left.", "HAlign": "Center", "OnClick": "chameleon_image_compare.set_image_from_viewport(bLeft=True)"}
+                            },
+                            {
+                                "SButton": { "Text": "Viewport -> Right.", "HAlign": "Center", "OnClick": "chameleon_image_compare.set_image_from_viewport(bLeft=False)"}
+                            }
+                        ]
+                    }
+                },
+                {
+                    "AutoHeight": true,
+                    "VAlign": "Bottom",
+                    "SHorizontalBox":
+                    {
+                        "Slots": [
+                            {
+                                "VAlign": "Center",
+                                "AutoWidth": true,
+                                "Padding": [0, 0, 10, 0],
+                                "STextBlock":
+                                {
+                                    "ColorAndOpacity": [1, 1, 1, 1],
+                                    "Text": "Image Scale"
+                                }
+                            },
+                            {
+                                "SComboBox": {
+                                    "Aka": "ScaleComboBox",
+                                    "InitiallySelectedItem": "1",
+                                    "OptionsSource": [ "0.25", "0.5", "1", "2", "4"],
+                                    "OnSelectionChanged": "chameleon_image_compare.on_ui_change_scale(%)"
+                                }
+                            },
+                            {
+                                "HAlign": "Right",
+                                "SCheckBox":
+                                {
+                                    "Content": {
+                                        "STextBlock":
+                                        {
+                                            "Text": "Ignore Texture Alpha"
+                                        }
+                                    },
+                                    "Padding": 6,
+                                    "IsChecked": false,
+                                    "Aka": "AlphaCheckBox"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "AutoHeight": true,
+                    "VAlign": "Bottom",
+                    "SEditableTextBox":
+                    {
+                        "Aka": "StatusBar",
+                        "Text": "",
+                        "IsReadOnly": true
+                    }
+                }
+            ]
+        }
+    }
+}

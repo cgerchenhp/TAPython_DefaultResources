@@ -2,7 +2,7 @@
     "TabLabel": "Chameleon Gallery",
     "InitTabSize": [560, 890],
     "InitTabPosition": [1000, 110],
-    "InitPyCmd": "import ChameleonGallery; chameleon_gallery = ChameleonGallery.ChameleonGallery.ChameleonGallery(%JsonPath); chameleon_gallery.mark_python_ready();",
+    "InitPyCmd": "import ChameleonGallery, importlib; importlib.reload(ChameleonGallery); chameleon_gallery = ChameleonGallery.ChameleonGallery.ChameleonGallery(%JsonPath); chameleon_gallery.mark_python_ready();",
     "Root":{
         "SBorder":
         {
@@ -20,7 +20,7 @@
                             "Padding": 5,
                             "SGridPanel":
                             {
-                                "FillColumn": [[0,0.5],[1,0.5]],
+                                "FillColumn": [[0,0.3],[1,0.5]],
                                 "Slots":
                                 [
                                     {
@@ -478,12 +478,28 @@
                                         "Column_Row": [0, 18],
                                         "STextBlock":
                                         {
-                                            "Text": "SMultiLineEditableText"
+                                            "Text": "SEditableTextBox Password"
                                         }
                                     },
                                     {
                                         "Padding": [0,4],
                                         "Column_Row": [1, 18],
+                                        "SEditableTextBox":
+                                        {
+                                            "Text": "Pepper Pizza",
+                                            "IsPassword": true
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 19],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SMultiLineEditableText"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 19],
                                         "SMultiLineEditableText":
                                         {
                                             "Text": "line 1 \nline 2 \nline 3",
@@ -493,7 +509,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 19],
+                                        "Column_Row": [0, 20],
                                         "STextBlock":
                                         {
                                             "Text": "SMultiLineEditableText Font"
@@ -501,7 +517,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 19],
+                                        "Column_Row": [1, 20],
                                         "SMultiLineEditableText":
                                         {
                                             "Text": "SelectAllTextWhenFocused:\nline 1 \nline 2 \nline 3 ",
@@ -516,7 +532,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 20],
+                                        "Column_Row": [0, 21],
                                         "STextBlock":
                                         {
                                             "Text": "SMultiLineEditableTextBox"
@@ -524,7 +540,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 20],
+                                        "Column_Row": [1, 21],
                                         "SMultiLineEditableTextBox": {
                                             "Text": "Multi-line Box\nPadding/Margin describes spacing four sides. \nMargin: 10 with uniform space on all sides\nMargin: [0, 10] spacing at Vertical sides\nMargin: [0, 2, 4, 6] left spacing=0, top=2, right=4, bottom=6",
                                             "HintText": "This is a SMultiLineEditableTextBox",
@@ -536,7 +552,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 21],
+                                        "Column_Row": [0, 22],
                                         "STextBlock":
                                         {
                                             "Text": "SMultiLineEditableTextBox Padding"
@@ -544,7 +560,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 21],
+                                        "Column_Row": [1, 22],
                                         "SMultiLineEditableTextBox":
                                         {
                                             "Text": "Multi-line Box\nSpacing comes from HorizontalBox and SVerticalBox\nLine 1\nLine 2\nLine 3",
@@ -558,7 +574,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 22],
+                                        "Column_Row": [0, 23],
                                         "STextBlock":
                                         {
                                             "Text": "SMultiLineEditableTextBox Margin"
@@ -566,31 +582,9 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 22],
-                                        "SMultiLineEditableTextBox": {
-                                            "Text": "Multi-line Box \nSpacing comes from SMultiLineEditableText\nLine 1\nLine 2\nLine 3",
-                                            "HintText": "This is a SMultiLineEditableTextBox",
-                                            "ToolTipText": "Read only",
-                                            "Margin": 10,
-                                            "IsReadOnly": false,
-                                            "AutoWrapText": true,
-                                            "OnTextChanged": "print(%)",
-                                            "OnTextCommitted": "print('text: {}'.format(%))"
-                                        }
-                                    },
-                                    {
-                                        "Column_Row": [0, 23],
-                                        "STextBlock":
-                                        {
-                                            "Text": "SMultiLineEditableTextBox RichText"
-                                        }
-                                    },
-                                    {
-                                        "Padding": [0,4],
                                         "Column_Row": [1, 23],
                                         "SMultiLineEditableTextBox": {
-                                            "Text": "<TextStyle FontFamily=\"Roboto\" FontSize=\"15\" FontStyle=\"Regular\" FontColor=\"(R=0,G=1,B=0,A=1)\">This is a hyperlink</> <a id=\"browser\" href=\"aaa.com\"> show</>\n<RichText.red>RichText</> <RichText.orange>In</> <RichText.yellow>SMultiLine</><RichText.green>EditableTextBox</>",
-                                            "Marshaller": "ChameleonRichText",
+                                            "Text": "Multi-line Box \nSpacing comes from SMultiLineEditableText\nLine 1\nLine 2\nLine 3",
                                             "HintText": "This is a SMultiLineEditableTextBox",
                                             "ToolTipText": "Read only",
                                             "Margin": 10,
@@ -604,12 +598,34 @@
                                         "Column_Row": [0, 24],
                                         "STextBlock":
                                         {
-                                            "Text": "SHeader"
+                                            "Text": "SMultiLineEditableTextBox RichText"
                                         }
                                     },
                                     {
                                         "Padding": [0,4],
                                         "Column_Row": [1, 24],
+                                        "SMultiLineEditableTextBox": {
+                                            "Text": "<TextStyle FontFamily=\"Roboto\" FontSize=\"15\" FontStyle=\"Regular\" FontColor=\"(R=0,G=1,B=0,A=1)\">This is a hyperlink</> <a id=\"browser\" href=\"www.tacolor.xyz/\"> show</>\n<RichText.red>RichText</> <RichText.orange>In</> <RichText.yellow>SMultiLine</><RichText.green>EditableTextBox</>",
+                                            "Marshaller": "ChameleonRichText",
+                                            "HintText": "This is a SMultiLineEditableTextBox",
+                                            "ToolTipText": "Read only",
+                                            "Margin": 10,
+                                            "IsReadOnly": false,
+                                            "AutoWrapText": true,
+                                            "OnTextChanged": "print(%)",
+                                            "OnTextCommitted": "print('text: {}'.format(%))"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 25],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SHeader"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0,4],
+                                        "Column_Row": [1, 25],
                                         "SHeader":
                                         {
                                             "Content":
@@ -622,7 +638,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 25],
+                                        "Column_Row": [0, 26],
                                         "STextBlock":
                                         {
                                             "Text": "SHeader Colored"
@@ -630,7 +646,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 25],
+                                        "Column_Row": [1, 26],
                                         "SHeader":
                                         {
                                             "Content":
@@ -650,7 +666,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 26],
+                                        "Column_Row": [0, 27],
                                         "STextBlock":
                                         {
                                             "Text": "SCheckBox"
@@ -658,7 +674,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 26],
+                                        "Column_Row": [1, 27],
                                         "SCheckBox":{
                                             "Content":
                                             {
@@ -671,7 +687,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 27],
+                                        "Column_Row": [0, 28],
                                         "STextBlock":
                                         {
                                             "Text": "SCheckBox Button"
@@ -679,7 +695,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 27],
+                                        "Column_Row": [1, 28],
                                         "SCheckBox":
                                         {
                                             "HAlign": "Center",
@@ -706,7 +722,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 28],
+                                        "Column_Row": [0, 29],
                                         "STextBlock":
                                         {
                                             "Text": "SCheckBox Button"
@@ -714,7 +730,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 28],
+                                        "Column_Row": [1, 29],
                                         "SCheckBox":
                                         {
                                             "HAlign": "Center",
@@ -748,7 +764,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 29],
+                                        "Column_Row": [0, 30],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -772,7 +788,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 29],
+                                        "Column_Row": [1, 30],
                                         "SComboBox": {
                                             "Aka": "CombBoxA",
                                             "Content": {
@@ -783,7 +799,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 30],
+                                        "Column_Row": [0, 31],
                                         "STextBlock":
                                         {
                                         "Text": "SComboButton"
@@ -791,7 +807,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 30],
+                                        "Column_Row": [1, 31],
                                         "SComboButton": {
                                             "ButtonContent": {
                                                 "STextBlock": {
@@ -814,16 +830,16 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 31],
+                                        "Column_Row": [0, 32],
                                         "SSpacer": {}
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 31],
+                                        "Column_Row": [1, 32],
                                         "SSpacer": {}
                                     },
                                     {
-                                        "Column_Row": [0, 32],
+                                        "Column_Row": [0, 33],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -847,7 +863,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 32],
+                                        "Column_Row": [1, 33],
                                         "SBreadcrumbTrail":
                                         {
                                             "Aka": "SBreadcrumbTrailA",
@@ -857,7 +873,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 33],
+                                        "Column_Row": [0, 34],
                                         "STextBlock":
                                         {
                                             "Text": "SSearchBox"
@@ -865,7 +881,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 33],
+                                        "Column_Row": [1, 34],
                                         "SSearchBox":
                                         {
                                             "HintText": "Type Search Text",
@@ -877,7 +893,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 34],
+                                        "Column_Row": [0, 35],
                                         "STextBlock":
                                         {
                                             "Text": "SListView"
@@ -885,7 +901,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 34],
+                                        "Column_Row": [1, 35],
                                         "SListView": {
                                             "ItemHeight": 10,
                                             "Aka": "MaterialList",
@@ -917,7 +933,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 35],
+                                        "Column_Row": [0, 36],
                                         "STextBlock":
                                         {
                                             "Text": "SListView RichText"
@@ -925,9 +941,10 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 35],
+                                        "Column_Row": [1, 36],
                                         "SListView": {
                                             "ItemHeight": 10,
+                                            "Aka": "SListViewRichText",
                                             "ListItemsSource": [
                                                 "<a id=\"browser\" href=\"https:\/\/www.unrealengine.com/\" style=\"RichText.Editor.Hyperlink\">Unreal Engine</><TextStyle FontFamily=\"Roboto\" FontSize=\"13\" FontStyle=\"Regular\" FontColor=\"(R=1.000000,G=1.000000,B=0.000000,A=1.000000)\"></>",
                                             "<RichText.red>Red</> <RichText.green>Green</> <RichText.cyan>Blue</>",
@@ -943,12 +960,12 @@
                                                 ]
                                             },
                                             "RichText": true,
-                                            "OnSelectionChanged": "print ('Selected: {}  index: {}'.format(%item, %index))",
-                                            "OnMouseButtonDoubleClick": "print ('Double click: {}  index: {}'.format(%item, %index))"
+                                            "OnSelectionChanged": "print ('''%item @ %index''')",
+                                            "OnMouseButtonDoubleClick": "print ('''Double click: %item @ %index''')"
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 36],
+                                        "Column_Row": [0, 37],
                                         "STextBlock":
                                         {
                                             "Text": "SListView RichText"
@@ -956,7 +973,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 36],
+                                        "Column_Row": [1, 37],
                                         "SListView<MultiColumn>": {
                                             "ItemHeight": 10,
                                             "Aka": "TagList3",
@@ -992,7 +1009,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 37],
+                                        "Column_Row": [0, 38],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -1016,7 +1033,7 @@
                                     },
                                     {
                                         "Padding": [0,4],
-                                        "Column_Row": [1, 37],
+                                        "Column_Row": [1, 38],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -1030,7 +1047,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 38],
+                                        "Column_Row": [0, 39],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -1064,7 +1081,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 38],
+                                        "Column_Row": [1, 39],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -1079,7 +1096,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 39],
+                                        "Column_Row": [0, 40],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -1113,7 +1130,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 39],
+                                        "Column_Row": [1, 40],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -1128,7 +1145,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 40],
+                                        "Column_Row": [0, 41],
                                         "STextBlock":
                                         {
                                             "Text": "SSpinBox"
@@ -1136,7 +1153,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 40],
+                                        "Column_Row": [1, 41],
                                         "SSpinBox":
                                         {
                                             "Type": "int",
@@ -1150,7 +1167,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 41],
+                                        "Column_Row": [0, 42],
                                         "STextBlock":
                                         {
                                             "Text": "SSlider"
@@ -1158,7 +1175,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 41],
+                                        "Column_Row": [1, 42],
                                         "SSlider":
                                         {
                                             "Orientation": "Horizontal",
@@ -1168,7 +1185,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 42],
+                                        "Column_Row": [0, 43],
                                         "STextBlock":
                                         {
                                         "Text": "SSlider Vertical"
@@ -1176,7 +1193,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 42],
+                                        "Column_Row": [1, 43],
                                         "SBox":{
                                             "MinDesiredHeight": 80,
                                             "Content": {
@@ -1190,7 +1207,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 43],
+                                        "Column_Row": [0, 44],
                                         "STextBlock":
                                         {
                                         "Text": "SHyperlink"
@@ -1198,13 +1215,13 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 43],
+                                        "Column_Row": [1, 44],
                                         "SHyperlink":{
                                             "Text": "www.TaColor.xyz"
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 44],
+                                        "Column_Row": [0, 45],
                                         "STextBlock":
                                         {
                                         "Text": "SSeparator"
@@ -1212,26 +1229,10 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 44],
+                                        "Column_Row": [1, 45],
                                         "SSeparator":{
                                             "Thickness":5,
                                             "Orientation": "Horizontal"
-                                        }
-                                    },
-                                    {
-                                        "Column_Row": [0, 45],
-                                        "STextBlock":
-                                        {
-                                        "Text": "SThrobber"
-                                        }
-                                    },
-                                    {
-                                        "Padding": [0, 4],
-                                        "Column_Row": [1, 45],
-                                        "SThrobber":
-                                        {
-                                            "NumPieces": 3,
-                                            "Animate": "VerticalAndOpacity"
                                         }
                                     },
                                     {
@@ -1246,12 +1247,28 @@
                                         "Column_Row": [1, 46],
                                         "SThrobber":
                                         {
+                                            "NumPieces": 3,
+                                            "Animate": "VerticalAndOpacity"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 47],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SThrobber"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 47],
+                                        "SThrobber":
+                                        {
                                             "NumPieces": 5,
                                             "Animate": "Vertical"
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 47],
+                                        "Column_Row": [0, 48],
                                         "SHorizontalBox": {
                                             "Slots": [
                                                 {
@@ -1275,7 +1292,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 47],
+                                        "Column_Row": [1, 48],
                                         "SProgressBar":
                                         {
                                             "Aka": "ProgressBarA",
@@ -1284,7 +1301,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 48],
+                                        "Column_Row": [0, 49],
                                         "STextBlock":
                                         {
                                         "Text": "SHorizontalBox"
@@ -1292,7 +1309,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 48],
+                                        "Column_Row": [1, 49],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1312,7 +1329,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 49],
+                                        "Column_Row": [0, 50],
                                         "STextBlock":
                                         {
                                         "Text": "SVerticalBox"
@@ -1320,7 +1337,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 49],
+                                        "Column_Row": [1, 50],
                                         "SVerticalBox":
                                         {
                                             "Slots": [
@@ -1340,7 +1357,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 50],
+                                        "Column_Row": [0, 51],
                                         "STextBlock":
                                         {
                                         "Text": "SBox"
@@ -1348,7 +1365,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 50],
+                                        "Column_Row": [1, 51],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1375,7 +1392,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 51],
+                                        "Column_Row": [0, 52],
                                         "STextBlock":
                                         {
                                         "Text": "STreeViewA"
@@ -1383,7 +1400,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 51],
+                                        "Column_Row": [1, 52],
                                         "STreeView":
                                         {
                                             "Aka": "TreeViewA",
@@ -1398,9 +1415,43 @@
                                             "TreeItemSource": ["ItemA", "ItemB", "ItemC", "ItemD", "ItemE", "ItemF" ],
                                             "TreeItemParentIndices": [-1, 0, 0, 2, 1, 1]
                                         }
+                                    },{
+                                        "Column_Row": [0, 53],
+                                        "STextBlock":
+                                        {
+                                        "Text": "SBox"
+                                        }
                                     },
                                     {
-                                        "Column_Row": [0, 52],
+                                        "Padding": [0, 4],
+                                        "Column_Row": [1, 53],
+                                        "SHorizontalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "padding": 2,
+                                                    "SButton": {
+                                                        "Text": "Button A"
+                                                    }
+                                                },
+                                                {
+                                                    "padding": 2,
+                                                    "AutoWidth": true,
+                                                    "SBox": {
+                                                        "MinDesiredWidth": 80,
+                                                        "Content":
+                                                        {
+                                                            "SButton": {
+                                                                "Text": "Sized Button"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 54],
                                         "STextBlock":
                                         {
                                         "Text": "SOverlay & SUniformGridPanel"
@@ -1408,7 +1459,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 52],
+                                        "Column_Row": [1, 54],
                                         "SOverlay": {
                                             "Slots":
                                             [
@@ -1470,7 +1521,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 53],
+                                        "Column_Row": [0, 55],
                                         "STextBlock":
                                         {
                                         "Text": "SUniformWrapPanel"
@@ -1478,7 +1529,7 @@
                                     },
                                     {
                                         "Padding": [0, 4],
-                                        "Column_Row": [1, 53],
+                                        "Column_Row": [1, 55],
                                         "SUniformWrapPanel": {
                                             "Slots":
                                             [
@@ -1499,7 +1550,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 54],
+                                        "Column_Row": [0, 56],
                                         "STextBlock":
                                         {
                                         "Text": "SColorBlock"
@@ -1507,12 +1558,12 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 54],
+                                        "Column_Row": [1, 56],
                                         "SColorBlock": {
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 55],
+                                        "Column_Row": [0, 57],
                                         "STextBlock":
                                         {
                                         "Text": "DropTarget"
@@ -1520,7 +1571,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 55],
+                                        "Column_Row": [1, 57],
                                         "SDropTarget": {
                                             "OnDrop": "chameleon_gallery.on_drop_func(%**kwargs)",
                                             "Content": {
@@ -1545,7 +1596,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 56],
+                                        "Column_Row": [0, 58],
                                         "STextBlock":
                                         {
                                             "Text": "SSplitter"
@@ -1553,8 +1604,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 56],
-
+                                        "Column_Row": [1, 58],
                                         "SSplitter": {
                                             "Orientation": "Horizontal",
                                             "ResizeMode": "FixedPosition",
@@ -1599,7 +1649,105 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 57],
+                                        "Column_Row": [0, 59],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SSplitter & SOverlay"
+                                        }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 59],
+                                        "SHorizontalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "AutoWidth": true,
+                                                    "SOverlay": {
+                                                        "ToolTipText": "Image Comparison with SSplitter",
+                                                        "Slots":
+                                                        [
+                                                            {
+                                                                "HAlign": "Left",
+                                                                "SImage": {
+                                                                    "Aka": "RightImage",
+                                                                    "Tile": "Horizontal",
+                                                                    "ImagePathInPlugin": "Resources/PythonGreyIcon_128.png",
+                                                                    "DesiredSizeOverride": [128, 128]
+                                                                }
+                                                            },
+                                                            {
+                                                                "SSplitter": {
+                                                                    "Orientation": "Horizontal",
+                                                                    "PhysicalSplitterHandleSize": 2,
+                                                                    "ResizeMode": "FixedPosition",
+                                                                    "Slots": [
+                                                                        {
+                                                                            "value": 0.5,
+                                                                            "SBox":
+                                                                            {
+                                                                                "Content": {
+                                                                                    "SImage": {
+                                                                                        "Aka": "LeftImage",
+                                                                                        "Tile": "Horizontal",
+                                                                                        "ImagePathInPlugin": "Resources/PythonIcon_128x.png",
+                                                                                        "DesiredSizeOverride": [128, 128]
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "Value": 0.5,
+                                                                            "SSpacer": { }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 60],
+                                        "STextBlock":
+                                        {
+                                            "Text": "SDPIScaler"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [1, 60],
+                                        "SHorizontalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                    "AutoWidth": true,
+                                                    "SDPIScaler": {
+                                                        "Aka": "DPIScaler",
+                                                        "DPIScaler": 1,
+                                                        "Content": {
+                                                            "SImage": {
+                                                                "Aka": "SImage_A",
+                                                                "ImagePathInPlugin": "Resources/Icon128.png"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "SSlider":
+                                                    {
+                                                        "Orientation": "Horizontal",
+                                                        "Value": 0.5,
+                                                        "Locked": false,
+                                                        "OnValueChanged": "chameleon_gallery.change_dpi_scaler_value(%)"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 61],
                                         "STextBlock":
                                         {
                                             "Text": "SExpandableArea"
@@ -1607,7 +1755,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 57],
+                                        "Column_Row": [1, 61],
                                         "SExpandableArea": {
                                             "Aka": "expandable",
                                             "BorderImage": {
@@ -1628,30 +1776,30 @@
                                                         "Brush": "WindowMenuBar.Button.SubMenuOpen"
                                                     },
                                                     "Content": {
-                                                    "SHorizontalBox": {
-                                                        "Slots": [
-                                                            {
-                                                                "AutoWidth": true,
-                                                                "STextBlock": {
-                                                                    "Text": "Some Body Text"
+                                                        "SHorizontalBox": {
+                                                            "Slots": [
+                                                                {
+                                                                    "AutoWidth": true,
+                                                                    "STextBlock": {
+                                                                        "Text": "Some Body Text"
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "AutoWidth": true,
+                                                                    "SButton": {
+                                                                        "Text": "Collapse ExpandableArea",
+                                                                        "OnClick": "chameleon_gallery.data.set_is_expanded('expandable', False, True)"
+                                                                    }
                                                                 }
-                                                            },
-                                                            {
-                                                                "AutoWidth": true,
-                                                                "SButton": {
-                                                                    "Text": "Collapse ExpandableArea",
-                                                                    "OnClick": "chameleon_gallery.data.set_is_expanded('expandable', False, True)"
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
+                                                            ]
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 58],
+                                        "Column_Row": [0, 62],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1677,17 +1825,16 @@
                                                             }
                                                         ]
                                                     }
-
                                                 }
                                             ]
                                         }
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 58],
+                                        "Column_Row": [1, 62],
                                         "SBox":
                                         {
-                                            "MaxDesiredHeight": 400,
+                                            "MaxDesiredHeight": 500,
                                             "Content": {
                                                 "SDetailsView": {
                                                     "Aka": "DetailsView"
@@ -1696,16 +1843,76 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 59],
+                                        "Column_Row": [0, 63],
                                         "STextBlock":
                                         {
-                                        "Text": "Change Tools Tab Size"
+                                        "Text": "SColorBlock"
                                         }
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 59],
-                                        "SHorizontalBox": 
+                                        "Column_Row": [1, 63],
+                                        "SHorizontalBox":
+                                        {
+                                            "Slots": [
+                                                {
+                                                "SColorBlock":
+                                                    {
+                                                        "Color":[0.5, 0.5, 1, 1],
+                                                        "Aka": "ColorBlock",
+                                                        "ColorIsHSV": false
+                                                    }
+                                                },
+                                                {
+                                                    "SButton": {
+                                                        "Aka": "ButtonExpandColorPicker",
+                                                        "Text": "Expand ColorPicker",
+                                                        "ContentPadding": [4, 0],
+                                                        "HAlign": "Center",
+                                                        "VAlign": "Center",
+                                                        "OnClick": "chameleon_gallery.on_expand_color_picker_click()"
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 64],
+                                        "STextBlock": { "Text": "SColorPicker" }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 64],
+                                        "SColorPicker":
+                                        {
+                                            "Visibility": "Collapsed",
+                                            "Aka": "ColorPicker",
+                                            "OnColorCommitted": "chameleon_gallery.on_color_picker_commit(%)"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 65],
+                                        "STextBlock": { "Text": "SWebBrowser" }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 65],
+                                        "SWebBrowser":
+                                        {
+                                            "InitialURL": "www.unrealengine.com",
+                                            "Aka": "WebBrowser",
+                                            "ShowControls": true,
+                                            "ShowAddressBar": true
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 66],
+                                        "STextBlock": { "Text": "Change Tools Tab Size" }
+                                    },
+                                    {
+                                        "Padding": [ 0, 4],
+                                        "Column_Row": [1, 66],
+                                        "SHorizontalBox":
                                         {
                                             "Slots": [
                                                 {
@@ -1730,15 +1937,33 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 60],
+                                        "Column_Row": [0, 67],
                                         "STextBlock":
                                         {
                                         "Text": "Flash Window"
                                         }
                                     },
                                     {
+                                        "Column_Row": [1, 67],
+                                        "STextBlock":
+                                        {
+                                            "Text": "Modal Window"
+                                        }
+                                    },
+                                    {
+                                        "Column_Row": [0, 68],
+                                        "SButton":
+                                        {
+                                            "Text": "Launch Modal Window",
+                                            "HAlign": "Center",
+                                            "VAlign": "Center",
+                                            "ContentPadding": 4,
+                                            "OnClick": "unreal.ChameleonData.modal_window('./ChameleonGallery/example_modal_window.json')"
+                                        }
+                                    },
+                                    {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 60],
+                                        "Column_Row": [1, 68],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1766,7 +1991,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 61],
+                                        "Column_Row": [0, 69],
                                         "STextBlock":
                                         {
                                         "Text": "Launch all Gallery"
@@ -1774,7 +1999,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 61],
+                                        "Column_Row": [1, 69],
                                         "SButton": {
                                             "Text": "Launch Editor Style Galleries",
                                             "HAlign": "Center",
@@ -1783,12 +2008,12 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 62],
+                                        "Column_Row": [0, 70],
                                         "STextBlock": { "Text": "Close all Gallery" }
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 62],
+                                        "Column_Row": [1, 70],
                                         "SButton": {
                                             "Text": "Close Editor Style Galleries",
                                             "HAlign": "Center",

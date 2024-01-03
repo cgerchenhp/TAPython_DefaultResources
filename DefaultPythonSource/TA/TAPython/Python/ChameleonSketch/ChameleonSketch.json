@@ -1,7 +1,6 @@
 ﻿{
-	"ChameleonData": "",
-	"TabLabel": "Object Detail Viewer",
-	"InitTabSize": [500, 300],
+	"TabLabel": "Chameleon Sketch",
+	"InitTabSize": [540, 300],
 	"InitTabPosition": [420, 200],
 	"InitPyCmd": "import ChameleonSketch, importlib; importlib.reload(ChameleonSketch); sketch = ChameleonSketch.ChameleonSketch.ChameleonSketch(%JsonPath); sketch.mark_python_ready()",
 	"Root":{
