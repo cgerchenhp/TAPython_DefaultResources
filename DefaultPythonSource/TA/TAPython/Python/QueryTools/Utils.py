@@ -44,7 +44,7 @@ class attr_detail(object):
                 # print(attr.__doc__)
 
                 try:
-                    sig = inspect.getargspec(getattr(obj, self.name))
+                    sig = inspect.getfullargspec(getattr(obj, self.name))
                     # print("+++ ", sig)
 
                     args = sig.args
