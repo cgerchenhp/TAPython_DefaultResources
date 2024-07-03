@@ -19,7 +19,7 @@ class MinimalAsyncTaskExample(metaclass=Singleton):
 
     def slow_async_task(self, seconds:float) -> float:
         # This slow asynchronous task may involve operations such as file I/O, web requests, or other time-consuming activities.
-        # Operations involving Unreal Engine assets must be executed on the main thread, NOT within this function. Use unreal.ScopedSlowTask(seconds) and we can has a progress bar.
+        # Operations involving Unreal Engine assets must be executed on the main thread, NOT within this function. Use unreal.ScopedSlowTask(seconds) and we can have a progress bar.
         #
         # DON'T modify any Slate widget in this function, as it's running in a different thread.
         # The Unreal Engine enforces restrictions on accessing Slate widgets from threads other than the main game thread. 
@@ -37,7 +37,7 @@ class MinimalAsyncTaskExample(metaclass=Singleton):
             self.data.set_text(self.ui_text_block, f"Running Task.")
             self.data.set_visibility(self.ui_throbber, "Visible")
         else:
-            self.data.set_text(self.ui_text_block, f"All task finished.")
+            self.data.set_text(self.ui_text_block, f"All tasks finished.")
             self.data.set_visibility(self.ui_throbber, "Collapsed")
         
     
@@ -57,7 +57,7 @@ class MinimalAsyncTaskExample(metaclass=Singleton):
             if not self.executor.is_any_task_running():
                 self.show_busy_icon(False)
 
-        print(f"on_task_finish. Future: {future_id} result: {future.result()}")
+        print(f"on_task_finish. Future: {future_id}, result: {future.result()}")
 
 
     def some_slow_tasks(self):
