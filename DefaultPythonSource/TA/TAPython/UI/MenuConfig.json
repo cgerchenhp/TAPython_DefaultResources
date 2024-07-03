@@ -137,6 +137,13 @@
                 }
             },
             {
+                "name": "Minimal AsyncTask Example",
+                "ChameleonTools": "../Python/Example/MinimalAsyncTaskExample.json",
+                "icon": {
+                    "ImagePathInPlugin": "Resources/flash_32x.png"
+                }
+            },
+            {
                 "name": "Chameleon Widget Gallery",
                 "ChameleonTools": "../Python/ChameleonGallery/ChameleonGallery.json",
                 "icon": {
