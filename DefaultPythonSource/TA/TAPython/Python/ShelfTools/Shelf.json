@@ -1,6 +1,6 @@
 {
 	"TabLabel": "Chameleon Shelf Lit",
-	"InitTabSize": [610, 76],
+	"InitTabSize": [660, 85],
 	"InitTabPosition": [180, 110],
 	"InitPyCmd": "import ShelfTools, importlib; importlib.reload(ShelfTools); chameleon_shelf = ShelfTools.Shelf.Shelf(%JsonPath)",
 	"OnClosePyCmd": "chameleon_shelf.on_close()",
@@ -25,7 +25,7 @@
 									{
 										"SlotPadding": [5, 0],
 										"SComboButton": {
-											"ContentPadding": [-20, 0],
+//											"ContentPadding": [-20, 0],
 											"ButtonStyle":{
 												"Style": "FEditorStyle",
 												"StyleName": "ToolbarComboButton"
@@ -43,7 +43,6 @@
 																"Style": "FEditorStyle",
 																"Brush": "LevelEditor.GameSettings"
 															}
-															,"DesiredSizeOverride": [30, 30]
 														}
 													}
 												}
@@ -348,7 +347,9 @@
 
 									//generate end
 									{
-										"SBox": {"MinDesiredWidth": 32, "MinDesiredHeight": 32,
+										"SBox": {
+											"MinDesiredWidth": 32, "MinDesiredHeight": 32,
+											"MaxDesiredWidth": 32, "MaxDesiredHeight": 32,
 											"Aka": "DropAtLast",
 											"Content": {
 												"SDropTarget": {
@@ -356,10 +357,8 @@
 													"OnDrop": "chameleon_shelf.on_drop_last(%**kwargs)",
 													"Content": {
 														"SImage": {
-															"Image": {
-																"Style": "FEditorStyle",
-																"Brush": "MainFrame.ToggleFullscreen"
-															},
+															"Aka": "DropHereImg",
+															"ImagePath": "Images/DropHere.png",
 															"ColorAndOpacity": [1, 1, 1, 0.8]
 														}
 													}
@@ -372,6 +371,8 @@
 											"Aka": "DropIsFull",
 											"MinDesiredWidth": 32,
 											"MinDesiredHeight": 32,
+											"MaxDesiredWidth": 32,
+											"MaxDesiredHeight": 32,
 											"Content": {
 												"SImage": {
 													"Image": {

@@ -44,7 +44,7 @@ class attr_detail(object):
                 # print(attr.__doc__)
 
                 try:
-                    sig = inspect.getfullargspec(getattr(obj, self.name))
+                    sig = inspect.getargspec(getattr(obj, self.name))
                     # print("+++ ", sig)
 
                     args = sig.args
@@ -59,7 +59,7 @@ class attr_detail(object):
                 else:
                     self.doc_str = docForDisplay[docForDisplay.find(')') + 1:]
 
-                if argCount == 0 or (argCount == -1 and (paramStr == '' or paramStr == 'self')):
+                if argCount == 0 or (argCount == -1 and paramStr == ''):
                     # Method with No params
 
                     if '-> None' not in docForDisplay or self.name in ["__reduce__", "_post_init"]:

@@ -137,13 +137,6 @@
                 }
             },
             {
-                "name": "Minimal AsyncTask Example",
-                "ChameleonTools": "../Python/Example/MinimalAsyncTaskExample.json",
-                "icon": {
-                    "ImagePathInPlugin": "Resources/flash_32x.png"
-                }
-            },
-            {
                 "name": "Chameleon Widget Gallery",
                 "ChameleonTools": "../Python/ChameleonGallery/ChameleonGallery.json",
                 "icon": {
@@ -213,22 +206,6 @@
                 ]
             }
         ]
-    },
-    "OnTabContextMenu":{
-        "name": "TA Python Tab",
-      "items": [
-        {
-          "name": "Log tool's json path",
-          "command": "print(%tool_path)"
-        },
-        {
-          "name": "Log instance variable name",
-          "command": "import Utilities; Utilities.Utils.guess_instance_name(%tool_path)"
-        },
-        {
-          "name": "Reload this tool",
-          "command": "unreal.ChameleonData.request_close(%tool_path); unreal.ChameleonData.launch_chameleon_tool(%tool_path)"
-        }
-      ]
     }
+
 }

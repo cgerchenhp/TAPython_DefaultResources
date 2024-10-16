@@ -1,7 +1,7 @@
 ﻿{
 	"TabLabel": "Chameleon Sketch",
-	"InitTabSize": [540, 300],
-	"InitTabPosition": [420, 200],
+	"InitTabSize": [500, 300],
+	"InitTabPosition": [920, 200],
 	"InitPyCmd": "import ChameleonSketch, importlib; importlib.reload(ChameleonSketch); sketch = ChameleonSketch.ChameleonSketch.ChameleonSketch(%JsonPath); sketch.mark_python_ready()",
 	"Root":{
 		"SBorder":
@@ -23,25 +23,35 @@
 								[
 									{
 										"AutoWidth": true,
-										"SImage": {
+										"SBox": {
 											"Aka": "IsPythonReadyImg",
-											"Image": {
-												"Style": "FCoreStyle",
-												"Brush": "Icons.ErrorWithColor"
-												},
-											"DesiredSizeOverride": [80, 80]
+											"MinDesiredHeight": 72,
+											"MinDesiredWidth": 72,
+											"Content": {
+												"SImage": {
+													"Image": {
+														"Style": "FEditorStyle",
+														"Brush": "DeviceDetails.PowerOff"
+													}
+												}
+											}
 										}
 									},
 									{
 										"AutoWidth": true,
-										"SImage": {
+										"SBox": {
 											"Aka": "IsPythonReadyImgB",
-											"Image": {
-												"Style": "FCoreStyle",
-												"Brush": "Icons.SuccessWithColor"
-											},
+											"MinDesiredHeight": 72,
+											"MinDesiredWidth": 72,
 											"Visibility": "Collapsed",
-											"DesiredSizeOverride": [80, 80]
+											"Content": {
+												"SImage": {
+													"Image": {
+														"Style": "FEditorStyle",
+														"Brush": "Tutorials.Browser.Completed"
+													}
+												}
+											}
 										}
 									},
 									{
@@ -105,28 +115,28 @@
 							{
 								"EvenRowDistribution": false,
 								"Slots": [
-									 {"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
-									,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "TreeArrow_Collapsed"}}}
+									{"SBox": { "MinDesiredHeight": 32, "MinDesiredWidth": 32, "Content": {"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
+									,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Tutorials.Navigation.NextButton"}}}
 
 								]
 							}

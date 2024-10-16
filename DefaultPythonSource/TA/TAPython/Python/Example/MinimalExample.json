@@ -2,7 +2,9 @@
     "TabLabel": "Example",
     "InitTabSize": [200, 123],
     "InitTabPosition": [180, 200],
-    "InitPyCmd": "import Example, importlib; importlib.reload(Example); chameleon_example = Example.MinimalExample.MinimalExample(%JsonPath)",
+    "InitPyCmd": "import Example; chameleon_example = Example.MinimalExample.MinimalExample(%JsonPath)",
+    "MenuEntries": ["Minimal Example"],
+    "Icon": {"style": "ChameleonStyle", "name": "Flash" },
     "Root":
     {
         "SVerticalBox":

@@ -383,7 +383,7 @@ class ObjectDetailViewer(metaclass=Singleton):
         if type(objResult) in typeBlacklist:
             return
 
-        if isinstance(objResult, collections.abc.Iterable):
+        if isinstance(objResult, collections.Iterable):
             if type(objResult[0]) in typeBlacklist:
                 return
             nextObj = objResult[0]

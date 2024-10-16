@@ -6,7 +6,7 @@ from Utilities.Utils import Singleton
 class MinimalExample(metaclass=Singleton):
     def __init__(self, json_path:str):
         self.json_path = json_path
-        self.data:unreal.ChameleonData = unreal.PythonBPLib.get_chameleon_data(self.json_path)
+        self.data = unreal.PythonBPLib.get_chameleon_data(self.json_path)
         self.ui_output = "InfoOutput"
         self.click_count = 0
 

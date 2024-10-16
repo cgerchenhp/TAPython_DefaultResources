@@ -196,7 +196,7 @@ class ChameleonGallery(metaclass=Singleton):
             subprocess.call('explorer "{}" '.format(os.path.dirname(file_path)))
 
     def set_selected_actor_to_details_view(self):
-        selected = unreal.get_editor_subsystem(unreal.EditorActorSubsystem).get_selected_level_actors()
+        selected = unreal.EditorLevelLibrary.get_selected_level_actors()
         if selected:
             self.data.set_object(self.ui_details_view, selected[0])
         else:

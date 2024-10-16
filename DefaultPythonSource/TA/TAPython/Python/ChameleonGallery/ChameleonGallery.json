@@ -2,7 +2,7 @@
     "TabLabel": "Chameleon Gallery",
     "InitTabSize": [560, 890],
     "InitTabPosition": [1000, 110],
-    "InitPyCmd": "import ChameleonGallery, importlib; importlib.reload(ChameleonGallery); chameleon_gallery = ChameleonGallery.ChameleonGallery.ChameleonGallery(%JsonPath); chameleon_gallery.mark_python_ready();",
+    "InitPyCmd": "import ChameleonGallery; chameleon_gallery = ChameleonGallery.ChameleonGallery.ChameleonGallery(%JsonPath); chameleon_gallery.mark_python_ready();",
     "Root":{
         "SBorder":
         {
@@ -33,25 +33,35 @@
                                                         "Slots": [
                                                             {
                                                                 "AutoWidth": true,
-                                                                "SImage": {
+                                                                "SBox": {
                                                                     "Aka": "IsPythonReadyImg",
-                                                                    "Image": {
-                                                                        "Style": "FCoreStyle",
-                                                                        "Brush": "Icons.ErrorWithColor"
-                                                                    },
-                                                                    "DesiredSizeOverride": [80, 80]
+                                                                    "MinDesiredHeight": 72,
+                                                                    "MinDesiredWidth": 72,
+                                                                    "Content": {
+                                                                        "SImage": {
+                                                                            "Image": {
+                                                                                "Style": "FEditorStyle",
+                                                                                "Brush": "DeviceDetails.PowerOff"
+                                                                            }
+                                                                        }
+                                                                    }
                                                                 }
                                                             },
                                                             {
                                                                 "AutoWidth": true,
-                                                                "SImage": {
+                                                                "SBox": {
                                                                     "Aka": "IsPythonReadyImgB",
-                                                                    "Image": {
-                                                                        "Style": "FCoreStyle",
-                                                                        "Brush": "Icons.SuccessWithColor"
-                                                                    },
+                                                                    "MinDesiredHeight": 72,
+                                                                    "MinDesiredWidth": 72,
                                                                     "Visibility": "Collapsed",
-                                                                    "DesiredSizeOverride": [80, 80]
+                                                                    "Content": {
+                                                                        "SImage": {
+                                                                            "Image": {
+                                                                                "Style": "FEditorStyle",
+                                                                                "Brush": "Tutorials.Browser.Completed"
+                                                                            }
+                                                                        }
+                                                                    }
                                                                 }
                                                             }
                                                         ]
@@ -176,7 +186,7 @@
                                             "HAlign": "Center",
                                             "ContentPadding": 6,
                                             "ButtonColorAndOpacity": [0,0.5,1,1],
-                                            "ForegroundColor": [0, 0.5, 1 ,1],
+                                            "ForegroundColor": [1, 1, 1 ,1],
                                             "ToolTipText": "This is a button",
                                             "OnClick": "print('Button clicked.')"
                                         }
@@ -195,7 +205,7 @@
                                         {
                                             "HAlign": "Center",
                                             "ContentPadding": 6,
-                                            "ButtonColorAndOpacity": [0, 1, 0, 1],
+                                            "ButtonColorAndOpacity": [0, 0.5, 0, 1],
                                             "ForegroundColor": [1, 1, 1, 1],
                                             "ToolTipText": "This is a button with image and Text",
                                             "OnClick": "print('Button clicked.')",
@@ -207,7 +217,7 @@
                                                             "SImage": {
                                                                 "Image": {
                                                                     "Style": "FEditorStyle",
-                                                                    "Brush": "AutomationTools.TestAutomation"
+                                                                    "Brush": "GraphEditor.SCSGlyph"
                                                                 }
                                                             }
                                                         },
@@ -240,45 +250,45 @@
                                                         {
                                                             "Position": [97.5, 0],
                                                             "Size": [25, 20],
-                                                            "SButton": {"ButtonColorAndOpacity": [0, 5, 0 ,1], "OnClick": "print('Head.')",
-                                                                "ContentPadding": [-8, 0],
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 1, 0 , 0.5], "OnClick": "print('Head.')",
+                                                                "ContentPadding": [2,0,0,0],
                                                                 "Text": "^_^"
                                                             }
                                                         },
                                                         {
                                                             "Position": [90, 22],
                                                             "Size": [40, 40],
-                                                            "SButton": {"ButtonColorAndOpacity": [0, 2, 0 ,1], "OnClick": "print('Body.')"}
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 1, 0 , 0.5], "OnClick": "print('Body.')"}
                                                         },
                                                         {
                                                             "Position": [70, 25],
                                                             "Size": [15, 40],
-                                                            "SButton": {"ButtonColorAndOpacity": [2, 0, 0 ,1], "OnClick": "print('Right Arm.')"}
+                                                            "SButton": {"ButtonColorAndOpacity": [1, 0, 0, 0.5], "OnClick": "print('Right Arm.')"}
                                                         },
                                                         {
                                                             "Position": [135, 25],
                                                             "Size": [15, 40],
-                                                            "SButton": {"ButtonColorAndOpacity": [0, 0, 2 ,1], "OnClick": "print('Left Arm.')"}
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 0.2, 1, 0.5], "OnClick": "print('Left Arm.')"}
                                                         },
                                                         {
                                                             "Position": [95, 65],
                                                             "Size": [15, 25],
-                                                            "SButton": {"ButtonColorAndOpacity": [1, 0, 0 ,1], "OnClick": "print('Right Upper Leg.')"}
+                                                            "SButton": {"ButtonColorAndOpacity": [1, 0, 0 ,0.5], "OnClick": "print('Right Upper Leg.')"}
                                                         },
                                                         {
                                                             "Position": [112, 65],
                                                             "Size": [15, 25],
-                                                            "SButton": {"ButtonColorAndOpacity": [0, 0, 1 ,1], "OnClick": "print('Left Upper Leg.')"}
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 0.2, 1, 0.5], "OnClick": "print('Left Upper Leg.')"}
                                                         },
                                                         {
                                                             "Position": [95, 92],
                                                             "Size": [15, 27],
-                                                            "SButton": {"ButtonColorAndOpacity": [1, 0, 0 ,1], "OnClick": "print('Right Leg.')"}
+                                                            "SButton": {"ButtonColorAndOpacity": [1, 0, 0, 0.5], "OnClick": "print('Right Leg.')"}
                                                         },
                                                         {
                                                             "Position": [112, 92],
                                                             "Size": [15, 27],
-                                                            "SButton": {"ButtonColorAndOpacity": [0, 0, 1 ,1], "OnClick": "print('Left Leg.')"}
+                                                            "SButton": {"ButtonColorAndOpacity": [0, 0.2, 1, 0.5], "OnClick": "print('Left Upper Leg.')"}
                                                         }
                                                     ]
                                                 }
@@ -566,7 +576,6 @@
                                             "Text": "Multi-line Box\nSpacing comes from HorizontalBox and SVerticalBox\nLine 1\nLine 2\nLine 3",
                                             "HintText": "This is a SMultiLineEditableTextBox",
                                             "ToolTipText": "Read only",
-                                            "Padding": 10,
                                             "IsReadOnly": false,
                                             "AutoWrapText": true,
                                             "OnTextChanged": "print(%)",
@@ -745,10 +754,17 @@
                                                         },
                                                         {
                                                             "AutoWidth": true,
-                                                            "SImage": {
-                                                                "Aka": "SImage In CheckBox",
-                                                                "ImagePathInPlugin": "Resources/Icon128.png",
-                                                                "DesiredSizeOverride": [32, 32]
+                                                            "SBox": {
+                                                                "MinDesiredHeight": 40,
+                                                                "MinDesiredWidth": 40,
+                                                                "MaxDesiredHeight": 40,
+                                                                "MaxDesiredWidth": 40,
+                                                                "Content": {
+                                                                    "SImage": {
+                                                                        "Aka": "SImage In CheckBox",
+                                                                        "ImagePathInPlugin": "Resources/Icon128.png"
+                                                                    }
+                                                                }
                                                             }
                                                         }
                                                     ]
@@ -809,6 +825,10 @@
                                         "Padding": [ 0, 4],
                                         "Column_Row": [1, 31],
                                         "SComboButton": {
+                                            "ButtonStyle": {
+                                                "Style":"FEditorStyle",
+                                                "StyleName":"GenericFilters.ComboButtonStyle"
+                                            },
                                             "ButtonContent": {
                                                 "STextBlock": {
                                                     "Text": "Choose And Trigger the Command"
@@ -1086,10 +1106,15 @@
                                             "Slots": [
                                                 {
                                                     "AutoWidth": true,
-                                                    "SImage": {
-                                                        "Aka": "SImage_ImageFromRelativePath",
-                                                        "ImagePath": "Images/ChameleonLogo_b.png",
-                                                        "DesiredSizeOverride": [64, 64]
+                                                    "SBox": {
+                                                        "MaxDesiredWidth": 64,
+                                                        "MaxDesiredHeight": 64,
+                                                        "Content": {
+                                                            "SImage": {
+                                                                "Aka": "SImage_ImageFromRelativePath",
+                                                                "ImagePath": "Images/ChameleonLogo_c.png"
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -1135,10 +1160,15 @@
                                             "Slots": [
                                                 {
                                                     "AutoWidth": true,
-                                                    "SImage": {
-                                                        "Aka": "SImage_ImageFromPath",
-                                                        "ImagePathInPlugin": "Resources/Icon128.png",
-                                                        "DesiredSizeOverride": [64, 64]
+                                                    "SBox": {
+                                                        "MaxDesiredWidth": 64,
+                                                        "MaxDesiredHeight": 64,
+                                                        "Content": {
+                                                            "SImage": {
+                                                                "Aka": "SImage_ImageFromPath",
+                                                                "ImagePathInPlugin": "Resources/Icon128.png"
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             ]
@@ -1483,35 +1513,35 @@
                                                                 "Column_Row": [1, 0],
                                                                 "SButton": {
                                                                     "Text": "Tile 1_0",
-                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                    "ButtonColorAndOpacity": [0, 0.5, 1, 0.3]
                                                                 }
                                                             },
                                                             {
                                                                 "Column_Row": [2, 0],
                                                                 "SButton": {
                                                                     "Text": "Tile 2_0",
-                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                    "ButtonColorAndOpacity": [0, 0.5, 1, 0.3]
                                                                 }
                                                             },
                                                             {
                                                                 "Column_Row": [0, 1],
                                                                 "SButton": {
                                                                     "Text": "Tile 0_1",
-                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                    "ButtonColorAndOpacity": [0, 0.5, 1, 0.3]
                                                                 }
                                                             },
                                                             {
                                                                 "Column_Row": [1, 1],
                                                                 "SButton": {
                                                                     "Text": "Tile 1_1",
-                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                    "ButtonColorAndOpacity": [0, 0.5, 1, 0.3]
                                                                 }
                                                             },
                                                             {
                                                                 "Column_Row": [2, 1],
                                                                 "SButton": {
                                                                     "Text": "Tile 2_1",
-                                                                    "ButtonColorAndOpacity": [1, 1, 1, 0.5]
+                                                                    "ButtonColorAndOpacity": [0, 0.5, 1, 0.3]
                                                                 }
                                                             }
                                                         ]
@@ -1533,18 +1563,18 @@
                                         "SUniformWrapPanel": {
                                             "Slots":
                                             [
-                                                {"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOut"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.OpenForAdd"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUser"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUserOtherBranch"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.ModifiedOtherBranch"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.NotAtHeadRevision"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOut"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.OpenForAdd"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUser"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUserOtherBranch"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.ModifiedOtherBranch"}}}
-                                                ,{"SImage": { "DesiredSizeOverride": [32, 32], "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.NotAtHeadRevision"}}}
+                                                {"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOut"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.OpenForAdd"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUser"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUserOtherBranch"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.ModifiedOtherBranch"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.NotAtHeadRevision"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOut"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.OpenForAdd"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUser"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.CheckedOutByOtherUserOtherBranch"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.ModifiedOtherBranch"}}}
+                                                ,{"SImage": { "Image":{ "Style": "FEditorStyle", "Brush": "Perforce.NotAtHeadRevision"}}}
                                             ],
                                             "ToolTipText": "UniformWrapPanel will auto wrap the children."
                                         }
@@ -1652,72 +1682,11 @@
                                         "Column_Row": [0, 59],
                                         "STextBlock":
                                         {
-                                            "Text": "SSplitter & SOverlay"
-                                        }
-                                    },
-                                    {
-                                        "Padding": [ 0, 4],
-                                        "Column_Row": [1, 59],
-                                        "SHorizontalBox":
-                                        {
-                                            "Slots": [
-                                                {
-                                                    "AutoWidth": true,
-                                                    "SOverlay": {
-                                                        "ToolTipText": "Image Comparison with SSplitter",
-                                                        "Slots":
-                                                        [
-                                                            {
-                                                                "HAlign": "Left",
-                                                                "SImage": {
-                                                                    "Aka": "RightImage",
-                                                                    "Tile": "Horizontal",
-                                                                    "ImagePathInPlugin": "Resources/PythonGreyIcon_128.png",
-                                                                    "DesiredSizeOverride": [128, 128]
-                                                                }
-                                                            },
-                                                            {
-                                                                "SSplitter": {
-                                                                    "Orientation": "Horizontal",
-                                                                    "PhysicalSplitterHandleSize": 2,
-                                                                    "ResizeMode": "FixedPosition",
-                                                                    "Slots": [
-                                                                        {
-                                                                            "value": 0.5,
-                                                                            "SBox":
-                                                                            {
-                                                                                "Content": {
-                                                                                    "SImage": {
-                                                                                        "Aka": "LeftImage",
-                                                                                        "Tile": "Horizontal",
-                                                                                        "ImagePathInPlugin": "Resources/PythonIcon_128x.png",
-                                                                                        "DesiredSizeOverride": [128, 128]
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "Value": 0.5,
-                                                                            "SSpacer": { }
-                                                                        }
-                                                                    ]
-                                                                }
-                                                            }
-                                                        ]
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "Column_Row": [0, 60],
-                                        "STextBlock":
-                                        {
                                             "Text": "SDPIScaler"
                                         }
                                     },
                                     {
-                                        "Column_Row": [1, 60],
+                                        "Column_Row": [1, 59],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1747,7 +1716,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 61],
+                                        "Column_Row": [0, 60],
                                         "STextBlock":
                                         {
                                             "Text": "SExpandableArea"
@@ -1755,7 +1724,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 61],
+                                        "Column_Row": [1, 60],
                                         "SExpandableArea": {
                                             "Aka": "expandable",
                                             "BorderImage": {
@@ -1773,7 +1742,7 @@
                                                 "SBorder": {
                                                     "BorderImage": {
                                                         "Style": "FCoreStyle",
-                                                        "Brush": "WindowMenuBar.Button.SubMenuOpen"
+                                                        "Brush": "BlackBrush"
                                                     },
                                                     "Content": {
                                                         "SHorizontalBox": {
@@ -1799,7 +1768,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 62],
+                                        "Column_Row": [0, 61],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1831,7 +1800,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 62],
+                                        "Column_Row": [1, 61],
                                         "SBox":
                                         {
                                             "MaxDesiredHeight": 500,
@@ -1843,7 +1812,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 63],
+                                        "Column_Row": [0, 62],
                                         "STextBlock":
                                         {
                                         "Text": "SColorBlock"
@@ -1851,7 +1820,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 63],
+                                        "Column_Row": [1, 62],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1877,12 +1846,12 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 64],
+                                        "Column_Row": [0, 63],
                                         "STextBlock": { "Text": "SColorPicker" }
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 64],
+                                        "Column_Row": [1, 63],
                                         "SColorPicker":
                                         {
                                             "Visibility": "Collapsed",
@@ -1891,12 +1860,12 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 65],
+                                        "Column_Row": [0, 64],
                                         "STextBlock": { "Text": "SWebBrowser" }
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 65],
+                                        "Column_Row": [1, 64],
                                         "SWebBrowser":
                                         {
                                             "InitialURL": "www.unrealengine.com",
@@ -1906,12 +1875,12 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 66],
+                                        "Column_Row": [0, 65],
                                         "STextBlock": { "Text": "Change Tools Tab Size" }
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 66],
+                                        "Column_Row": [1, 65],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1937,21 +1906,21 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 67],
+                                        "Column_Row": [0, 66],
                                         "STextBlock":
                                         {
                                         "Text": "Flash Window"
                                         }
                                     },
                                     {
-                                        "Column_Row": [1, 67],
+                                        "Column_Row": [1, 66],
                                         "STextBlock":
                                         {
                                             "Text": "Modal Window"
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 68],
+                                        "Column_Row": [0, 67],
                                         "SButton":
                                         {
                                             "Text": "Launch Modal Window",
@@ -1963,7 +1932,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 68],
+                                        "Column_Row": [1, 67],
                                         "SHorizontalBox":
                                         {
                                             "Slots": [
@@ -1991,7 +1960,7 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 69],
+                                        "Column_Row": [0, 68],
                                         "STextBlock":
                                         {
                                         "Text": "Launch all Gallery"
@@ -1999,7 +1968,7 @@
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 69],
+                                        "Column_Row": [1, 68],
                                         "SButton": {
                                             "Text": "Launch Editor Style Galleries",
                                             "HAlign": "Center",
@@ -2008,12 +1977,12 @@
                                         }
                                     },
                                     {
-                                        "Column_Row": [0, 70],
+                                        "Column_Row": [0, 69],
                                         "STextBlock": { "Text": "Close all Gallery" }
                                     },
                                     {
                                         "Padding": [ 0, 4],
-                                        "Column_Row": [1, 70],
+                                        "Column_Row": [1, 69],
                                         "SButton": {
                                             "Text": "Close Editor Style Galleries",
                                             "HAlign": "Center",
