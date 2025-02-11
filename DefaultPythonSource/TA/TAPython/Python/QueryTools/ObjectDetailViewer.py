@@ -7,8 +7,15 @@ import Utilities
 import QueryTools
 import re
 
-import types
 import collections
+try:
+    # For Python 3.10 and later
+    from collections.abc import Iterable
+except ImportError:
+    from collections import Iterable
+
+import types
+
 from .import Utils
 
 global _r
@@ -366,7 +373,6 @@ class ObjectDetailViewer(metaclass=Singleton):
     def on_list_double_click_do(self, index, bRight):
         # print ("on_listview_DetailList_mouse_button_double_click {}  bRight: {}".format(index, bRight))
         data = self.right if bRight else self.left
-
         typeBlacklist = [int, float, str, bool] #, types.NotImplementedType]
 
         real_index = data.filteredIndexToIndex[index] if data.filteredIndexToIndex else index
@@ -374,16 +380,17 @@ class ObjectDetailViewer(metaclass=Singleton):
 
         currentObj, _ = data.hisCrumbObjsAndNames[len(data.hisCrumbObjsAndNames) - 1]
         attr_name = data.attributes[real_index].name
-        objResult, propertyName = self.try_get_object(data, currentObj, attr_name)
 
+        objResult, propertyName = self.try_get_object(data, currentObj, attr_name)
+        if objResult == NotImplemented:
+            return
         if not objResult or objResult is currentObj: # equal
             return
         if isinstance(objResult, str) and "skip call" in objResult.lower():
             return
         if type(objResult) in typeBlacklist:
             return
-
-        if isinstance(objResult, collections.abc.Iterable):
+        if isinstance(objResult, Iterable):
             if type(objResult[0]) in typeBlacklist:
                 return
             nextObj = objResult[0]
@@ -392,6 +399,7 @@ class ObjectDetailViewer(metaclass=Singleton):
             nextObj = objResult
             nextPropertyName = str(propertyName)
         self.query_and_push(nextObj, nextPropertyName, bPush=True, bRight=bRight)
+
         self.apply_compare_if_needed()
         self.update_log_text(bRight)
 

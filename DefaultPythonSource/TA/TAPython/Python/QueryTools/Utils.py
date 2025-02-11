@@ -44,14 +44,16 @@ class attr_detail(object):
                 # print(attr.__doc__)
 
                 try:
-                    sig = inspect.getfullargspec(getattr(obj, self.name))
-                    # print("+++ ", sig)
-
-                    args = sig.args
-                    argCount = len(args)
-                    if "self" in args:
-                        argCount -= 1
-                except TypeError:
+                    callable_attr = getattr(obj, self.name)
+                    if callable(callable_attr):
+                        sig = inspect.signature(callable_attr)
+                        args = list(sig.parameters.keys())
+                        argCount = len(args)
+                        if "self" in args:
+                            argCount -= 1
+                    else:
+                        argCount = -1
+                except (TypeError, ValueError) as e:
                     argCount = -1
 
                 if "-> " in docForDisplay:
@@ -83,7 +85,7 @@ class attr_detail(object):
                     self.param_str = paramStr
                     self.result = ""
             else:
-                logging.error("Can't find p")
+                logging.error(f"Can't find p: {self.name} {callable_attr}")
         elif self.bCallable_other:
             if hasattr(attr, '__doc__'):
                 if isinstance(attr.__doc__, str):
@@ -187,7 +189,7 @@ class attr_detail(object):
 
 def ll(obj):
 
-    if not obj:
+    if obj == NotImplemented or not obj:
         return None
     if inspect.ismodule(obj):
         return None
