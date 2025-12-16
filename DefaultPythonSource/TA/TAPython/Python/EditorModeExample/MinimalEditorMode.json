@@ -1,0 +1,47 @@
+{
+    "EditorModeName": "Minimal Editor Mode",
+    "InitPyCmd": "import EditorModeExample, importlib; importlib.reload(EditorModeExample); EditorModeExample.MinimalEditorMode.MinimalEditorMode(%JsonPath)",
+    "Icon": {"style": "ChameleonStyle", "name": "Flash" },
+    "Aliases": {"$this_tool": "EditorModeExample.MinimalEditorMode.MinimalEditorMode()"},
+    "EditorModeOnDrag": "$this_tool.on_drag(%input_ray, %mouse_button, %delta_time)",
+
+    "Root": {
+        "SBorder": {
+            "BorderImage": {"Style": "FCoreStyle", "Brush": "Menu.WidgetBorder"},
+            "Padding": 8,
+            "BorderBackgroundColor": [1, 0, 1, 0.2],
+            "Content": {
+                "SVerticalBox": {
+                    "Slots": [
+                        {
+                            "AutoHeight": true,
+                            "Padding": 4,
+                            "SCheckBox": {
+                                "Content": {
+                                    "STextBlock": {
+                                        "Margin": [0, 10],
+                                        "Text": "Enable Mode",
+                                        "Aka": "ButtonText",
+                                        "Justification": "Center"
+                                    }
+                                },
+                                "CheckBoxStyle": {"Style": "FEditorStyle", "StyleName": "DetailsView.ChannelToggleButton"},
+                                "IsChecked": true,
+                                "OnCheckStateChanged": "$this_tool.on_check_state_changed(%)"
+                            }
+                        },
+                        {
+                            "AutoHeight": true,
+                            "Padding":4,
+                            "STextBlock":
+                            {
+                                "Text": "Mode enabled — drag over a scene object to interact; \n(dragging empty space has no effect.)",
+                                "Aka": "StatusText"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

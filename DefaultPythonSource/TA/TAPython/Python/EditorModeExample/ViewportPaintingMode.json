@@ -1,0 +1,293 @@
+{
+	"EditorModeName": "Viewport Painting Example",
+    "InitPyCmd": "import EditorModeExample, importlib; importlib.reload(EditorModeExample); EditorModeExample.ViewportPaintingMode.ViewportPaintingModeExample(%JsonPath)",
+    "Icon": {"style": "ChameleonStyle", "name": "Picture" },
+    "Aliases": {"$this_tool": "EditorModeExample.ViewportPaintingMode.ViewportPaintingModeExample()"},
+    "EditorModeOnDrag": "$this_tool.on_drag(%input_ray, %mouse_button, %delta_time)",
+    "EditorModeOnMouseDown": "$this_tool.on_mouse_down(%input_ray, %mouse_button)",
+    "EditorModeOnMouseUp": "$this_tool.on_mouse_up(%input_ray, %mouse_button)",
+    "EditorModeCanCapture": "$this_tool.can_capture_mouse(%input_ray, %mouse_button)",
+    "EditorModePropertySetClass": "EditorModeExample.ViewportPaintingMode.ViewportPaintingModeProperties",
+    "EditorModeOnMouseWheel": "$this_tool.on_wheel(%)",
+
+    "OnTabContextMenu":{
+        "name": "Custom Editor Mode Menu",
+        "items":[
+            {
+                "name": "Log Editor Mode State",
+                "Command": "unreal.ChameleonData.log_chameleon_editor_mode()"
+            }
+        ]
+    },
+    "Root": {
+        "SBorder": {
+            "BorderImage": {
+                "Style": "FCoreStyle",
+                "Brush": "Menu.WidgetBorder"
+            },
+            "Padding": 8,
+            "BorderBackgroundColor": [1, 1, 1, 0.2],
+            "Content":{
+                "SVerticalBox":
+                {
+                    "Slots": [
+                        {
+                            "AutoHeight": true,
+                            "Padding": 4,
+                            "SCheckBox":
+                            {
+                                "HAlign": "Center",
+                                "Content": {
+                                    "STextBlock":
+                                    {
+                                        "Justification": "Center",
+                                        "Text": "Disable Painting",
+                                        "Aka": "CheckBoxText",
+                                        "Margin": [0, 10],
+                                        "Font": {
+                                            "Style": "FEditorStyle",
+                                            "StyleName": "FontAwesome.14"
+                                        }
+                                    }
+                                },
+                                "CheckBoxStyle": {
+                                    "Style": "FCoreStyle",
+                                    "StyleName": "ToggleButtonCheckbox"
+                                },
+
+                                "IsChecked": true,
+                                "OnCheckStateChanged": "$this_tool.on_painting_state_changed(%)"
+                            }
+                        },
+                        {
+                            "AutoHeight": true,
+                            "SExpandableArea": {
+                                "HeaderContent": {
+                                    "STextBlock": {
+                                        "Text": "Editor Mode Settings",
+                                        "Font": { "Style": "FEditorStyle", "StyleName": "FontAwesome.12" }
+                                    }
+                                },
+                                "BodyContent": {
+                                    "SVerticalBox": {
+                                        "Slots": [
+                                            {
+                                                "Padding": 4,
+                                                "STextBlock": {
+                                                    "Text": "📺 Viewport Overlay Control",
+                                                    "Font": { "Style": "FEditorStyle", "StyleName": "NormalFontBold" }
+                                                }
+                                            },
+                                            {
+                                                "AutoHeight": true,
+                                                "Padding": [10, 4],
+                                                "SCheckBox":
+                                                {
+                                                    "Content": {
+                                                        "STextBlock": { "Text": "Show Viewport Overlay UI" }
+                                                    },
+                                                    "Padding": 2,
+                                                    "IsChecked": true,
+                                                    "ToolTipText": "Toggle visibility of the viewport overlay widget",
+                                                    "OnCheckStateChanged": "$this_tool.set_viewport_ui_visible(%)"
+                                                }
+                                            },
+                                            {
+                                                "AutoHeight": true,
+                                                "Padding": [10, 4],
+                                                "SCheckBox":
+                                                {
+                                                    "Content": {
+                                                        "STextBlock": { "Text": "Enable Overlay Interaction" }
+                                                    },
+                                                    "Padding": 4,
+                                                    "IsChecked": false,
+                                                    "ToolTipText": "Allow viewport widgets to receive clicks (blocks viewport interaction when disabled)",
+                                                    "OnCheckStateChanged": "$this_tool.set_viewport_ui_clickable(%)"
+                                                }
+                                            },
+                                            {
+                                                "AutoHeight": true,
+                                                "Padding": [10, 0],
+                                                "SSeparator":
+                                                {
+                                                    "Thickness":2,
+                                                    "Orientation": "Horizontal"
+                                                }
+                                            },
+                                            {
+                                                "Padding": [4, 12, 4, 4],
+                                                "STextBlock": {
+                                                    "Text": "🖱️ Mouse Capture Settings",
+                                                    "Font": { "Style": "FEditorStyle", "StyleName": "NormalFontBold" }
+                                                }
+                                            },
+                                            {
+                                                "AutoHeight": true,
+                                                "Padding": [10, 4],
+                                                "SCheckBox":
+                                                {
+                                                    "Content": {
+                                                        "STextBlock": { "Text": "Capture Middle Mouse Button" }
+                                                    },
+                                                    "Padding": 2,
+                                                    "IsChecked": false,
+                                                    "ToolTipText": "Enable to capture middle mouse button events in viewport",
+                                                    "OnCheckStateChanged": "$this_tool.on_mouse_option_changed(%, 'MiddleMouseButton')"
+                                                }
+                                            },
+                                            {
+                                                "AutoHeight": true,
+                                                "Padding": [10, 4],
+                                                "SCheckBox":
+                                                {
+                                                    "Content": {
+                                                        "STextBlock": { "Text":  "Capture Right Mouse Button" }
+                                                    },
+                                                    "Padding": 4,
+                                                    "IsChecked": false,
+                                                    "ToolTipText": "Enable to capture right mouse button events in viewport",
+                                                    "OnCheckStateChanged":  "$this_tool.on_mouse_option_changed(%, 'RightMouseButton')"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "AutoHeight": true,
+                            "SExpandableArea": {
+                                "HeaderContent": {
+                                    "STextBlock": {
+                                        "Text": "3D Brush Settings",
+                                        "Font": { "Style": "FEditorStyle", "StyleName": "FontAwesome.12" }
+                                    }
+                                },
+                                "BodyContent": {
+                                    "SVerticalBox":
+                                    {
+                                        "Slots": [
+                                            {
+                                                "AutoHeight": true,
+                                                "Padding": [10, 4],
+                                                "SHorizontalBox": 
+                                                {
+                                                    "Slots": [
+                                                        {
+                                                            "Padding": [10, 4],
+                                                            "STextBlock": { "Text": "3D Brush Radius" }
+                                                        },
+                                                        {
+                                                            "SSpinBox":
+                                                            {
+                                                                "Type": "float",
+                                                                "Value": 200,
+                                                                "MinValue": 10,
+                                                                "MaxValue": 1000,
+                                                                "MinSliderValue": 10,
+                                                                "maxSliderValue": 1000,
+                                                                "Delta": 1,
+                                                                "OnValueChanged": "$this_tool.on_change_brush3d_radius(%)"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "AutoHeight": true,
+                                                "Padding": [10, 4],
+                                                "SHorizontalBox":
+                                                {
+                                                    "Slots": [
+                                                        {
+                                                            "Padding": [10, 0],
+                                                            "STextBlock": { "Text": "Brush Opacity" }
+                                                        },
+                                                        {
+                                                            "SSpinBox":
+                                                            {
+                                                                "Type": "float",
+                                                                "Value": 0.5,
+                                                                "MinValue": 0.0,
+                                                                "MaxValue": 1.0,
+                                                                "MinSliderValue": 0.0,
+                                                                "maxSliderValue": 1.0,
+                                                                "Delta": 0.05,
+                                                                "OnValueChanged": "$this_tool.on_change_brush3d_opacity(%)"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "ViewportUI": {
+        "SOverlay": {
+            "Slots":
+            [
+                {
+                    "SVerticalBox":
+                    {
+                        "Slots": [
+                            {
+                                "HAlign": "Left",
+                                "AutoHeight": true,
+                                "SButton": {
+                                    "ContentPadding": 8,
+                                    "Text": "Hide 2D Brush",
+                                    "Aka": "ButtonInViewport",
+                                    "OnClick": "$this_tool.on_viewport_brush_button_clicked()"
+                                }
+                            },
+                            {
+                                "SSpacer":{}
+                            },
+                            {
+                                "AutoHeight": true,
+                                "VAlign": "Bottom",
+                                "SBorder": {
+                                    "BorderImage": {
+                                        "Style": "FEditorStyle",
+                                        "Brush": "WhiteBrush"
+                                    },
+                                    "BorderBackgroundColor": [0.1, 0.1, 0.1, 0.8],
+                                    "Padding": 6,
+                                    "Content": {
+                                        "STextBlock": {
+                                            "Text": "Paint on any object in the viewport please.",
+                                            "Aka": "StatusText"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "SCanvas": {
+                        "Slots": [
+                            {
+                                "Position": [0, 100],
+                                "Size": [64, 64],
+                                "SImage": {
+                                    "Aka": "CircleBrush",
+                                    "Image":{ "Style": "FEditorStyle" , "Brush": "LandscapeEditor.CircleBrush.Small" },
+                                    "Visibility": "Hidden"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+}
